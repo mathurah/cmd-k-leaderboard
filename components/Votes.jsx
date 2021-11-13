@@ -24,23 +24,15 @@ const Votes = ({ options, Toggle }) => {
             mr="5px"
             colorScheme="transparent"
             color="black"
-            border="1px solid black"
+            bgColor="#cfccc4"
           >
             Top
           </Button>
-          <Button
-            colorScheme="transparent"
-            color="black"
-            border="1px solid black"
-          >
+          <Button colorScheme="transparent" color="black" bgColor="#cfccc4">
             New
           </Button>
         </Box>
-        <Button
-          colorScheme="transparent"
-          color="black"
-          border="1px solid black"
-        >
+        <Button colorScheme="transparent" color="black" bgColor="#cfccc4">
           Add app
         </Button>
       </Box>
