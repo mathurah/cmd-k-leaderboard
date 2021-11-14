@@ -47,6 +47,7 @@ const Votes = ({ options, Toggle }) => {
         {options.map((option) => (
           <Vote
             key={option.id}
+            id={option.id}
             name={option.name}
             votes={option.votes}
             Toggle={Toggle}

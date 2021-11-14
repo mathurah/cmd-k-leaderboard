@@ -1,13 +1,39 @@
-import React from 'react'
+import React from "react";
 
-import { Box, Text } from '@chakra-ui/react'
-const Header = () => {
-    return (
-        <Box as='header' h='10vh' display='flex' alignItems='center' flexDir='column'>
-            <Text as='h1' fontSize='2.5rem'> Cmd+k* is awesome </Text>
-            <Text>Vote to get it added to your favorite apps*</Text>
+import { Box, Text, IconButton } from "@chakra-ui/react";
+import { HiLogout } from "react-icons/hi";
+
+import { useSupabase } from "../hooks/useSupabase.js";
+const Header = ({ user, session }) => {
+  const supabase = useSupabase();
+  async function signOut() {
+    await supabase.auth.signOut();
+  }
+  return (
+    <Box
+      as="header"
+      h="10vh"
+      display="flex"
+      alignItems="center"
+      flexDir="column"
+    >
+      {user && (
+        <Box>
+          <IconButton
+            aria-label="Sign out"
+            icon={<HiLogout />}
+            onClick={signOut}
+          />
         </Box>
-    )
-}
+      )}
 
-export default Header
+      <Text as="h1" fontSize="2.5rem">
+        {" "}
+        Cmd+k* is awesome{" "}
+      </Text>
+      <Text>Vote to get it added to your favorite apps*</Text>
+    </Box>
+  );
+};
+
+export default Header;

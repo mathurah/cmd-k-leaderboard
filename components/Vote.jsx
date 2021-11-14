@@ -3,7 +3,7 @@ import React from "react";
 import { TriangleUpIcon } from "@chakra-ui/icons";
 
 import { Box, Button } from "@chakra-ui/react";
-const Vote = ({ name, votes, Toggle }) => {
+const Vote = ({ name, votes, Toggle, id }) => {
   return (
     <Box
       w="95%"
@@ -26,7 +26,9 @@ const Vote = ({ name, votes, Toggle }) => {
           leftIcon={<TriangleUpIcon />}
           colorScheme="white"
           color="black"
-          onClick={Toggle}
+          onClick={() => {
+            Toggle(id);
+          }}
         >
           <Box>{votes ? `${votes}` : 0}</Box>
         </Button>

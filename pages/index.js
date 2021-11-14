@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 
-import { Box } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
 
 import Header from "../components/Header";
 import Container from "../components/Container";
@@ -9,9 +9,88 @@ import Modal from "../components/Modal";
 
 import { useSupabase } from "../hooks/useSupabase.js";
 
-export default function Home({ options }) {
+export default function Home() {
   const [modal, setModal] = useState(false);
-  const Toggle = () => setModal(!modal);
+  const [voteOptions, setVoteOptions] = useState([]);
+  const [session, setSession] = useState();
+  const [user, setUser] = useState();
+  const supabase = useSupabase();
+
+  async function getOptions() {
+    const { data: options, error } = await supabase
+      .from("Options")
+      .select()
+      .order("name", { ascending: true });
+
+    setVoteOptions(options);
+  }
+
+  useEffect(() => {
+    getOptions();
+  }, []);
+
+  const Toggle = async (id) => {
+    if (!user) {
+      setModal(!modal);
+      return;
+    }
+
+    if (user) {
+      const { data: options, error: fieldError } = await supabase
+        .from("Options")
+        .select("id, name, votes")
+        .eq("id", id);
+      // change the fill color of the button
+
+      const { id: optionId, name, votes } = options[0];
+      // console.log(newVotes);
+
+      votes++;
+
+      console.log(optionId);
+      console.log(name);
+      console.log(votes);
+
+      const { data, error } = await supabase
+        .from("Options")
+        .update({ votes: votes })
+        .eq("id", id);
+
+      console.log("data".data);
+      if (error) {
+        console.log(error);
+      }
+
+      getOptions();
+    }
+  };
+  async function signInWithGithub() {
+    await supabase.auth.signIn({
+      provider: "github",
+    });
+  }
+  async function signInWithGoogle() {
+    await supabase.auth.signIn({
+      provider: "google",
+    });
+  }
+
+  console.log(user);
+  // Add auth for twitter when live
+  // async function signInWithTwitter() {
+  //   await supabase.auth.signIn({
+  //     provider: "twitter",
+  //   });
+  // }
+  useEffect(() => {
+    setSession(supabase.auth.session());
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+      setUser(session.user);
+    });
+  }, []);
+
   return (
     <Box w="100vw" h="100vh" position="relative">
       <Head>
@@ -20,7 +99,8 @@ export default function Home({ options }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
+      <Header user={user} session={session} />
+
       <Box
         width="100%"
         h="90vh"
@@ -28,22 +108,16 @@ export default function Home({ options }) {
         justifyContent="center"
         as="main"
       >
-        <Container options={options} Toggle={Toggle} />
+        <Container options={voteOptions} Toggle={Toggle} />
 
-        <Modal show={modal} title="My Modal" Toggle={Toggle} />
+        <Modal
+          show={modal}
+          title="My Modal"
+          Toggle={Toggle}
+          signInWithGithub={signInWithGithub}
+          signInWithGoogle={signInWithGoogle}
+        />
       </Box>
     </Box>
   );
-}
-
-export async function getStaticProps() {
-  const supabase = useSupabase();
-
-  const { data: options, error } = await supabase.from("Options").select();
-
-  return {
-    props: {
-      options,
-    },
-  };
 }

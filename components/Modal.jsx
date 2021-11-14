@@ -4,7 +4,7 @@ import { CloseIcon } from "@chakra-ui/icons";
 import { FcGoogle } from "react-icons/fc";
 import { FaTwitter, FaGithub } from "react-icons/fa";
 
-const Modal = ({ show, Toggle }) => {
+const Modal = ({ show, Toggle, signInWithGithub, signInWithGoogle }) => {
   return (
     <>
       {show ? (
@@ -49,7 +49,9 @@ const Modal = ({ show, Toggle }) => {
               <IconButton
                 aria-label="Log in with Github"
                 icon={<FaGithub />}
-                onClick={() => Toggle()}
+                onClick={() => {
+                  signInWithGithub();
+                }}
                 size="lg"
                 mr="15px"
               />
@@ -64,7 +66,7 @@ const Modal = ({ show, Toggle }) => {
               <IconButton
                 aria-label="Log in with Google"
                 icon={<FcGoogle />}
-                onClick={() => Toggle()}
+                onClick={() => signInWithGoogle()}
                 size="lg"
                 ml="15px"
               />
