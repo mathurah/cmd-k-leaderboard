@@ -29,39 +29,40 @@ export default function Home() {
     getOptions();
   }, []);
 
-  const Toggle = async (id) => {
+  const Toggle = async (id, selected, setSelected) => {
     if (!user) {
       setModal(!modal);
       return;
     }
 
     if (user) {
-      const { data: options, error: fieldError } = await supabase
-        .from("Options")
-        .select("id, name, votes")
-        .eq("id", id);
-      // change the fill color of the button
+      if (selected === false) {
+        setSelected(true);
 
-      const { id: optionId, name, votes } = options[0];
-      // console.log(newVotes);
+        const { data: options, error: optionsError } = await supabase
+          .from("Options")
+          .select("id, name, votes")
+          .eq("id", id);
 
-      votes++;
+        if (optionsError) {
+          console.log(optionsError);
+        }
 
-      console.log(optionId);
-      console.log(name);
-      console.log(votes);
+        const { id: optionId, name, votes } = options[0];
 
-      const { data, error } = await supabase
-        .from("Options")
-        .update({ votes: votes })
-        .eq("id", id);
+        votes++;
 
-      console.log("data".data);
-      if (error) {
-        console.log(error);
+        const { data, error } = await supabase
+          .from("Options")
+          .update({ votes: votes })
+          .eq("id", id);
+
+        if (error) {
+          console.log(error);
+        }
+
+        getOptions();
       }
-
-      getOptions();
     }
   };
   async function signInWithGithub() {

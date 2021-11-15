@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { TriangleUpIcon } from "@chakra-ui/icons";
 
 import { Box, Button } from "@chakra-ui/react";
 const Vote = ({ name, votes, Toggle, id }) => {
+  const [selected, setSelected] = useState(false);
   return (
     <Box
       w="95%"
@@ -25,9 +26,10 @@ const Vote = ({ name, votes, Toggle, id }) => {
           aria-label="Up vote"
           leftIcon={<TriangleUpIcon />}
           colorScheme="white"
-          color="black"
+          color={selected ? "#fcc732" : "black"}
+          //color to change to when selected #fcc732
           onClick={() => {
-            Toggle(id);
+            Toggle(id, selected, setSelected);
           }}
         >
           <Box>{votes ? `${votes}` : 0}</Box>
