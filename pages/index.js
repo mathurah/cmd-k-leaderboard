@@ -30,6 +30,7 @@ export default function Home() {
   }, []);
 
   const Toggle = async (id, selected, setSelected) => {
+    let profileVotes = {};
     if (!user) {
       setModal(!modal);
       return;
@@ -48,13 +49,17 @@ export default function Home() {
           console.log(optionsError);
         }
 
-        const { id: optionId, name, votes } = options[0];
+        const {
+          id: optionId,
+          name: optionName,
+          votes: optionVotes,
+        } = options[0];
 
-        votes++;
+        optionVotes++;
 
         const { data, error } = await supabase
           .from("Options")
-          .update({ votes: votes })
+          .update({ votes: optionVotes })
           .eq("id", id);
 
         if (error) {
@@ -62,6 +67,13 @@ export default function Home() {
         }
 
         getOptions();
+
+        profileVotes = { optionId, optionName };
+
+        //Store vode in supabase profiles table and
+        const { data: profiles, error: profilesError } = await supabase
+          .from("profiles")
+          .insert([{ id: user.id, email: user.email, votes: profileVotes }]);
       }
     }
   };
