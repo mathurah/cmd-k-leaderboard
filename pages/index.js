@@ -73,7 +73,13 @@ export default function Home() {
         //Store vode in supabase profiles table and
         const { data: profiles, error: profilesError } = await supabase
           .from("profiles")
-          .insert([{ id: user.id, email: user.email, votes: profileVotes }]);
+          .insert([
+            {
+              profile_user_id: user.id,
+              email: user.email,
+              votes: profileVotes,
+            },
+          ]);
       }
     }
   };
