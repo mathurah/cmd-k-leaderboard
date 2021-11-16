@@ -94,6 +94,16 @@ export default function Home() {
     });
   }
 
+  async function handleSignOut() {
+    let { error } = await supabase.auth.signOut();
+
+    location.reload();
+
+    if (error) {
+      console.log(error);
+    }
+  }
+
   console.log(user);
   // Add auth for twitter when live
   // async function signInWithTwitter() {
@@ -118,7 +128,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header user={user} session={session} />
+      <Header user={user} session={session} handleSignOut={handleSignOut} />
 
       <Box
         width="100%"

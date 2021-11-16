@@ -4,7 +4,7 @@ import { Box, Text, IconButton } from "@chakra-ui/react";
 import { HiLogout } from "react-icons/hi";
 
 import { useSupabase } from "../hooks/useSupabase.js";
-const Header = ({ user, session }) => {
+const Header = ({ user, handleSignOut }) => {
   const supabase = useSupabase();
   async function signOut() {
     await supabase.auth.signOut();
@@ -22,7 +22,7 @@ const Header = ({ user, session }) => {
           <IconButton
             aria-label="Sign out"
             icon={<HiLogout />}
-            onClick={signOut}
+            onClick={() => handleSignOut()}
           />
         </Box>
       )}
