@@ -5,8 +5,8 @@ import { Box, Button, Text } from "@chakra-ui/react";
 
 import Header from "../components/Header";
 import Container from "../components/Container";
-import Modal from "../components/Modal";
-
+import SignInModal from "../components/SignInModal";
+import Footer from "../components/Footer";
 import { useSupabase } from "../hooks/useSupabase.js";
 
 export default function Home() {
@@ -132,14 +132,14 @@ export default function Home() {
 
       <Box
         width="100%"
-        h="90vh"
+        h="80vh"
         display="flex"
         justifyContent="center"
         as="main"
       >
         <Container options={voteOptions} Toggle={Toggle} />
 
-        <Modal
+        <SignInModal
           show={modal}
           title="My Modal"
           Toggle={Toggle}
@@ -147,6 +147,7 @@ export default function Home() {
           signInWithGoogle={signInWithGoogle}
         />
       </Box>
+      <Footer />
     </Box>
   );
 }

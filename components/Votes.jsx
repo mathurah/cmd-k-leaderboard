@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Box, Button } from "@chakra-ui/react";
 
 import Vote from "./Vote";
+import AddCompanyModal from "./AddCompanyModal";
+
 const Votes = ({ options, Toggle }) => {
+  const [showAddCompanyModal, setShowAddCompanyModal] = useState(false);
+
+  const ToggleModal = () => {
+    setShowAddCompanyModal(!showAddCompanyModal);
+  };
+
   return (
     <Box
       w="30%"
@@ -32,9 +40,23 @@ const Votes = ({ options, Toggle }) => {
             New
           </Button>
         </Box>
-        <Button colorScheme="transparent" color="black" bgColor="#cfccc4">
+        <Button
+          colorScheme="transparent"
+          color="black"
+          bgColor="#cfccc4"
+          onClick={() => {
+            setShowAddCompanyModal(true);
+          }}
+        >
           Add app
         </Button>
+        <AddCompanyModal
+          show={showAddCompanyModal}
+          Toggle={ToggleModal}
+          onSubmit={(name, website) =>
+            console.log("Company name is " + name + "Website is " + website)
+          }
+        />
       </Box>
       <Box
         width="80%"
