@@ -3,7 +3,13 @@ import React from "react";
 import { Box, Button } from "@chakra-ui/react";
 
 import Vote from "./Vote";
-const Votes = ({ options, Toggle }) => {
+const Votes = ({ options, Toggle, userVotes = [] }) => {
+  console.log(Array.isArray(userVotes));
+  console.log(userVotes);
+
+  let votedArray = userVotes.map((vote) => vote.option_id);
+  console.log("Voted Ids ", votedArray);
+
   return (
     <Box
       w="30%"
@@ -51,6 +57,7 @@ const Votes = ({ options, Toggle }) => {
             name={option.name}
             votes={option.votes}
             Toggle={Toggle}
+            votedArray={votedArray}
           />
         ))}
       </Box>
