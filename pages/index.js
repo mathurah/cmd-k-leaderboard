@@ -14,20 +14,33 @@ export default function Home() {
   const [voteOptions, setVoteOptions] = useState([]);
   const [session, setSession] = useState();
   const [user, setUser] = useState();
+  const [userVotes, setUserVotes] = useState();
   const supabase = useSupabase();
 
-  async function getOptions() {
+  async function getOptions(user) {
     const { data: options, error } = await supabase
       .from("Options")
       .select()
       .order("name", { ascending: true });
 
     setVoteOptions(options);
+
+    if (user) {
+      console.log("user exists inside if check on get Options");
+      const { data: votes, error } = await supabase
+        .from("votes")
+        .select("option_id")
+        .eq("user_id", user.id);
+
+      setUserVotes(votes);
+    }
   }
 
+  console.log("userVotes", userVotes);
+
   useEffect(() => {
-    getOptions();
-  }, []);
+    getOptions(user);
+  }, [user]);
 
   const Toggle = async (id, selected, setSelected) => {
     if (!user) {
