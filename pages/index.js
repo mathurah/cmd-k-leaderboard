@@ -30,7 +30,6 @@ export default function Home() {
   }, []);
 
   const Toggle = async (id, selected, setSelected) => {
-    let profileVotes = {};
     if (!user) {
       setModal(!modal);
       return;
@@ -68,16 +67,15 @@ export default function Home() {
 
         getOptions();
 
-        profileVotes = { optionId, optionName };
-
         //Store vode in supabase profiles table and
-        const { data: profiles, error: profilesError } = await supabase
-          .from("profiles")
+        const { data: votes, error: profilesError } = await supabase
+          .from("votes")
           .insert([
             {
-              profile_user_id: user.id,
-              email: user.email,
-              votes: profileVotes,
+              user_id: user.id,
+              user_email: user.email,
+              option_id: optionId,
+              option_name: optionName,
             },
           ]);
       }
@@ -104,7 +102,7 @@ export default function Home() {
     }
   }
 
-  console.log(user);
+  console.log("user", user);
   // Add auth for twitter when live
   // async function signInWithTwitter() {
   //   await supabase.auth.signIn({
