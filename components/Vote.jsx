@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { TriangleUpIcon } from "@chakra-ui/icons";
+import { TriangleUpIcon } from '@chakra-ui/icons';
 
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, Image } from '@chakra-ui/react';
 const Vote = ({ name, votes, url, Toggle, id }) => {
   const [selected, setSelected] = useState(false);
   return (
@@ -13,6 +13,7 @@ const Vote = ({ name, votes, url, Toggle, id }) => {
       mt="20px"
       display="flex"
       justifyContent="space-around"
+      flexWrap="wrap"
       alignItems="center"
     >
       <Box
@@ -26,7 +27,7 @@ const Vote = ({ name, votes, url, Toggle, id }) => {
           aria-label="Up vote"
           leftIcon={<TriangleUpIcon />}
           colorScheme="white"
-          color={selected ? "#fcc732" : "black"}
+          color={selected ? '#fcc732' : 'black'}
           //color to change to when selected #fcc732
           onClick={() => {
             Toggle(id, selected, setSelected);
@@ -35,7 +36,9 @@ const Vote = ({ name, votes, url, Toggle, id }) => {
           <Box>{votes ? `${votes}` : 0}</Box>
         </Button>
       </Box>
-      <Box> {url}</Box>
+      <Box>
+        <Image boxSize="40px" src={`https://logo.clearbit.com/${url}`} />
+      </Box>
       <Box> {name} </Box>
     </Box>
   );
