@@ -72,6 +72,7 @@ const Votes = ({ options, Toggle }) => {
             id={option.id}
             name={option.name}
             votes={option.votes}
+            url={option.url}
             Toggle={Toggle}
           />
         ))}

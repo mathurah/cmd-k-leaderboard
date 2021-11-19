@@ -21,8 +21,11 @@ export default function Home() {
       .from("Options")
       .select()
       .order("name", { ascending: true });
-
-    setVoteOptions(options);
+    console.log(options);
+    const fakeURL = "https://www.spotify.com";
+    setVoteOptions(
+      (options || []).map((option) => ({ ...option, url: fakeURL }))
+    );
   }
 
   useEffect(() => {

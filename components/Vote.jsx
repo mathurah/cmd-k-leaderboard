@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { TriangleUpIcon } from "@chakra-ui/icons";
 
 import { Box, Button } from "@chakra-ui/react";
-const Vote = ({ name, votes, Toggle, id }) => {
+const Vote = ({ name, votes, url, Toggle, id }) => {
   const [selected, setSelected] = useState(false);
   return (
     <Box
@@ -35,7 +35,7 @@ const Vote = ({ name, votes, Toggle, id }) => {
           <Box>{votes ? `${votes}` : 0}</Box>
         </Button>
       </Box>
-      <Box> Logo </Box>
+      <Box> {url}</Box>
       <Box> {name} </Box>
     </Box>
   );
