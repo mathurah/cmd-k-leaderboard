@@ -1,11 +1,11 @@
-import { FcGoogle } from "react-icons/fc";
-import { FaTwitter, FaGithub } from "react-icons/fa";
-import { Text, IconButton, Box, Input, Button } from "@chakra-ui/react";
-import { useState } from "react";
-import Modal from "./Modal";
-const AddCompanyModal = ({ show, Toggle, onSubmit }) => {
-  const [name, setName] = useState("");
-  const [website, setWebsite] = useState("");
+import { FcGoogle } from 'react-icons/fc';
+import { FaTwitter, FaGithub } from 'react-icons/fa';
+import { Text, IconButton, Box, Input, Button } from '@chakra-ui/react';
+import { useState } from 'react';
+import Modal from './Modal';
+const AddCompanyModal = ({ show, Toggle, submitOption }) => {
+  const [name, setName] = useState('');
+  const [url, setUrl] = useState('');
   return (
     <Modal show={show} Toggle={Toggle}>
       <Box mr="15px" ml="15px">
@@ -31,13 +31,13 @@ const AddCompanyModal = ({ show, Toggle, onSubmit }) => {
       </Box>
       <Box w="100%" d="flex" justifyContent="center" pt="15px" pb="15px">
         <Input
-          value={website}
+          value={url}
           placeholder="Website"
-          onChange={(e) => setWebsite(e.target.value)}
+          onChange={(e) => setUrl(e.target.value)}
         ></Input>
       </Box>
       <Button
-        onClick={() => onSubmit(name, website)}
+        onClick={() => submitOption({ name, url })}
         m="2.1rem"
         size="sm"
         colorScheme="purple"

@@ -1,31 +1,52 @@
-import { useState, useEffect } from "react";
-import Head from "next/head";
+import { useState, useEffect } from 'react';
+import Head from 'next/head';
 
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Box, Button, Text } from '@chakra-ui/react';
 
-import Header from "../components/Header";
-import Container from "../components/Container";
-import SignInModal from "../components/SignInModal";
-import Footer from "../components/Footer";
-import { useSupabase } from "../hooks/useSupabase.js";
+import Header from '../components/Header';
+import Container from '../components/Container';
+import SignInModal from '../components/SignInModal';
+import AddCompanyModal from '../components/AddCompanyModal';
+import Footer from '../components/Footer';
+import { useSupabase } from '../hooks/useSupabase.js';
 
 export default function Home() {
-  const [modal, setModal] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [showAdd, setShowAdd] = useState(false);
   const [voteOptions, setVoteOptions] = useState([]);
   const [session, setSession] = useState();
   const [user, setUser] = useState();
+
   const supabase = useSupabase();
+
+  async function submitOption(option) {
+    const response = await supabase.from('options').insert({
+      name: option.name,
+      url: option.url,
+      created_by: user.id,
+    });
+
+    if (response.data && response.data.length) {
+      setVoteOptions([...voteOptions, response.data[0]]);
+    }
+    console.log(response);
+  }
+
+  function toggleAdd() {
+    if (user || showAdd) {
+      setShowAdd(!showAdd);
+    } else {
+      setShowSignIn(true);
+    }
+  }
 
   async function getOptions() {
     const { data: options, error } = await supabase
-      .from("Options")
+      .from('options')
       .select()
-      .order("name", { ascending: true });
+      .order('name', { ascending: true });
     console.log(options);
-    const fakeURL = "https://www.spotify.com";
-    setVoteOptions(
-      (options || []).map((option) => ({ ...option, url: fakeURL }))
-    );
+    setVoteOptions(options);
   }
 
   useEffect(() => {
@@ -35,7 +56,7 @@ export default function Home() {
   const Toggle = async (id, selected, setSelected) => {
     let profileVotes = {};
     if (!user) {
-      setModal(!modal);
+      setShowSignIn(!showSignIn);
       return;
     }
 
@@ -44,9 +65,9 @@ export default function Home() {
         setSelected(true);
 
         const { data: options, error: optionsError } = await supabase
-          .from("Options")
-          .select("id, name, votes")
-          .eq("id", id);
+          .from('options')
+          .select('id, name, votes')
+          .eq('id', id);
 
         if (optionsError) {
           console.log(optionsError);
@@ -61,9 +82,9 @@ export default function Home() {
         optionVotes++;
 
         const { data, error } = await supabase
-          .from("Options")
+          .from('options')
           .update({ votes: optionVotes })
-          .eq("id", id);
+          .eq('id', id);
 
         if (error) {
           console.log(error);
@@ -75,10 +96,10 @@ export default function Home() {
 
         //Store vode in supabase profiles table and
         const { data: profiles, error: profilesError } = await supabase
-          .from("profiles")
+          .from('profiles')
           .insert([
             {
-              profile_user_id: user.id,
+              id: user.id,
               email: user.email,
               votes: profileVotes,
             },
@@ -88,12 +109,13 @@ export default function Home() {
   };
   async function signInWithGithub() {
     await supabase.auth.signIn({
-      provider: "github",
+      provider: 'github',
     });
   }
+
   async function signInWithGoogle() {
     await supabase.auth.signIn({
-      provider: "google",
+      provider: 'google',
     });
   }
 
@@ -120,6 +142,13 @@ export default function Home() {
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
       setUser(session.user);
+      supabase
+        .from('profiles')
+        .upsert({
+          id: session.user.id,
+          email: session.user.email,
+        })
+        .then((res) => console.log(res));
     });
   }, []);
 
@@ -140,14 +169,24 @@ export default function Home() {
         justifyContent="center"
         as="main"
       >
-        <Container options={voteOptions} Toggle={Toggle} />
+        <Container
+          options={voteOptions}
+          Toggle={Toggle}
+          toggleAdd={toggleAdd}
+          submitOption={submitOption}
+        />
 
         <SignInModal
-          show={modal}
+          show={showSignIn}
           title="My Modal"
           Toggle={Toggle}
           signInWithGithub={signInWithGithub}
           signInWithGoogle={signInWithGoogle}
+        />
+        <AddCompanyModal
+          show={showAdd}
+          Toggle={toggleAdd}
+          submitOption={submitOption}
         />
       </Box>
       <Footer />
