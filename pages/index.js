@@ -11,11 +11,17 @@ import Footer from '../components/Footer';
 import { useSupabase } from '../hooks/useSupabase.js';
 
 export default function Home() {
+  const FILTER_ENUM = {
+    TOP: 'votes',
+    NEW: 'created_at',
+  };
+
   const [showSignIn, setShowSignIn] = useState(false);
   const [showAdd, setShowAdd] = useState(false);
   const [voteOptions, setVoteOptions] = useState([]);
   const [session, setSession] = useState();
   const [user, setUser] = useState();
+  const [filter, setFilter] = useState(FILTER_ENUM.TOP);
   const [userVotes, setUserVotes] = useState();
 
   const supabase = useSupabase();
@@ -25,6 +31,7 @@ export default function Home() {
       name: option.name,
       url: option.url,
       created_by: user.id,
+      submitted_by_user: option.isUser,
     });
 
     if (response.data && response.data.length) {
@@ -45,7 +52,7 @@ export default function Home() {
     const { data: options, error } = await supabase
       .from('options')
       .select()
-      .order('name', { ascending: true });
+      .order(filter, { ascending: false });
     console.log(options);
     setVoteOptions(options);
 
@@ -67,7 +74,7 @@ export default function Home() {
 
   useEffect(() => {
     getOptions(user);
-  }, [user]);
+  }, [user, filter]);
 
   const Toggle = async (id, selected, setSelected) => {
     if (!user) {
@@ -188,6 +195,8 @@ export default function Home() {
           toggleAdd={toggleAdd}
           submitOption={submitOption}
           userVotes={userVotes}
+          filter={filter}
+          setFilter={setFilter}
         />
 
         <SignInModal

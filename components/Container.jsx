@@ -4,7 +4,15 @@ import StaticContent from './StaticContent';
 import Votes from './Votes';
 
 import { Box } from '@chakra-ui/react';
-const Container = ({ options, Toggle, submitOption, toggleAdd, userVotes }) => {
+const Container = ({
+  options,
+  Toggle,
+  submitOption,
+  toggleAdd,
+  userVotes,
+  filter,
+  setFilter,
+}) => {
   return (
     <Box as="main" w="95%" h="100%" d="flex">
       <StaticContent />
@@ -14,6 +22,8 @@ const Container = ({ options, Toggle, submitOption, toggleAdd, userVotes }) => {
         submitOption={submitOption}
         toggleAdd={toggleAdd}
         userVotes={userVotes}
+        filter={filter}
+        setFilter={setFilter}
       />
     </Box>
   );

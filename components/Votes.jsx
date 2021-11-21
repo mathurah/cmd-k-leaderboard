@@ -5,13 +5,23 @@ import { Box, Button } from '@chakra-ui/react';
 import Vote from './Vote';
 import AddCompanyModal from './AddCompanyModal';
 
-const Votes = ({ options, Toggle, toggleAdd, userVotes = [] }) => {
+const Votes = ({
+  options,
+  Toggle,
+  toggleAdd,
+  userVotes = [],
+  filter,
+  setFilter,
+}) => {
   console.log(Array.isArray(userVotes));
   console.log(userVotes);
 
   let votedArray = userVotes.map((vote) => vote.option_id);
   console.log('Voted Ids ', votedArray);
-
+  const FILTER_ENUM = {
+    TOP: 'votes',
+    NEW: 'created_at',
+  };
   return (
     <Box
       w="30%"
@@ -33,10 +43,16 @@ const Votes = ({ options, Toggle, toggleAdd, userVotes = [] }) => {
             colorScheme="transparent"
             color="black"
             bgColor="#cfccc4"
+            onClick={() => setFilter(FILTER_ENUM.TOP)}
           >
             Top
           </Button>
-          <Button colorScheme="transparent" color="black" bgColor="#cfccc4">
+          <Button
+            colorScheme="transparent"
+            color="black"
+            bgColor="#cfccc4"
+            onClick={() => setFilter(FILTER_ENUM.NEW)}
+          >
             New
           </Button>
         </Box>

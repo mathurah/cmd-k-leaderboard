@@ -1,11 +1,10 @@
-import { FcGoogle } from 'react-icons/fc';
-import { FaTwitter, FaGithub } from 'react-icons/fa';
-import { Text, IconButton, Box, Input, Button } from '@chakra-ui/react';
+import { Text, Checkbox, Box, Input, Button } from '@chakra-ui/react';
 import { useState } from 'react';
 import Modal from './Modal';
 const AddCompanyModal = ({ show, Toggle, submitOption }) => {
   const [name, setName] = useState('');
   const [url, setUrl] = useState('');
+  const [isUser, setIsUser] = useState(false);
   return (
     <Modal show={show} Toggle={Toggle}>
       <Box mr="15px" ml="15px">
@@ -36,8 +35,17 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
           onChange={(e) => setUrl(e.target.value)}
         ></Input>
       </Box>
+      <Box w="100%" d="flex" justifyContent="center" pt="15px" pb="15px">
+        <Checkbox
+          size="md"
+          colorScheme="purple"
+          onChange={(e) => setIsUser(e.target.checked)}
+        >
+          Are you a user?
+        </Checkbox>
+      </Box>
       <Button
-        onClick={() => submitOption({ name, url })}
+        onClick={() => submitOption({ name, url, isUser })}
         m="2.1rem"
         size="sm"
         colorScheme="purple"
