@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { TwitterShareButton } from 'react-twitter-embed';
 import { TriangleUpIcon } from '@chakra-ui/icons';
 
 import { Box, Button, Image } from '@chakra-ui/react';
@@ -44,6 +44,14 @@ const Vote = ({ name, votes, url, Toggle, id, votedArray = [] }) => {
         >
           <Box>{votes ? `${votes}` : 0}</Box>
         </Button>
+        {selected && (
+          <TwitterShareButton
+            url={process.env.URL}
+            options={{
+              text: `${name} should be the next company to add Cmd+K to their site! @commandbar`,
+            }}
+          />
+        )}
       </Box>
       <Box>
         <Image boxSize="40px" src={`https://logo.clearbit.com/${url}`} />
