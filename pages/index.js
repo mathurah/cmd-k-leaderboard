@@ -83,38 +83,31 @@ export default function Home() {
     }
 
     if (user) {
+      const { data: options, error: optionsError } = await supabase
+        .from('options')
+        .select('id, name, votes')
+        .eq('id', id);
+
+      if (optionsError) {
+        console.error(optionsError);
+      }
+
+      const { id: optionId, votes: optionVotes } = options[0];
+
+      optionVotes += selected ? -1 : 1;
+
+      const { data, error } = await supabase
+        .from('options')
+        .update({ votes: optionVotes })
+        .eq('id', id);
+
+      if (error) {
+        console.log(error);
+      }
+
       if (selected === false) {
         setSelected(true);
 
-        const { data: options, error: optionsError } = await supabase
-          .from('options')
-          .select('id, name, votes')
-          .eq('id', id);
-
-        if (optionsError) {
-          console.log(optionsError);
-        }
-
-        const {
-          id: optionId,
-          name: optionName,
-          votes: optionVotes,
-        } = options[0];
-
-        optionVotes++;
-
-        const { data, error } = await supabase
-          .from('options')
-          .update({ votes: optionVotes })
-          .eq('id', id);
-
-        if (error) {
-          console.log(error);
-        }
-
-        getOptions();
-
-        //Store vode in supabase profiles table and
         const { data: votes, error: profilesError } = await supabase
           .from('votes')
           .insert([
@@ -124,7 +117,20 @@ export default function Home() {
               option_id: optionId,
             },
           ]);
+      } else {
+        setSelected(false);
+
+        const { data, error } = await supabase
+          .from('votes')
+          .delete()
+          .eq('user_id', user.id)
+          .eq('option_id', id);
+
+        if (error) {
+          console.log(error);
+        }
       }
+      getOptions();
     }
   };
   async function signInWithGithub() {
