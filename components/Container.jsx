@@ -15,6 +15,7 @@ const Container = ({ options, Toggle, submitOption, toggleAdd, userVotes }) => {
         toggleAdd={toggleAdd}
         userVotes={userVotes}
       />
+    </Box>
   );
 };
 
