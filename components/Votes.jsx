@@ -5,7 +5,13 @@ import { Box, Button } from '@chakra-ui/react';
 import Vote from './Vote';
 import AddCompanyModal from './AddCompanyModal';
 
-const Votes = ({ options, Toggle, toggleAdd }) => {
+const Votes = ({ options, Toggle, toggleAdd, userVotes = [] }) => {
+  console.log(Array.isArray(userVotes));
+  console.log(userVotes);
+
+  let votedArray = userVotes.map((vote) => vote.option_id);
+  console.log('Voted Ids ', votedArray);
+
   return (
     <Box
       w="30%"
@@ -61,6 +67,7 @@ const Votes = ({ options, Toggle, toggleAdd }) => {
             votes={option.votes}
             url={option.url}
             Toggle={Toggle}
+            votedArray={votedArray}
           />
         ))}
       </Box>

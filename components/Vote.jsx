@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { TriangleUpIcon } from '@chakra-ui/icons';
 
 import { Box, Button, Image } from '@chakra-ui/react';
-const Vote = ({ name, votes, url, Toggle, id }) => {
+
+const Vote = ({ name, votes, url, Toggle, id, votedArray }) => {
   const [selected, setSelected] = useState(false);
+
+  useEffect(() => {
+    if (votedArray.includes(id)) {
+      setSelected(true);
+      console.log(`${name} is selected`);
+    }
+  }, [votedArray]);
+
   return (
     <Box
       w="95%"
