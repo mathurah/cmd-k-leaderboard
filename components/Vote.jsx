@@ -4,7 +4,7 @@ import { TriangleUpIcon } from '@chakra-ui/icons';
 
 import { Box, Button, Image } from '@chakra-ui/react';
 
-const Vote = ({ name, votes, url, Toggle, id, votedArray }) => {
+const Vote = ({ name, votes, url, Toggle, id, votedArray = [] }) => {
   const [selected, setSelected] = useState(false);
 
   useEffect(() => {

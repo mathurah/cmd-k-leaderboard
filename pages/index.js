@@ -113,7 +113,7 @@ export default function Home() {
           .insert([
             {
               user_id: user.id,
-              user_email: user.email,
+              // user_email: user.email,
               option_id: optionId,
             },
           ]);
