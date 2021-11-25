@@ -1,10 +1,47 @@
 import { Text, Checkbox, Box, Input, Button } from '@chakra-ui/react';
+import Autosuggest from 'react-autosuggest';
 import { useState } from 'react';
 import Modal from './Modal';
 const AddCompanyModal = ({ show, Toggle, submitOption }) => {
   const [name, setName] = useState('');
   const [url, setUrl] = useState('');
   const [isUser, setIsUser] = useState(false);
+  const [companyOptions, setCompanyOptions] = useState([]);
+
+  const getCompanies = async (query) => {
+    const response = await fetch(
+      `https://autocomplete.clearbit.com/v1/companies/suggest?query=${query}`
+    );
+    const data = await response.json();
+    return data;
+  };
+
+  const onSuggestionsFetchRequested = ({ value }) => {
+    getCompanies(value).then((data) => {
+      setCompanyOptions(data);
+    });
+  };
+
+  const onSuggestionsClearRequested = () => {
+    setCompanyOptions([]);
+  };
+
+  const getCompanyURL = (company) => company.domain;
+
+  const renderCompanyOption = (company) => (
+    <div>
+      {company.domain} ({company.name})
+    </div>
+  );
+
+  const autosuggestInputProps = {
+    placeholder: 'Search for a company',
+    value: url,
+    onChange: (event, { newValue }) => {
+      setUrl(newValue);
+    },
+  };
+
   return (
     <Modal show={show} Toggle={Toggle}>
       <Box mr="15px" ml="15px">
@@ -28,13 +65,21 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
           onChange={(e) => setName(e.target.value)}
         ></Input>
       </Box>
-      <Box w="100%" d="flex" justifyContent="center" pt="15px" pb="15px">
+      {/* <Box w="100%" d="flex" justifyContent="center" pt="15px" pb="15px">
         <Input
           value={url}
           placeholder="Website"
           onChange={(e) => setUrl(e.target.value)}
         ></Input>
-      </Box>
+      </Box> */}
+      <Autosuggest
+        suggestions={companyOptions || []}
+        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+        onSuggestionsClearRequested={onSuggestionsClearRequested}
+        getSuggestionValue={getCompanyURL}
+        renderSuggestion={renderCompanyOption}
+        inputProps={autosuggestInputProps}
+      />
       <Box w="100%" d="flex" justifyContent="center" pt="15px" pb="15px">
         <Checkbox
           size="md"
