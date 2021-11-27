@@ -10,29 +10,44 @@ const Header = ({ user, handleSignOut }) => {
     await supabase.auth.signOut();
   }
   return (
-    <Box
-      as="header"
-      h="10vh"
-      display="flex"
-      alignItems="center"
-      flexDir="column"
-    >
-      {user && (
-        <Box>
-          <IconButton
-            aria-label="Sign out"
-            icon={<HiLogout />}
-            onClick={() => handleSignOut()}
-          />
-        </Box>
-      )}
+    <>
+      <Box
+        as="header"
+        h="20vh"
+        display="flex"
+        alignItems="center"
+        flexDir="column"
+      >
+        {user && (
+          <Box>
+            <IconButton
+              aria-label="Sign out"
+              icon={<HiLogout />}
+              onClick={() => handleSignOut()}
+            />
+          </Box>
+        )}
 
-      <Text as="h1" fontSize="2.5rem">
-        {" "}
-        Cmd+k* is awesome{" "}
-      </Text>
-      <Text>Vote to get it added to your favorite apps*</Text>
-    </Box>
+        <Text as="h1" fontSize="2.5rem" fontWeight="bold">
+          {" "}
+          Cmd+k is awesome!{" "}
+        </Text>
+        <Box
+          mt="1rem"
+          borderRadius="1em"
+          padding="1em 2em"
+          color="var(--cmdKColor)"
+          background="#EBEBEB"
+          transformStyle="preserve-3d"
+          boxShadow="-8px 1px 2px 2px #C4C4C4"
+        >
+          <Text as="h2" fontSize="1.5rem" fontWeight="bold" color="#3A28AF">
+            {" "}
+            Who should get the next cmdk?
+          </Text>
+        </Box>
+      </Box>
+    </>
   );
 };
 

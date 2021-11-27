@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { Box, Button } from '@chakra-ui/react';
+import { Box, Button, IconButton } from "@chakra-ui/react";
 
-import Vote from './Vote';
-import AddCompanyModal from './AddCompanyModal';
+import Vote from "./Vote";
+import AddCompanyModal from "./AddCompanyModal";
+import { ChevronDownIcon, AddIcon } from "@chakra-ui/icons";
 
 const Votes = ({
   options,
@@ -15,12 +16,11 @@ const Votes = ({
 }) => {
   console.log(Array.isArray(userVotes));
   console.log(userVotes);
-
   let votedArray = userVotes.map((vote) => vote.option_id);
-  console.log('Voted Ids ', votedArray);
+  console.log("Voted Ids ", votedArray);
   const FILTER_ENUM = {
-    TOP: 'votes',
-    NEW: 'created_at',
+    TOP: "votes",
+    NEW: "created_at",
   };
   return (
     <Box
@@ -35,36 +35,39 @@ const Votes = ({
         width="80%"
         bgColor="white"
         display="flex"
-        justifyContent="space-around"
+        flexDir="row"
+        mb="1rem"
+        justifyContent="space-between"
       >
         <Box>
           <Button
             mr="5px"
             colorScheme="transparent"
-            color="black"
-            bgColor="#cfccc4"
+            color="white"
+            bgColor="#3A28AF"
             onClick={() => setFilter(FILTER_ENUM.TOP)}
           >
             Top
+            <ChevronDownIcon />
           </Button>
           <Button
             colorScheme="transparent"
-            color="black"
-            bgColor="#cfccc4"
+            color="white"
+            bgColor="#3A28AF"
             onClick={() => setFilter(FILTER_ENUM.NEW)}
           >
-            New
+            New <ChevronDownIcon />
           </Button>
         </Box>
         <Button
           colorScheme="transparent"
-          color="black"
-          bgColor="#cfccc4"
+          color="white"
+          bgColor="#3A28AF"
           onClick={() => {
             toggleAdd();
           }}
         >
-          Add app
+          <AddIcon />
         </Button>
       </Box>
       <Box
@@ -73,7 +76,7 @@ const Votes = ({
         display="flex"
         flexDir="column"
         alignItems="center"
-        border="1px solid black"
+        bgColor="#F5F5F5"
       >
         {options.map((option) => (
           <Vote
