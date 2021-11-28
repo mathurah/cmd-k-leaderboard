@@ -1,5 +1,6 @@
 import { Text, Checkbox, Box, Input, Button, Image } from "@chakra-ui/react";
 import Autosuggest from "react-autosuggest";
+import themeable from "react-themeable";
 import { useState } from "react";
 import Modal from "./Modal";
 const AddCompanyModal = ({ show, Toggle, submitOption }) => {

@@ -1,4 +1,5 @@
 import "@fontsource/inter";
+import "./globals.css";
 
 import {
   ChakraProvider,
