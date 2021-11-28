@@ -16,15 +16,16 @@ const Vote = ({ name, votes, url, Toggle, id, votedArray = [] }) => {
 
   return (
     <Box
-      w="95%"
+      w="90%"
       height="15%"
       mt="20px"
+      p="5px"
       display="flex"
       justifyContent="space-around"
       flexWrap="wrap"
       alignItems="center"
     >
-      <Box width="10%">
+      <Box w="20%">
         <Image boxSize="40px" src={`https://logo.clearbit.com/${url}`} />
       </Box>
       <Box width="30%"> {name} </Box>
