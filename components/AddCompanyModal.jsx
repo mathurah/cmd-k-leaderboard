@@ -1,10 +1,10 @@
-import { Text, Checkbox, Box, Input, Button } from '@chakra-ui/react';
-import Autosuggest from 'react-autosuggest';
-import { useState } from 'react';
-import Modal from './Modal';
+import { Text, Checkbox, Box, Input, Button, Image } from "@chakra-ui/react";
+import Autosuggest from "react-autosuggest";
+import { useState } from "react";
+import Modal from "./Modal";
 const AddCompanyModal = ({ show, Toggle, submitOption }) => {
-  const [name, setName] = useState('');
-  const [url, setUrl] = useState('');
+  const [name, setName] = useState("");
+  const [url, setUrl] = useState("");
   const [isUser, setIsUser] = useState(false);
   const [companyOptions, setCompanyOptions] = useState([]);
 
@@ -27,16 +27,22 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
   };
 
   const getCompanyURL = (company) => company.domain;
+  const getCompanyName = (company) => company.name;
 
   const renderCompanyOption = (company) => (
-    <div>
-      {company.domain} ({company.name})
-    </div>
+    <Box display="flex" flexDirection="row" p="1rem">
+      <Image height="5rem" alt="Company logo" src={company.logo}></Image>
+      <Box p="1rem">
+        <Text as="b">{company.name} </Text>
+        <Text>{company.url}</Text>
+      </Box>
+    </Box>
   );
 
   const autosuggestInputProps = {
-    placeholder: 'Search for a company',
+    placeholder: "Search for a company",
     value: url,
+    name,
     onChange: (event, { newValue }) => {
       setUrl(newValue);
     },
@@ -58,20 +64,6 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
           Add a company you think should have Commandbar 😎 🎉
         </Text>
       </Box>
-      <Box w="100%" d="flex" justifyContent="center" pt="15px" pb="15px">
-        <Input
-          value={name}
-          placeholder="Company Name"
-          onChange={(e) => setName(e.target.value)}
-        ></Input>
-      </Box>
-      {/* <Box w="100%" d="flex" justifyContent="center" pt="15px" pb="15px">
-        <Input
-          value={url}
-          placeholder="Website"
-          onChange={(e) => setUrl(e.target.value)}
-        ></Input>
-      </Box> */}
       <Autosuggest
         suggestions={companyOptions || []}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -95,7 +87,7 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
         size="sm"
         colorScheme="purple"
       >
-        Submit
+        Add company
       </Button>
     </Modal>
   );
