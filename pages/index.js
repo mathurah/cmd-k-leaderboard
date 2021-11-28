@@ -94,19 +94,13 @@ export default function Home() {
         .select('id, name, votes')
         .eq('id', id);
 
-      const { data: currentVotes, error: votesError } = await supabase
-        .from('votes')
-        .select('option_id')
-        .eq('user_id', user.id)
-        .eq('option_id', id);
-
       if (optionsError) {
         console.error(optionsError);
       }
 
       const { id: optionId, votes: optionVotes } = options[0];
 
-      optionVotes += currentVotes.length > 0 ? -1 : 1;
+      optionVotes += selected ? -1 : 1;
 
       const { data, error } = await supabase
         .from('options')
@@ -117,7 +111,7 @@ export default function Home() {
         console.log(error);
       }
 
-      if (currentVotes.length === 0) {
+      if (!selected) {
         setSelected(true);
 
         const { data: votes, error: profilesError } = await supabase
