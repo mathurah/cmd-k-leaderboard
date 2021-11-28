@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Box, Button, IconButton } from "@chakra-ui/react";
+import { Box, Button, IconButton } from '@chakra-ui/react';
 
-import Vote from "./Vote";
-import AddCompanyModal from "./AddCompanyModal";
-import { ChevronDownIcon, AddIcon } from "@chakra-ui/icons";
+import Vote from './Vote';
+import AddCompanyModal from './AddCompanyModal';
+import { ChevronDownIcon, AddIcon } from '@chakra-ui/icons';
 
 const Votes = ({
   options,
@@ -13,14 +13,15 @@ const Votes = ({
   userVotes = [],
   filter,
   setFilter,
+  loading,
 }) => {
   console.log(Array.isArray(userVotes));
   console.log(userVotes);
   let votedArray = userVotes.map((vote) => vote.option_id);
-  console.log("Voted Ids ", votedArray);
+  console.log('Voted Ids ', votedArray);
   const FILTER_ENUM = {
-    TOP: "votes",
-    NEW: "created_at",
+    TOP: 'votes',
+    NEW: 'created_at',
   };
   return (
     <Box
@@ -87,6 +88,7 @@ const Votes = ({
             url={option.url}
             Toggle={Toggle}
             votedArray={votedArray}
+            loading={loading}
           />
         ))}
       </Box>

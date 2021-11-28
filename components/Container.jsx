@@ -12,6 +12,7 @@ const Container = ({
   userVotes,
   filter,
   setFilter,
+  votesLoading,
 }) => {
   return (
     <Box as="main" w="95%" h="100%" d="flex">
@@ -24,6 +25,7 @@ const Container = ({
         userVotes={userVotes}
         filter={filter}
         setFilter={setFilter}
+        loading={votesLoading}
       />
     </Box>
   );

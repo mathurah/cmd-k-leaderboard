@@ -25,6 +25,7 @@ export default function Home() {
   const [filter, setFilter] = useState(FILTER_ENUM.TOP);
   const [active, setActive] = useState(false);
   const [userVotes, setUserVotes] = useState();
+  const [votesLoading, setVotesLoading] = useState(false);
 
   const supabase = useSupabase();
 
@@ -51,6 +52,7 @@ export default function Home() {
   }
 
   async function getOptions(user) {
+    setVotesLoading(true);
     const { data: options, error } = await supabase
       .from('options')
       .select()
@@ -70,6 +72,7 @@ export default function Home() {
         console.error(votesError);
       }
     }
+    setVotesLoading(false);
   }
 
   console.log('userVotes', userVotes);
@@ -85,6 +88,7 @@ export default function Home() {
     }
 
     if (user) {
+      setVotesLoading(true);
       const { data: options, error: optionsError } = await supabase
         .from('options')
         .select('id, name, votes')
@@ -212,6 +216,7 @@ export default function Home() {
           userVotes={userVotes}
           filter={filter}
           setFilter={setFilter}
+          votesLoading={votesLoading}
         />
 
         <SignInModal
