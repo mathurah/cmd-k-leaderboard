@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { TwitterShareButton } from "react-twitter-embed";
-import { TriangleUpIcon } from "@chakra-ui/icons";
+import React, { useState, useEffect } from 'react';
+import { TwitterShareButton } from 'react-twitter-embed';
+import { TriangleUpIcon } from '@chakra-ui/icons';
 
-import { Box, Button, Image, Link } from "@chakra-ui/react";
+import { Box, Button, Image, Link } from '@chakra-ui/react';
 
 const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
   const [selected, setSelected] = useState(false);
@@ -26,7 +26,7 @@ const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
       alignItems="center"
     >
       <Box w="20%">
-        <a href={url}>
+        <a href={`https://${url}`}>
           <Image
             alt="{name} logo"
             boxSize="40px"
@@ -40,7 +40,7 @@ const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
         flexDir="column"
         alignItems="center"
         border={
-          selected ? "1px solid rgba(58, 40, 175, 1) " : "1px solid #C4C4C4"
+          selected ? '1px solid rgba(58, 40, 175, 1) ' : '1px solid #C4C4C4'
         }
         bgColor="white"
         width="20%"
@@ -51,7 +51,7 @@ const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
           aria-label="Up vote"
           leftIcon={<TriangleUpIcon />}
           colorScheme="white"
-          color={selected ? "#3A28AF" : "#4C5A7E"}
+          color={selected ? '#3A28AF' : '#4C5A7E'}
           //color to change to when selected #fcc732
           disabled={loading}
           onClick={() => {
