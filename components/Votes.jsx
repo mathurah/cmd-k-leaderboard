@@ -45,7 +45,7 @@ const Votes = ({
             mr="5px"
             colorScheme="transparent"
             color="white"
-            bgColor="#3A28AF"
+            bgColor={filter === FILTER_ENUM.TOP ? '#3A28AF' : 'gray'}
             onClick={() => setFilter(FILTER_ENUM.TOP)}
           >
             Top
@@ -54,7 +54,7 @@ const Votes = ({
           <Button
             colorScheme="transparent"
             color="white"
-            bgColor="#3A28AF"
+            bgColor={filter === FILTER_ENUM.NEW ? '#3A28AF' : 'gray'}
             onClick={() => setFilter(FILTER_ENUM.NEW)}
           >
             New <ChevronDownIcon />
