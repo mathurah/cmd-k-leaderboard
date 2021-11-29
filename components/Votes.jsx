@@ -25,9 +25,9 @@ const Votes = ({
   };
   return (
     <Box
-      w="30%"
+      w="35%"
       minW="370px"
-      h="100%"
+      // h="100%"
       d="flex"
       pt="1rem"
       order="2"
@@ -89,7 +89,7 @@ const Votes = ({
         marginBottom="1rem"
         paddingBottom="1rem"
       >
-        <Box w="100%" paddingLeft="10px" overflow="auto">
+        <Box w="100%" paddingLeft="10px" maxH="50vh" overflow="auto">
           {options.map((option) => (
             <Vote
               key={option.id}

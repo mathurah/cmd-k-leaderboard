@@ -195,6 +195,7 @@ export default function Home() {
       <Box
         w="100vw"
         h="100vh"
+        overflow="scroll"
         d="flex"
         flexDirection="column"
         alignItems="center"
@@ -209,9 +210,10 @@ export default function Home() {
         <Header user={user} session={session} handleSignOut={handleSignOut} />
 
         <Box
-          width="100vw"
-          h="65vh"
-          maxH="65vh"
+          width="100%"
+          // height="100%"
+          // h="65vh"
+          // maxH="65vh"
           display="flex"
           justifyContent="center"
           as="main"
