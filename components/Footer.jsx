@@ -19,7 +19,10 @@ const Footer = () => {
 
   return (
     <Box
+      position="absolute"
+      bottom="0"
       h="10vh"
+      width="100vw"
       display="flex"
       alignItems="center"
       justifyContent="center"
