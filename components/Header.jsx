@@ -28,7 +28,7 @@ const Header = ({ user, handleSignOut }) => {
           </Box>
         )}
 
-        <Text as="h1" fontSize="2.5rem" fontWeight="bold">
+        <Text as="h1" fontSize="2rem" fontWeight="bold">
           {" "}
           Cmd+k is awesome!{" "}
         </Text>
@@ -41,7 +41,7 @@ const Header = ({ user, handleSignOut }) => {
           transformStyle="preserve-3d"
           boxShadow="-8px 1px 2px 2px #C4C4C4"
         >
-          <Text as="h2" fontSize="1.5rem" fontWeight="bold" color="#3A28AF">
+          <Text as="h2" fontSize="1rem" fontWeight="bold" color="#3A28AF">
             {" "}
             Who should get the next cmdk?
           </Text>

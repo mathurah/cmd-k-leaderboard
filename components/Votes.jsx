@@ -92,7 +92,9 @@ const Votes = ({
           />
         ))}
 
-        <Text>Don't see your favourite app on here?</Text>
+        <Text textAlign="center" fontSize="1.2rem" p="1.5rem">
+          Don't see your favourite app on here?
+        </Text>
         <Button
           colorScheme="transparent"
           color="white"

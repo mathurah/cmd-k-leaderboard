@@ -24,24 +24,6 @@ const TweetGrid = () => {
             objectFit="cover"
           />
         </Box>
-        <Box h="150px" bgColor="red">
-          <Image
-            w="100%"
-            h="100%"
-            src="https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-            alt="Twitter placeholder"
-            objectFit="cover"
-          />
-        </Box>
-        <Box h="150px" bgColor="red">
-          <Image
-            w="100%"
-            h="100%"
-            src="https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-            alt="Twitter placeholder"
-            objectFit="cover"
-          />
-        </Box>
       </SimpleGrid>
     </Box>
   );
