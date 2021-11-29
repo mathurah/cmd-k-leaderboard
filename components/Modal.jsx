@@ -1,5 +1,5 @@
-import { Box, IconButton, Text } from "@chakra-ui/react";
-import { CloseIcon } from "@chakra-ui/icons";
+import { Box, IconButton, Text } from '@chakra-ui/react';
+import { CloseIcon } from '@chakra-ui/icons';
 
 const Modal = ({ show, Toggle, children }) => {
   return (
@@ -18,6 +18,7 @@ const Modal = ({ show, Toggle, children }) => {
         >
           <Box
             w="35%"
+            minW="370px"
             bgColor="white"
             top="30%"
             d="flex"

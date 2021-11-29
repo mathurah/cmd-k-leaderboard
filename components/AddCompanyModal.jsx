@@ -39,7 +39,7 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
 
   const renderCompanyOption = (company) => (
     <Box display="flex" flexDirection="row" p="1rem">
-      <Image height="5rem" alt="Company logo" src={company.logo}></Image>
+      <Image height="5rem" alt="Company logo" src={`${company.logo}`}></Image>
       <Box p="1rem">
         <Text as="b">{company.name} </Text>
         <Text>{company.url}</Text>
