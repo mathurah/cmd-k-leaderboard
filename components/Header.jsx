@@ -13,7 +13,7 @@ const Header = ({ user, handleSignOut }) => {
     <>
       <Box
         as="header"
-        h="20vh"
+        h="15vh"
         display="flex"
         alignItems="center"
         justifyContent="center"

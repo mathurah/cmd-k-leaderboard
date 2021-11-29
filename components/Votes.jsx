@@ -30,6 +30,7 @@ const Votes = ({
       h="100%"
       d="flex"
       pt="1rem"
+      margin="auto"
       justifyContent="center"
       alignItems="center"
       flexDir="column"
