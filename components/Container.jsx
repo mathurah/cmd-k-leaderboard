@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import StaticContent from "./StaticContent";
-import Votes from "./Votes";
+import StaticContent from './StaticContent';
+import Votes from './Votes';
 
-import { Box } from "@chakra-ui/react";
+import { Box } from '@chakra-ui/react';
 const Container = ({
   options,
   Toggle,
@@ -15,8 +15,17 @@ const Container = ({
   votesLoading,
 }) => {
   return (
-    <Box as="main" w="95%" d="flex">
-      <StaticContent />
+    // <Box
+    //   as="main"
+    //   w="95%"
+    //   d="flex"
+    //   flexFlow="wrap-reverse"
+    //   marginTop="40vh"
+    //   // position="fixed"
+    //   // overflowY="scroll"
+    //   // maxHeight="70vh"
+    // >
+    <>
       <Votes
         options={options}
         Toggle={Toggle}
@@ -27,7 +36,9 @@ const Container = ({
         setFilter={setFilter}
         loading={votesLoading}
       />
-    </Box>
+      <StaticContent />
+    </>
+    // </Box>
   );
 };
 

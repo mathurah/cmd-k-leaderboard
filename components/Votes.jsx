@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Box, Button, Text } from '@chakra-ui/react';
 
-import Vote from "./Vote";
-import AddCompanyModal from "./AddCompanyModal";
-import { ChevronDownIcon, AddIcon, SmallAddIcon } from "@chakra-ui/icons";
+import Vote from './Vote';
+import AddCompanyModal from './AddCompanyModal';
+import { ChevronDownIcon, AddIcon, SmallAddIcon } from '@chakra-ui/icons';
 
 const Votes = ({
   options,
@@ -18,23 +18,26 @@ const Votes = ({
   console.log(Array.isArray(userVotes));
   console.log(userVotes);
   let votedArray = userVotes.map((vote) => vote.option_id);
-  console.log("Voted Ids ", votedArray);
+  console.log('Voted Ids ', votedArray);
   const FILTER_ENUM = {
-    TOP: "votes",
-    NEW: "created_at",
+    TOP: 'votes',
+    NEW: 'created_at',
   };
   return (
     <Box
-      w="60vw"
+      w="30%"
+      minW="370px"
       h="100%"
       d="flex"
-      margin="auto"
+      pt="1rem"
+      order="2"
       justifyContent="center"
       alignItems="center"
       flexDir="column"
+      as="votes"
     >
       <Box
-        width="80%"
+        width="90%"
         bgColor="white"
         display="flex"
         flexDir="row"
@@ -46,7 +49,7 @@ const Votes = ({
             mr="5px"
             colorScheme="transparent"
             color="white"
-            bgColor={filter === FILTER_ENUM.TOP ? "#3A28AF" : "gray"}
+            bgColor={filter === FILTER_ENUM.TOP ? '#3A28AF' : 'gray'}
             onClick={() => setFilter(FILTER_ENUM.TOP)}
           >
             Top
@@ -55,7 +58,7 @@ const Votes = ({
           <Button
             colorScheme="transparent"
             color="white"
-            bgColor={filter === FILTER_ENUM.NEW ? "#3A28AF" : "gray"}
+            bgColor={filter === FILTER_ENUM.NEW ? '#3A28AF' : 'gray'}
             onClick={() => setFilter(FILTER_ENUM.NEW)}
           >
             New <ChevronDownIcon />
@@ -73,7 +76,7 @@ const Votes = ({
         </Button>
       </Box>
       <Box
-        width="80%"
+        width="90%"
         h="100%"
         p="0.5rem"
         display="flex"
@@ -82,10 +85,11 @@ const Votes = ({
         borderRadius="10px"
         bgColor="#F5F5F5"
         overflowY="scroll"
+        // minHeight="90vh"
         marginBottom="1rem"
         paddingBottom="1rem"
       >
-        <Box w="80%" overflow="auto">
+        <Box w="100%" paddingLeft="10px" overflow="auto">
           {options.map((option) => (
             <Vote
               key={option.id}

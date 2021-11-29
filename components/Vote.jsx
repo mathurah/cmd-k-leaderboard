@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { TwitterShareButton } from "react-twitter-embed";
-import { TriangleUpIcon } from "@chakra-ui/icons";
+import React, { useState, useEffect } from 'react';
+import { TwitterShareButton } from 'react-twitter-embed';
+import { TriangleUpIcon } from '@chakra-ui/icons';
 
-import { Box, Button, Image, Link } from "@chakra-ui/react";
+import { Box, Button, Image, Link } from '@chakra-ui/react';
 
 const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
   const [selected, setSelected] = useState(false);
@@ -16,12 +16,14 @@ const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
 
   return (
     <Box
-      w="90%"
+      w="95%"
       height="15%"
       mt="20px"
+      mb="20px"
+      mr="15px"
       p="5px"
       display="flex"
-      justifyContent="space-around"
+      justifyContent="space-between"
       flexWrap="wrap"
       alignItems="center"
     >
@@ -40,7 +42,7 @@ const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
         flexDir="column"
         alignItems="center"
         border={
-          selected ? "1px solid rgba(58, 40, 175, 1) " : "1px solid #C4C4C4"
+          selected ? '1px solid rgba(58, 40, 175, 1) ' : '1px solid #C4C4C4'
         }
         bgColor="white"
         width="20%"
@@ -51,7 +53,7 @@ const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
           aria-label="Up vote"
           leftIcon={<TriangleUpIcon />}
           colorScheme="white"
-          color={selected ? "#3A28AF" : "#4C5A7E"}
+          color={selected ? '#3A28AF' : '#4C5A7E'}
           //color to change to when selected #fcc732
           disabled={loading}
           onClick={() => {
@@ -61,11 +63,11 @@ const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
           <Box>{votes ? `${votes}` : 0}</Box>
         </Button>
       </Box>
-        <Link
-          href={`https://twitter.com/intent/tweet?url=https://www.commandbar.com/&text=${name} should be the next company to add Cmd+K to their site! @commandbar`}
-        >
-          TWEET
-        </Link>
+      <Link
+        href={`https://twitter.com/intent/tweet?url=https://www.commandbar.com/&text=${name} should be the next company to add Cmd+K to their site! @commandbar`}
+      >
+        TWEET
+      </Link>
     </Box>
   );
 };
