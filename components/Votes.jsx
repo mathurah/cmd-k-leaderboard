@@ -26,17 +26,17 @@ const Votes = ({
   return (
     <Box
       w="30%"
-      minW="400px"
+      minW="370px"
       h="100%"
       d="flex"
       pt="1rem"
-      margin="auto"
       justifyContent="center"
       alignItems="center"
       flexDir="column"
+      as="votes"
     >
       <Box
-        width="80%"
+        width="90%"
         bgColor="white"
         display="flex"
         flexDir="row"
@@ -75,7 +75,7 @@ const Votes = ({
         </Button>
       </Box>
       <Box
-        width="80%"
+        width="90%"
         h="100%"
         p="0.5rem"
         display="flex"
@@ -88,7 +88,7 @@ const Votes = ({
         marginBottom="1rem"
         paddingBottom="1rem"
       >
-        <Box w="80%" overflow="auto">
+        <Box w="100%" paddingLeft="10px" overflow="auto">
           {options.map((option) => (
             <Vote
               key={option.id}

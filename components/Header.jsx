@@ -16,6 +16,7 @@ const Header = ({ user, handleSignOut }) => {
         h="20vh"
         display="flex"
         alignItems="center"
+        justifyContent="center"
         flexDir="column"
         position="sticky"
       >
