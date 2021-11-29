@@ -25,9 +25,9 @@ const Votes = ({
   };
   return (
     <Box
-      w="30%"
+      w="35%"
       minW="370px"
-      h="100%"
+      // h="100%"
       d="flex"
       pt="1rem"
       order="2"

@@ -19,10 +19,11 @@ const Footer = () => {
 
   return (
     <Box
-      position="absolute"
-      bottom="0"
-      h="10vh"
+      // position="fixed"
+      // bottom="0"
+      minH="10vh"
       width="100vw"
+      mt="4vw"
       display="flex"
       alignItems="center"
       justifyContent="center"
