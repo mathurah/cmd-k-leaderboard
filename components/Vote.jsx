@@ -16,7 +16,7 @@ const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
   return (
     <Box
       w="95%"
-      height="15%"
+      height="5rem"
       mt="20px"
       mb="20px"
       mr="15px"
