@@ -26,7 +26,6 @@ const Container = ({
     //   // maxHeight="70vh"
     // >
     <>
-      <StaticContent />
       <Votes
         options={options}
         Toggle={Toggle}
@@ -37,6 +36,7 @@ const Container = ({
         setFilter={setFilter}
         loading={votesLoading}
       />
+      <StaticContent />
     </>
     // </Box>
   );

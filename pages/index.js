@@ -235,8 +235,8 @@ export default function Home() {
 
         <Box
           width="100%"
-          h="70vh"
-          maxH="70vh"
+          h="65vh"
+          maxH="65vh"
           overflowY="scroll"
           display="flex"
           justifyContent="center"

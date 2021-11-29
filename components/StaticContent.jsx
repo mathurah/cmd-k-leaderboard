@@ -6,7 +6,14 @@ import TweetGrid from './TweetGrid';
 
 const StaticContent = () => {
   return (
-    <Box w="30vw" d="flex" alignItems="left" flexDir="column">
+    <Box
+      order="1"
+      w="30vw"
+      minWidth="350px"
+      d="flex"
+      alignItems="left"
+      flexDir="column"
+    >
       {/** Top */}
       <Image src={cmdK} w="100%" h="100%" alt="Twitter placeholder" />
       <Text p="0.5rem" textAlign="center">
