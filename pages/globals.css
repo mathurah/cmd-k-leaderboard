@@ -74,3 +74,11 @@ a {
   background-color: #0c7eaf;
   color: #fff;
 }
+
+.react-autosuggest__suggestions-container--open {
+  display: block;
+  position: relative;
+  margin-top: 52%;
+  height: 200px;
+  overflow-y: scroll;
+}
