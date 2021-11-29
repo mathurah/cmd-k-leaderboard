@@ -3,7 +3,6 @@ import { TriangleUpIcon } from "@chakra-ui/icons";
 import { Share } from "react-twitter-widgets";
 
 import { Box, Button, Image, Link } from "@chakra-ui/react";
-import confetti from "canvas-confetti";
 
 const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
   const [selected, setSelected] = useState(false);
@@ -58,7 +57,7 @@ const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
           //color to change to when selected #fcc732
           disabled={loading}
           onClick={() => {
-            Toggle(id, selected, setSelected) && !selected ? confetti() : "";
+            Toggle(id, selected, setSelected);
           }}
         >
           <Box>{votes ? `${votes}` : 0}</Box>

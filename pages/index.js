@@ -10,6 +10,7 @@ import SignInModal from "../components/SignInModal";
 import AddCompanyModal from "../components/AddCompanyModal";
 import Footer from "../components/Footer";
 import { useSupabase } from "../hooks/useSupabase.js";
+import confetti from "canvas-confetti";
 
 export default function Home() {
   const FILTER_ENUM = {
@@ -102,7 +103,7 @@ export default function Home() {
 
       const voted = userVotes.map((vote) => vote.option_id).includes(optionId);
 
-      optionVotes += voted ? -1 : 1;
+      optionVotes += voted ? -1 : 1 && confetti();
 
       const { data, error } = await supabase
         .from("options")
