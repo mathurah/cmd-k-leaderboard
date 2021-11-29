@@ -211,8 +211,9 @@ export default function Home() {
 
         <Box
           width="100%"
-          h="65vh"
+          h="70vh"
           display="flex"
+          flexDirection="row"
           justifyContent="center"
           as="main"
         >

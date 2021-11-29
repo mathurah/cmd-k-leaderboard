@@ -13,10 +13,11 @@ const Header = ({ user, handleSignOut }) => {
     <>
       <Box
         as="header"
-        h="20vh"
+        h="15vh"
         display="flex"
         alignItems="center"
         flexDir="column"
+        mb="1rem"
       >
         {user && (
           <Box>
@@ -32,20 +33,10 @@ const Header = ({ user, handleSignOut }) => {
           {" "}
           Cmd+k is awesome!{" "}
         </Text>
-        <Box
-          mt="1rem"
-          borderRadius="1em"
-          padding="1em 2em"
-          color="var(--cmdKColor)"
-          background="#EBEBEB"
-          transformStyle="preserve-3d"
-          boxShadow="-8px 1px 2px 2px #C4C4C4"
-        >
-          <Text as="h2" fontSize="1rem" fontWeight="bold" color="#3A28AF">
-            {" "}
-            Who should get the next cmdk?
-          </Text>
-        </Box>
+        <Text as="h2" fontSize="1rem" fontWeight="bold" color="#3A28AF">
+          {" "}
+          Who should get the next cmdk?
+        </Text>
       </Box>
     </>
   );

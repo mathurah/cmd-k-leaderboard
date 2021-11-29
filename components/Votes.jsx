@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { Box, Button, Text } from '@chakra-ui/react';
+import { Box, Button, Text } from "@chakra-ui/react";
 
-import Vote from './Vote';
-import AddCompanyModal from './AddCompanyModal';
-import { ChevronDownIcon, AddIcon, SmallAddIcon } from '@chakra-ui/icons';
+import Vote from "./Vote";
+import AddCompanyModal from "./AddCompanyModal";
+import { ChevronDownIcon, AddIcon, SmallAddIcon } from "@chakra-ui/icons";
 
 const Votes = ({
   options,
@@ -18,17 +18,16 @@ const Votes = ({
   console.log(Array.isArray(userVotes));
   console.log(userVotes);
   let votedArray = userVotes.map((vote) => vote.option_id);
-  console.log('Voted Ids ', votedArray);
+  console.log("Voted Ids ", votedArray);
   const FILTER_ENUM = {
-    TOP: 'votes',
-    NEW: 'created_at',
+    TOP: "votes",
+    NEW: "created_at",
   };
   return (
     <Box
       w="60vw"
       h="100%"
       d="flex"
-      pt="1rem"
       margin="auto"
       justifyContent="center"
       alignItems="center"
@@ -47,7 +46,7 @@ const Votes = ({
             mr="5px"
             colorScheme="transparent"
             color="white"
-            bgColor={filter === FILTER_ENUM.TOP ? '#3A28AF' : 'gray'}
+            bgColor={filter === FILTER_ENUM.TOP ? "#3A28AF" : "gray"}
             onClick={() => setFilter(FILTER_ENUM.TOP)}
           >
             Top
@@ -56,7 +55,7 @@ const Votes = ({
           <Button
             colorScheme="transparent"
             color="white"
-            bgColor={filter === FILTER_ENUM.NEW ? '#3A28AF' : 'gray'}
+            bgColor={filter === FILTER_ENUM.NEW ? "#3A28AF" : "gray"}
             onClick={() => setFilter(FILTER_ENUM.NEW)}
           >
             New <ChevronDownIcon />
