@@ -19,6 +19,7 @@ const Header = ({ user, handleSignOut }) => {
         justifyContent="center"
         flexDir="column"
         position="sticky"
+        mb="1rem"
       >
         {user && (
           <Box>
