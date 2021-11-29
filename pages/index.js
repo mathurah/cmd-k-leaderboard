@@ -209,16 +209,13 @@ export default function Home() {
         <Header user={user} session={session} handleSignOut={handleSignOut} />
 
         <Box
-          width="100%"
+          width="100vw"
           h="65vh"
           maxH="65vh"
-          // overflowY="scroll"
           display="flex"
           justifyContent="center"
           as="main"
           flexWrap="wrap"
-          // flexFlow="column-reverse wrap"
-          justifyContent="center"
           alignItems="center"
         >
           <Container

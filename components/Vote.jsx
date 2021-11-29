@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { TwitterShareButton } from "react-twitter-embed";
 import { TriangleUpIcon } from "@chakra-ui/icons";
+import { Share } from "react-twitter-widgets";
 
 import { Box, Button, Image, Link } from "@chakra-ui/react";
 import confetti from "canvas-confetti";
@@ -64,11 +64,11 @@ const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
           <Box>{votes ? `${votes}` : 0}</Box>
         </Button>
       </Box>
-      <Link
-        href={`https://twitter.com/intent/tweet?url=https://www.commandbar.com/&text=${name} should be the next company to add Cmd+K to their site! @commandbar`}
-      >
-        TWEET
-      </Link>
+      <Box ml="0.5rem">
+        <Share
+          url={`https://twitter.com/intent/tweet?url=https://www.commandbar.com/&text=${name} should be the next company to add Cmd+K to their site! @commandbar`}
+        ></Share>
+      </Box>
     </Box>
   );
 };
