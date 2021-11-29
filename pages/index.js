@@ -245,8 +245,8 @@ export default function Home() {
             submitOption={submitOption}
           />
         </Box>
+        <Footer />
       </Box>
-      <Footer />
     </>
   );
 }
