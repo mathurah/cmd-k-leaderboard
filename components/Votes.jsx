@@ -29,6 +29,8 @@ const Votes = ({
       minW="400px"
       h="100%"
       d="flex"
+      pt="1rem"
+      margin="auto"
       justifyContent="center"
       alignItems="center"
       flexDir="column"
@@ -74,38 +76,42 @@ const Votes = ({
       </Box>
       <Box
         width="80%"
-        h="90%"
+        h="100%"
+        p="0.5rem"
         display="flex"
         flexDir="column"
         alignItems="center"
+        borderRadius="10px"
         bgColor="#F5F5F5"
         overflowY="scroll"
         // minHeight="90vh"
         marginBottom="1rem"
         paddingBottom="1rem"
       >
-        {options.map((option) => (
-          <Vote
-            key={option.id}
-            id={option.id}
-            name={option.name}
-            votes={option.votes}
-            url={option.url}
-            Toggle={Toggle}
-            votedArray={votedArray}
-            loading={loading}
-          />
-        ))}
+        <Box w="80%" overflow="auto">
+          {options.map((option) => (
+            <Vote
+              key={option.id}
+              id={option.id}
+              name={option.name}
+              votes={option.votes}
+              url={option.url}
+              Toggle={Toggle}
+              votedArray={votedArray}
+              loading={loading}
+            />
+          ))}
+        </Box>
 
-        <Text textAlign="center" fontSize="1.2rem" p="1.5rem">
+        <Text textAlign="center" fontSize="1.2rem" pt="-2rem" p="1rem">
           Don't see your favourite app on here?
         </Text>
         <Button
           colorScheme="transparent"
           color="white"
           bgColor="#3A28AF"
-          mt="1rem"
           size="lg"
+          mb="1rem"
           onClick={() => {
             toggleAdd();
           }}
