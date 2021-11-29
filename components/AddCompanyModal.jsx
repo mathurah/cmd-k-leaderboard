@@ -53,6 +53,9 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
     name,
     onChange: (event, { newValue }) => {
       setUrl(newValue);
+      getCompanies(newValue).then((data) => {
+        setName(data[0].name);
+      });
     },
   };
 
