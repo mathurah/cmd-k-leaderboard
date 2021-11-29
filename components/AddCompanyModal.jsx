@@ -5,7 +5,10 @@ import { useState } from 'react';
 import Modal from './Modal';
 const AddCompanyModal = ({ show, Toggle, submitOption }) => {
   const [name, setName] = useState('');
+  const [query, setQuery] = useState('');
   const [url, setUrl] = useState('');
+  const [selected, setSelected] = useState(null);
+  const [submitted, setSubmitted] = useState(null);
   const [isUser, setIsUser] = useState(false);
   const [companyOptions, setCompanyOptions] = useState([]);
 
@@ -13,6 +16,7 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
     setCompanyOptions([]);
     setName('');
     setUrl('');
+    setQuery('');
     setIsUser(false);
   };
 
@@ -34,6 +38,13 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
     setCompanyOptions([]);
   };
 
+  const onSuggestionSelected = (event, { suggestion }) => {
+    setName(suggestion.name);
+    setUrl(suggestion.domain);
+    setSelected(suggestion);
+    setSubmitted(false);
+  };
+
   const getCompanyURL = (company) => company.domain;
   const getCompanyName = (company) => company.name;
 
@@ -42,20 +53,17 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
       <Image height="5rem" alt="Company logo" src={`${company.logo}`}></Image>
       <Box p="1rem">
         <Text as="b">{company.name} </Text>
-        <Text>{company.url}</Text>
+        <Text>{company.domain}</Text>
       </Box>
     </Box>
   );
 
   const autosuggestInputProps = {
     placeholder: 'Search for a company',
-    value: url,
+    value: query,
     name,
     onChange: (event, { newValue }) => {
-      setUrl(newValue);
-      getCompanies(newValue).then((data) => {
-        setName(data[0] ? data[0].name : '');
-      });
+      setQuery(newValue);
     },
   };
 
@@ -81,11 +89,12 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
           onSuggestionsFetchRequested={onSuggestionsFetchRequested}
           onSuggestionsClearRequested={onSuggestionsClearRequested}
           getSuggestionValue={getCompanyURL}
+          onSuggestionSelected={onSuggestionSelected}
           renderSuggestion={renderCompanyOption}
           inputProps={autosuggestInputProps}
         />
       </Box>
-      <Box w="100%" d="flex" justifyContent="center" pt="15px" pb="15px">
+      <Box w="100%" d="flex" justifyContent="center">
         <Checkbox
           size="md"
           colorScheme="purple"
@@ -95,17 +104,38 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
           Are you a user?
         </Checkbox>
       </Box>
-      <Button
-        onClick={() => {
-          submitOption({ name, url, isUser });
-          clearOptions();
-        }}
-        m="2.1rem"
-        size="sm"
-        colorScheme="purple"
-      >
-        Add company
-      </Button>
+      {selected !== null && (
+        <Box w="100%" d="flex" justifyContent="center" pt="15px" pb="15px">
+          <Image
+            height="5rem"
+            alt="Company logo"
+            src={`${selected.logo}`}
+          ></Image>
+          <Box p="1rem">
+            <Text as="b">{selected.name} </Text>
+            <Text>{selected.domain}</Text>
+          </Box>
+        </Box>
+      )}
+
+      {!submitted ? (
+        <Button
+          onClick={() => {
+            setSubmitted(true);
+            submitOption({ name, url, isUser });
+            clearOptions();
+          }}
+          m="2.1rem"
+          size="sm"
+          colorScheme="purple"
+        >
+          Add company
+        </Button>
+      ) : (
+        <Button m="2.1rem" size="sm" colorScheme="purple" disabled>
+          Company Added
+        </Button>
+      )}
     </Modal>
   );
 };
