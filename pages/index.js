@@ -100,7 +100,9 @@ export default function Home() {
 
       const { id: optionId, votes: optionVotes } = options[0];
 
-      optionVotes += selected ? -1 : 1;
+      const voted = userVotes.map((vote) => vote.option_id).includes(optionId);
+
+      optionVotes += voted ? -1 : 1;
 
       const { data, error } = await supabase
         .from('options')
@@ -111,7 +113,7 @@ export default function Home() {
         console.log(error);
       }
 
-      if (!selected) {
+      if (!voted) {
         setSelected(true);
 
         const { data: votes, error: profilesError } = await supabase
@@ -123,9 +125,10 @@ export default function Home() {
               option_id: optionId,
             },
           ]);
+
+        setUserVotes([...userVotes, { option_id: id }]);
       } else {
         setSelected(false);
-
         const { data, error } = await supabase
           .from('votes')
           .delete()
@@ -135,6 +138,7 @@ export default function Home() {
         if (error) {
           console.log(error);
         }
+        setUserVotes(userVotes.filter((vote) => vote.option_id !== id));
       }
       getOptions();
     }
