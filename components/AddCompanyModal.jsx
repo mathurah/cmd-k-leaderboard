@@ -54,7 +54,7 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
     onChange: (event, { newValue }) => {
       setUrl(newValue);
       getCompanies(newValue).then((data) => {
-        setName(data[0].name);
+        setName(data[0] ? data[0].name : '');
       });
     },
   };
@@ -75,14 +75,16 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
           Add a company you think should have Commandbar 😎 🎉
         </Text>
       </Box>
-      <Autosuggest
-        suggestions={companyOptions || []}
-        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={onSuggestionsClearRequested}
-        getSuggestionValue={getCompanyURL}
-        renderSuggestion={renderCompanyOption}
-        inputProps={autosuggestInputProps}
-      />
+      <Box d="flex" alignItems="center" justifyContent="center">
+        <Autosuggest
+          suggestions={companyOptions || []}
+          onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={onSuggestionsClearRequested}
+          getSuggestionValue={getCompanyURL}
+          renderSuggestion={renderCompanyOption}
+          inputProps={autosuggestInputProps}
+        />
+      </Box>
       <Box w="100%" d="flex" justifyContent="center" pt="15px" pb="15px">
         <Checkbox
           size="md"
