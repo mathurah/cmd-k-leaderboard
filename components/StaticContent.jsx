@@ -1,8 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
-import { Box, Text } from '@chakra-ui/react';
-import cmdK from '../public/cmd-k.png';
-import TweetGrid from './TweetGrid';
+import React from "react";
+import Image from "next/image";
+import { Box, Text } from "@chakra-ui/react";
+import cmdK from "../public/cmd-k.png";
+import TweetGrid from "./TweetGrid";
 
 const StaticContent = () => {
   return (
@@ -11,9 +11,9 @@ const StaticContent = () => {
       w="25vw"
       mt="20px"
       mb="20px"
+      mr="10px"
       minWidth="350px"
       d="flex"
-      // height="-webkit-fill-available"
       justifyContent="flex-start"
       alignItems="left"
       flexDir="column"
@@ -22,7 +22,7 @@ const StaticContent = () => {
       <Image src={cmdK} w="100%" h="100%" alt="Twitter placeholder" />
       <Text p="0.5rem" textAlign="center">
         Cmd+k combines fuzzy search and commands to let you get stuff done
-        quickly inside an app.{' '}
+        quickly inside an app.{" "}
       </Text>
 
       <Text pt="1rem" textAlign="center" fontSize="1.25rem">

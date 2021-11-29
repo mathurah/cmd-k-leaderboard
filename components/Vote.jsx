@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { TriangleUpIcon } from "@chakra-ui/icons";
-import { Share } from "react-twitter-widgets";
-
-import { Box, Button, Image, Link } from "@chakra-ui/react";
+import shareTwitter from "../public/share-twitter.png";
+import { Box, Button, Link, Image } from "@chakra-ui/react";
 
 const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
   const [selected, setSelected] = useState(false);
@@ -64,9 +63,15 @@ const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
         </Button>
       </Box>
       <Box ml="0.5rem">
-        <Share
-          url={`https://twitter.com/intent/tweet?url=https://www.commandbar.com/&text=${name} should be the next company to add Cmd+K to their site! @commandbar`}
-        ></Share>
+        <Link
+          target="blank"
+          href={`https://twitter.com/intent/tweet?url=https://www.commandbar.com/&text=${name} should be the next company to add Cmd+K to their site! @commandbar`}
+        >
+          <Image
+            w="4rem"
+            src="https://uxwing.com/wp-content/themes/uxwing/download/10-brands-and-social-media/twitter-share-button.png"
+          ></Image>
+        </Link>
       </Box>
     </Box>
   );
