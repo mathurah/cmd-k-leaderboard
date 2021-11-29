@@ -1,13 +1,20 @@
-import { Text, Checkbox, Box, Input, Button, Image } from "@chakra-ui/react";
-import Autosuggest from "react-autosuggest";
-import themeable from "react-themeable";
-import { useState } from "react";
-import Modal from "./Modal";
+import { Text, Checkbox, Box, Input, Button, Image } from '@chakra-ui/react';
+import Autosuggest from 'react-autosuggest';
+import themeable from 'react-themeable';
+import { useState } from 'react';
+import Modal from './Modal';
 const AddCompanyModal = ({ show, Toggle, submitOption }) => {
-  const [name, setName] = useState("");
-  const [url, setUrl] = useState("");
+  const [name, setName] = useState('');
+  const [url, setUrl] = useState('');
   const [isUser, setIsUser] = useState(false);
   const [companyOptions, setCompanyOptions] = useState([]);
+
+  const clearOptions = () => {
+    setCompanyOptions([]);
+    setName('');
+    setUrl('');
+    setIsUser(false);
+  };
 
   const getCompanies = async (query) => {
     const response = await fetch(
@@ -41,17 +48,20 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
   );
 
   const autosuggestInputProps = {
-    placeholder: "Search for a company",
+    placeholder: 'Search for a company',
     value: url,
     name,
     onChange: (event, { newValue }) => {
       setUrl(newValue);
+      getCompanies(newValue).then((data) => {
+        setName(data[0] ? data[0].name : '');
+      });
     },
   };
 
   return (
     <Modal show={show} Toggle={Toggle}>
-      <Box mr="15px" ml="15px">
+      <Box mt="25px" mr="15px" ml="15px">
         <Text
           mt="-2rem"
           pb="1rem"
@@ -65,25 +75,31 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
           Add a company you think should have Commandbar 😎 🎉
         </Text>
       </Box>
-      <Autosuggest
-        suggestions={companyOptions || []}
-        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={onSuggestionsClearRequested}
-        getSuggestionValue={getCompanyURL}
-        renderSuggestion={renderCompanyOption}
-        inputProps={autosuggestInputProps}
-      />
+      <Box d="flex" alignItems="center" justifyContent="center">
+        <Autosuggest
+          suggestions={companyOptions || []}
+          onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={onSuggestionsClearRequested}
+          getSuggestionValue={getCompanyURL}
+          renderSuggestion={renderCompanyOption}
+          inputProps={autosuggestInputProps}
+        />
+      </Box>
       <Box w="100%" d="flex" justifyContent="center" pt="15px" pb="15px">
         <Checkbox
           size="md"
           colorScheme="purple"
+          isChecked={isUser}
           onChange={(e) => setIsUser(e.target.checked)}
         >
           Are you a user?
         </Checkbox>
       </Box>
       <Button
-        onClick={() => submitOption({ name, url, isUser })}
+        onClick={() => {
+          submitOption({ name, url, isUser });
+          clearOptions();
+        }}
         m="2.1rem"
         size="sm"
         colorScheme="purple"

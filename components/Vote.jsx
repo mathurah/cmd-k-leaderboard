@@ -61,12 +61,11 @@ const Vote = ({ name, votes, url, Toggle, id, loading, votedArray = [] }) => {
           <Box>{votes ? `${votes}` : 0}</Box>
         </Button>
       </Box>
-      <TwitterShareButton
-        url={process.env.URL}
-        options={{
-          text: `${name} should be the next company to add Cmd+K to their site! @commandbar`,
-        }}
-      />
+        <Link
+          href={`https://twitter.com/intent/tweet?url=https://www.commandbar.com/&text=${name} should be the next company to add Cmd+K to their site! @commandbar`}
+        >
+          TWEET
+        </Link>
     </Box>
   );
 };
