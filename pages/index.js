@@ -200,7 +200,6 @@ export default function Home() {
         overflow="scroll"
         d="flex"
         flexDirection="column"
-        alignItems="center"
         font-family="Inter"
       >
         <Head>
@@ -213,14 +212,10 @@ export default function Home() {
 
         <Box
           width="100%"
-          // height="100%"
-          // h="65vh"
-          // maxH="65vh"
           display="flex"
           justifyContent="center"
           as="main"
           flexWrap="wrap"
-          alignItems="center"
         >
           <Container
             options={voteOptions}

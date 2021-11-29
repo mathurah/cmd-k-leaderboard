@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import { Box, Text, IconButton } from '@chakra-ui/react';
-import { HiLogout } from 'react-icons/hi';
+import { Box, Text, IconButton } from "@chakra-ui/react";
+import { HiLogout } from "react-icons/hi";
 
-import { useSupabase } from '../hooks/useSupabase.js';
+import { useSupabase } from "../hooks/useSupabase.js";
 const Header = ({ user, handleSignOut }) => {
   const supabase = useSupabase();
   async function signOut() {
@@ -12,6 +12,21 @@ const Header = ({ user, handleSignOut }) => {
   return (
     <>
       <Box
+        p="0.25rem"
+        display="flex"
+        flexDirection="row"
+        justifyContent="right"
+      >
+        {user && (
+          <IconButton
+            aria-label="Sign out"
+            icon={<HiLogout />}
+            onClick={() => handleSignOut()}
+          />
+        )}
+      </Box>
+
+      <Box
         as="header"
         h="20vh"
         display="flex"
@@ -19,32 +34,15 @@ const Header = ({ user, handleSignOut }) => {
         justifyContent="center"
         flexDir="column"
         mb="1rem"
+        mt="1rem"
       >
-        {user && (
-          <Box>
-            <IconButton
-              aria-label="Sign out"
-              icon={<HiLogout />}
-              onClick={() => handleSignOut()}
-            />
-          </Box>
-        )}
-
         <Text as="h1" fontSize="2rem" fontWeight="bold">
-          {' '}
-          Cmd+k is awesome!{' '}
+          {" "}
+          Cmd+k is awesome!{" "}
         </Text>
-        <Box
-          mt="1rem"
-          borderRadius="1em"
-          padding="1em 2em"
-          color="var(--cmdKColor)"
-          background="#EBEBEB"
-          transformStyle="preserve-3d"
-          boxShadow="-8px 1px 2px 2px #C4C4C4"
-        >
-          <Text as="h2" fontSize="1rem" fontWeight="bold" color="#3A28AF">
-            {' '}
+        <Box mt="1rem" color="var(--cmdKColor)">
+          <Text as="h2" fontSize="1.25rem" fontWeight="bold" color="#3A28AF">
+            {" "}
             Who should get the next cmdk?
           </Text>
         </Box>
