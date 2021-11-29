@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import { Box, Text, IconButton } from "@chakra-ui/react";
-import { HiLogout } from "react-icons/hi";
+import { Box, Text, IconButton } from '@chakra-ui/react';
+import { HiLogout } from 'react-icons/hi';
 
-import { useSupabase } from "../hooks/useSupabase.js";
+import { useSupabase } from '../hooks/useSupabase.js';
 const Header = ({ user, handleSignOut }) => {
   const supabase = useSupabase();
   async function signOut() {
@@ -17,6 +17,7 @@ const Header = ({ user, handleSignOut }) => {
         display="flex"
         alignItems="center"
         flexDir="column"
+        position="sticky"
       >
         {user && (
           <Box>
@@ -29,8 +30,8 @@ const Header = ({ user, handleSignOut }) => {
         )}
 
         <Text as="h1" fontSize="2rem" fontWeight="bold">
-          {" "}
-          Cmd+k is awesome!{" "}
+          {' '}
+          Cmd+k is awesome!{' '}
         </Text>
         <Box
           mt="1rem"
@@ -42,7 +43,7 @@ const Header = ({ user, handleSignOut }) => {
           boxShadow="-8px 1px 2px 2px #C4C4C4"
         >
           <Text as="h2" fontSize="1rem" fontWeight="bold" color="#3A28AF">
-            {" "}
+            {' '}
             Who should get the next cmdk?
           </Text>
         </Box>

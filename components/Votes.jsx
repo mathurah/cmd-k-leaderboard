@@ -26,6 +26,7 @@ const Votes = ({
   return (
     <Box
       w="30%"
+      minW="400px"
       h="100%"
       d="flex"
       justifyContent="center"
@@ -79,6 +80,7 @@ const Votes = ({
         alignItems="center"
         bgColor="#F5F5F5"
         overflowY="scroll"
+        // minHeight="90vh"
         marginBottom="1rem"
         paddingBottom="1rem"
       >

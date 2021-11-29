@@ -1,12 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Image } from '@chakra-ui/react';
 
-import TweetGrid from "./TweetGrid";
+import TweetGrid from './TweetGrid';
 
 const StaticContent = () => {
   return (
-    <Box width="70%" h="100%" d="flex" alignItems="center" flexDir="column">
+    <Box
+      width="70%"
+      h="100%"
+      d="flex"
+      minWidth="300px"
+      alignItems="center"
+      flexDir="column"
+    >
       {/** Top */}
       <Box mt="30px" w="60%" height="40%" bgColor="white">
         <Image
