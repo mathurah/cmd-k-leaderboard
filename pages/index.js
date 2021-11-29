@@ -1,20 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-import Head from 'next/head';
+import Head from "next/head";
 
-import { Box } from '@chakra-ui/react';
+import { Box } from "@chakra-ui/react";
 
-import Header from '../components/Header';
-import Container from '../components/Container';
-import SignInModal from '../components/SignInModal';
-import AddCompanyModal from '../components/AddCompanyModal';
-import Footer from '../components/Footer';
-import { useSupabase } from '../hooks/useSupabase.js';
+import Header from "../components/Header";
+import Container from "../components/Container";
+import SignInModal from "../components/SignInModal";
+import AddCompanyModal from "../components/AddCompanyModal";
+import Footer from "../components/Footer";
+import { useSupabase } from "../hooks/useSupabase.js";
 
 export default function Home() {
   const FILTER_ENUM = {
-    TOP: 'votes',
-    NEW: 'created_at',
+    TOP: "votes",
+    NEW: "created_at",
   };
 
   const [showSignIn, setShowSignIn] = useState(false);
@@ -30,7 +30,7 @@ export default function Home() {
   const supabase = useSupabase();
 
   async function submitOption(option) {
-    const response = await supabase.from('options').insert({
+    const response = await supabase.from("options").insert({
       name: option.name,
       url: option.url,
       created_by: user.id,
@@ -54,7 +54,7 @@ export default function Home() {
   async function getOptions(user) {
     setVotesLoading(true);
     const { data: options, error } = await supabase
-      .from('options')
+      .from("options")
       .select()
       .order(filter, { ascending: false });
     console.log(options);
@@ -62,9 +62,9 @@ export default function Home() {
 
     if (user) {
       const { data: votes, error: votesError } = await supabase
-        .from('votes')
-        .select('option_id')
-        .eq('user_id', user.id);
+        .from("votes")
+        .select("option_id")
+        .eq("user_id", user.id);
 
       setUserVotes(votes);
 
@@ -75,7 +75,7 @@ export default function Home() {
     setVotesLoading(false);
   }
 
-  console.log('userVotes', userVotes);
+  console.log("userVotes", userVotes);
 
   useEffect(() => {
     getOptions(user);
@@ -90,9 +90,9 @@ export default function Home() {
     if (user) {
       setVotesLoading(true);
       const { data: options, error: optionsError } = await supabase
-        .from('options')
-        .select('id, name, votes')
-        .eq('id', id);
+        .from("options")
+        .select("id, name, votes")
+        .eq("id", id);
 
       if (optionsError) {
         console.error(optionsError);
@@ -105,9 +105,9 @@ export default function Home() {
       optionVotes += voted ? -1 : 1;
 
       const { data, error } = await supabase
-        .from('options')
+        .from("options")
         .update({ votes: optionVotes })
-        .eq('id', id);
+        .eq("id", id);
 
       if (error) {
         console.log(error);
@@ -117,7 +117,7 @@ export default function Home() {
         setSelected(true);
 
         const { data: votes, error: profilesError } = await supabase
-          .from('votes')
+          .from("votes")
           .insert([
             {
               user_id: user.id,
@@ -130,10 +130,10 @@ export default function Home() {
       } else {
         setSelected(false);
         const { data, error } = await supabase
-          .from('votes')
+          .from("votes")
           .delete()
-          .eq('user_id', user.id)
-          .eq('option_id', id);
+          .eq("user_id", user.id)
+          .eq("option_id", id);
 
         if (error) {
           console.log(error);
@@ -146,13 +146,13 @@ export default function Home() {
 
   async function signInWithGithub() {
     await supabase.auth.signIn({
-      provider: 'github',
+      provider: "github",
     });
   }
 
   async function signInWithGoogle() {
     await supabase.auth.signIn({
-      provider: 'google',
+      provider: "google",
     });
   }
 
@@ -166,7 +166,7 @@ export default function Home() {
     }
   }
 
-  console.log('user', user);
+  console.log("user", user);
   // Add auth for twitter when live
   // async function signInWithTwitter() {
   //   await supabase.auth.signIn({
@@ -180,7 +180,7 @@ export default function Home() {
       setSession(session);
       setUser(session.user);
       supabase
-        .from('profiles')
+        .from("profiles")
         .upsert({
           id: session.user.id,
           email: session.user.email,
@@ -201,7 +201,7 @@ export default function Home() {
 
       <Box
         width="100%"
-        h="80vh"
+        h="70vh"
         display="flex"
         justifyContent="center"
         as="main"
