@@ -61,7 +61,7 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
 
   return (
     <Modal show={show} Toggle={Toggle}>
-      <Box mr="15px" ml="15px">
+      <Box mt="25px" mr="15px" ml="15px">
         <Text
           mt="-2rem"
           pb="1rem"
