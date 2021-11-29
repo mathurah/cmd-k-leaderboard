@@ -191,7 +191,7 @@ export default function Home() {
 
   return (
     //
-    <>
+    <Box h="100vh" w="100vw" overflowY="scroll">
       {/* <Box
         w="100vw"
         h="90vh"
@@ -219,7 +219,7 @@ export default function Home() {
           as="main" */}
       <Box
         w="100vw"
-        h="90vh"
+        // h="90vh"
         d="flex"
         flexDirection="column"
         alignItems="center"
@@ -235,9 +235,8 @@ export default function Home() {
 
         <Box
           width="100%"
-          h="65vh"
-          maxH="65vh"
-          overflowY="scroll"
+          // h="65vh"
+          // maxH="65vh"
           display="flex"
           justifyContent="center"
           as="main"
@@ -272,6 +271,6 @@ export default function Home() {
         </Box>
       </Box>
       <Footer />
-    </>
+    </Box>
   );
 }

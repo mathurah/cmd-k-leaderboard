@@ -18,7 +18,6 @@ const Header = ({ user, handleSignOut }) => {
         alignItems="center"
         justifyContent="center"
         flexDir="column"
-        position="sticky"
         mb="1rem"
       >
         {user && (
