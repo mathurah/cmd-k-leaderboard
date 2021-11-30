@@ -1,12 +1,12 @@
-import { Text, Checkbox, Box, Input, Button, Image } from '@chakra-ui/react';
-import Autosuggest from 'react-autosuggest';
-import themeable from 'react-themeable';
-import { useState } from 'react';
-import Modal from './Modal';
+import { Text, Checkbox, Box, Input, Button, Image } from "@chakra-ui/react";
+import Autosuggest from "react-autosuggest";
+import themeable from "react-themeable";
+import { useState } from "react";
+import Modal from "./Modal";
 const AddCompanyModal = ({ show, Toggle, submitOption }) => {
-  const [name, setName] = useState('');
-  const [query, setQuery] = useState('');
-  const [url, setUrl] = useState('');
+  const [name, setName] = useState("");
+  const [query, setQuery] = useState("");
+  const [url, setUrl] = useState("");
   const [selected, setSelected] = useState(null);
   const [submitted, setSubmitted] = useState(null);
   const [isUser, setIsUser] = useState(false);
@@ -14,9 +14,9 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
 
   const clearOptions = () => {
     setCompanyOptions([]);
-    setName('');
-    setUrl('');
-    setQuery('');
+    setName("");
+    setUrl("");
+    setQuery("");
     setIsUser(false);
   };
 
@@ -59,7 +59,7 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
   );
 
   const autosuggestInputProps = {
-    placeholder: 'Search for a company',
+    placeholder: "Search for a company",
     value: query,
     name,
     onChange: (event, { newValue }) => {
@@ -88,24 +88,21 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
           suggestions={companyOptions || []}
           onSuggestionsFetchRequested={onSuggestionsFetchRequested}
           onSuggestionsClearRequested={onSuggestionsClearRequested}
-          getSuggestionValue={getCompanyURL}
+          getSuggestionValue={getCompanyName}
           onSuggestionSelected={onSuggestionSelected}
           renderSuggestion={renderCompanyOption}
           inputProps={autosuggestInputProps}
         />
       </Box>
-      <Box w="100%" d="flex" justifyContent="center">
-        <Checkbox
-          size="md"
-          colorScheme="purple"
-          isChecked={isUser}
-          onChange={(e) => setIsUser(e.target.checked)}
-        >
-          Are you a user?
-        </Checkbox>
-      </Box>
       {selected !== null && (
-        <Box w="100%" d="flex" justifyContent="center" pt="15px" pb="15px">
+        <Box
+          w="100%"
+          m="2rem"
+          d="flex"
+          justifyContent="center"
+          pt="15px"
+          pb="15px"
+        >
           <Image
             height="5rem"
             alt="Company logo"
@@ -117,7 +114,16 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
           </Box>
         </Box>
       )}
-
+      <Box w="100%" p="1rem" d="flex" justifyContent="center">
+        <Checkbox
+          size="md"
+          colorScheme="purple"
+          isChecked={isUser}
+          onChange={(e) => setIsUser(e.target.checked)}
+        >
+          Are you a user?
+        </Checkbox>
+      </Box>
       {!submitted ? (
         <Button
           onClick={() => {
