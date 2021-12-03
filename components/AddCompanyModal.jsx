@@ -1,12 +1,12 @@
-import { Text, Checkbox, Box, Input, Button, Image } from "@chakra-ui/react";
-import Autosuggest from "react-autosuggest";
-import themeable from "react-themeable";
-import { useState } from "react";
-import Modal from "./Modal";
-const AddCompanyModal = ({ show, Toggle, submitOption }) => {
-  const [name, setName] = useState("");
-  const [query, setQuery] = useState("");
-  const [url, setUrl] = useState("");
+import { Text, Checkbox, Box, Input, Button, Image } from '@chakra-ui/react';
+import Autosuggest from 'react-autosuggest';
+import themeable from 'react-themeable';
+import { useState } from 'react';
+import Modal from './Modal';
+const AddCompanyModal = ({ show, Toggle, submitOption, currentOptions }) => {
+  const [name, setName] = useState('');
+  const [query, setQuery] = useState('');
+  const [url, setUrl] = useState('');
   const [selected, setSelected] = useState(null);
   const [submitted, setSubmitted] = useState(null);
   const [isUser, setIsUser] = useState(false);
@@ -14,9 +14,9 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
 
   const clearOptions = () => {
     setCompanyOptions([]);
-    setName("");
-    setUrl("");
-    setQuery("");
+    setName('');
+    setUrl('');
+    setQuery('');
     setIsUser(false);
   };
 
@@ -59,7 +59,7 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
   );
 
   const autosuggestInputProps = {
-    placeholder: "Search for a company",
+    placeholder: 'Search for a company',
     value: query,
     name,
     onChange: (event, { newValue }) => {
@@ -125,18 +125,24 @@ const AddCompanyModal = ({ show, Toggle, submitOption }) => {
         </Checkbox>
       </Box>
       {!submitted ? (
-        <Button
-          onClick={() => {
-            setSubmitted(true);
-            submitOption({ name, url, isUser });
-            clearOptions();
-          }}
-          m="2.1rem"
-          size="sm"
-          colorScheme="purple"
-        >
-          Add company
-        </Button>
+        currentOptions.includes(url) ? (
+          <Button m="2.1rem" size="sm" colorScheme="purple" disabled>
+            Company Already Added
+          </Button>
+        ) : (
+          <Button
+            onClick={() => {
+              setSubmitted(true);
+              submitOption({ name, url, isUser });
+              clearOptions();
+            }}
+            m="2.1rem"
+            size="sm"
+            colorScheme="purple"
+          >
+            Add company
+          </Button>
+        )
       ) : (
         <Button m="2.1rem" size="sm" colorScheme="purple" disabled>
           Company Added

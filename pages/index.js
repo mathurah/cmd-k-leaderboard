@@ -237,6 +237,7 @@ export default function Home() {
           />
           <AddCompanyModal
             show={showAdd}
+            currentOptions={voteOptions.map((option) => option.url)}
             Toggle={toggleAdd}
             submitOption={submitOption}
           />
