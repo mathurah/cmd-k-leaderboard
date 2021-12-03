@@ -135,6 +135,7 @@ const AddCompanyModal = ({ show, Toggle, submitOption, currentOptions }) => {
               setSubmitted(true);
               submitOption({ name, url, isUser });
               clearOptions();
+              Toggle();
             }}
             m="2.1rem"
             size="sm"
