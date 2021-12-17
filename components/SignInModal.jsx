@@ -1,8 +1,16 @@
-import { FcGoogle } from "react-icons/fc";
-import { FaTwitter, FaGithub } from "react-icons/fa";
-import { Text, IconButton, Box } from "@chakra-ui/react";
-import Modal from "./Modal";
-const SignInModal = ({ show, Toggle, signInWithGithub, signInWithGoogle }) => {
+import { useContext } from 'react';
+import { FcGoogle } from 'react-icons/fc';
+import { FaTwitter, FaGithub } from 'react-icons/fa';
+import { Text, IconButton, Box } from '@chakra-ui/react';
+import { signIn } from '../api/supabase';
+import { Store } from '../context/state';
+import Modal from './Modal';
+const SignInModal = ({ Toggle }) => {
+  const {
+    state: { showSignIn: show },
+    dispatch,
+  } = useContext(Store);
+
   return (
     <Modal show={show} Toggle={Toggle}>
       <Box mr="15px" ml="15px">
@@ -14,16 +22,14 @@ const SignInModal = ({ show, Toggle, signInWithGithub, signInWithGoogle }) => {
         <IconButton
           aria-label="Log in with Github"
           icon={<FaGithub />}
-          onClick={() => {
-            signInWithGithub();
-          }}
+          onClick={() => signIn('github')}
           size="lg"
           mr="15px"
         />
         <IconButton
           aria-label="Log in with Twitter"
           icon={<FaTwitter fill="#5AA4D6" />}
-          onClick={() => Toggle()}
+          onClick={() => signIn('twitter')}
           size="lg"
           mr="15px"
           ml="15px"
@@ -31,7 +37,7 @@ const SignInModal = ({ show, Toggle, signInWithGithub, signInWithGoogle }) => {
         <IconButton
           aria-label="Log in with Google"
           icon={<FcGoogle />}
-          onClick={() => signInWithGoogle()}
+          onClick={() => signIn('google')}
           size="lg"
           ml="15px"
         />

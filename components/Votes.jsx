@@ -1,27 +1,24 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 
 import { Box, Button, Text } from '@chakra-ui/react';
-
+import { Store } from '../context/state';
 import Vote from './Vote';
 import AddCompanyModal from './AddCompanyModal';
 import { ChevronDownIcon, AddIcon, SmallAddIcon } from '@chakra-ui/icons';
+import { ACTION_TYPES, FILTER_ENUM } from '../context/constants';
 
-const Votes = ({
-  options,
-  Toggle,
-  toggleAdd,
-  userVotes = [],
-  filter,
-  setFilter,
-  loading,
-}) => {
-  console.log(Array.isArray(userVotes));
-  console.log(userVotes);
+const Votes = ({ Toggle, toggleAdd }) => {
+  const {
+    state: { voteOptions: options, userVotes, filter, votesLoading: loading },
+    dispatch,
+  } = useContext(Store);
   let votedArray = userVotes.map((vote) => vote.option_id);
-  console.log('Voted Ids ', votedArray);
-  const FILTER_ENUM = {
-    TOP: 'votes',
-    NEW: 'created_at',
+
+  const setFilter = (filter) => {
+    dispatch({
+      type: ACTION_TYPES.TOGGLE_FILTER,
+      filter,
+    });
   };
   return (
     <Box
@@ -50,7 +47,7 @@ const Votes = ({
             colorScheme="transparent"
             color="white"
             bgColor={filter === FILTER_ENUM.TOP ? '#3A28AF' : 'gray'}
-            onClick={() => setFilter(FILTER_ENUM.TOP)}
+            onClick={() => setFilter('TOP')}
           >
             Top
             <ChevronDownIcon />
@@ -59,7 +56,7 @@ const Votes = ({
             colorScheme="transparent"
             color="white"
             bgColor={filter === FILTER_ENUM.NEW ? '#3A28AF' : 'gray'}
-            onClick={() => setFilter(FILTER_ENUM.NEW)}
+            onClick={() => setFilter('NEW')}
           >
             New <ChevronDownIcon />
           </Button>

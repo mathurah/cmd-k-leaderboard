@@ -1,9 +1,13 @@
 import { Text, Checkbox, Box, Input, Button, Image } from '@chakra-ui/react';
 import Autosuggest from 'react-autosuggest';
 import themeable from 'react-themeable';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Modal from './Modal';
-const AddCompanyModal = ({ show, Toggle, submitOption, currentOptions }) => {
+import { Store } from '../context/state';
+import { insertOption } from '../api/supabase';
+import { ACTION_TYPES } from '../context/constants';
+
+const AddCompanyModal = ({ Toggle }) => {
   const [name, setName] = useState('');
   const [query, setQuery] = useState('');
   const [url, setUrl] = useState('');
@@ -12,12 +16,29 @@ const AddCompanyModal = ({ show, Toggle, submitOption, currentOptions }) => {
   const [isUser, setIsUser] = useState(false);
   const [companyOptions, setCompanyOptions] = useState([]);
 
+  const {
+    state: { showAdd: show, voteOptions, user },
+    dispatch,
+  } = useContext(Store);
+
+  const currentOptions = voteOptions.map((option) => option.url);
+
   const clearOptions = () => {
     setCompanyOptions([]);
     setName('');
     setUrl('');
     setQuery('');
     setIsUser(false);
+  };
+
+  const submitOption = async ({ name, url, isUser }) => {
+    const response = await insertOption({ name, url, isUser }, user);
+    if (response) {
+      dispatch({
+        type: ACTION_TYPES.SET_VOTE_OPTIONS,
+        voteOptions: [...voteOptions, response[0]],
+      });
+    }
   };
 
   const getCompanies = async (query) => {

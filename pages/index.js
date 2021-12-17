@@ -1,9 +1,6 @@
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect, useContext } from 'react';
 import Head from 'next/head';
-
 import { Box } from '@chakra-ui/react';
-
 import Header from '../components/Header';
 import Container from '../components/Container';
 import SignInModal from '../components/SignInModal';
@@ -12,91 +9,82 @@ import Footer from '../components/Footer';
 import { useSupabase } from '../hooks/useSupabase.js';
 import confetti from 'canvas-confetti';
 
-export default function Home() {
-  const FILTER_ENUM = {
-    TOP: 'votes',
-    NEW: 'created_at',
-  };
+import {
+  deleteVote,
+  getAllOptions,
+  getOption,
+  getUserVotes,
+  insertVote,
+  signOut,
+  updateOptionVotes,
+  upsertUser,
+} from '../api/supabase';
+import { Store } from '../context/state';
+import { ACTION_TYPES } from '../context/constants';
 
-  const [showSignIn, setShowSignIn] = useState(false);
-  const [showAdd, setShowAdd] = useState(false);
-  const [voteOptions, setVoteOptions] = useState([]);
-  const [session, setSession] = useState();
-  const [user, setUser] = useState();
-  const [filter, setFilter] = useState(FILTER_ENUM.TOP);
-  const [userVotes, setUserVotes] = useState();
-  const [votesLoading, setVotesLoading] = useState(false);
+export default function Home() {
+  const [session, setSession] = useState(null);
+  const {
+    state: { showAdd, userVotes, filter, user },
+    dispatch,
+  } = useContext(Store);
 
   const supabase = useSupabase();
 
-  async function submitOption(option) {
-    const response = await supabase.from('options').insert({
-      name: option.name,
-      url: option.url,
-      created_by: user.id,
-      submitted_by_user: option.isUser,
+  async function getOptions(user) {
+    dispatch({
+      type: ACTION_TYPES.TOGGLE_VOTES_LOADING,
+      loading: true,
     });
 
-    if (response.data && response.data.length) {
-      setVoteOptions([...voteOptions, response.data[0]]);
-    }
-    console.log(response);
-  }
+    const options = await getAllOptions(filter);
 
-  function toggleAdd() {
-    if (user || showAdd) {
-      setShowAdd(!showAdd);
-    } else {
-      setShowSignIn(true);
-    }
-  }
-
-  async function getOptions(user) {
-    setVotesLoading(true);
-    const { data: options, error } = await supabase
-      .from('options')
-      .select()
-      .order(filter, { ascending: false });
-    console.log(options);
-    setVoteOptions(options);
+    dispatch({
+      type: ACTION_TYPES.SET_VOTE_OPTIONS,
+      voteOptions: options,
+    });
 
     if (user) {
-      const { data: votes, error: votesError } = await supabase
-        .from('votes')
-        .select('option_id')
-        .eq('user_id', user.id);
-
-      setUserVotes(votes);
-
-      if (votesError) {
-        console.error(votesError);
-      }
+      const votes = await getUserVotes(user);
+      dispatch({
+        type: ACTION_TYPES.SET_USER_VOTES,
+        userVotes: votes,
+      });
     }
-    setVotesLoading(false);
-  }
 
-  console.log('userVotes', userVotes);
+    dispatch({
+      type: ACTION_TYPES.TOGGLE_VOTES_LOADING,
+      loading: false,
+    });
+  }
 
   useEffect(() => {
     getOptions(user);
   }, [user, filter]);
 
+  function toggleAdd() {
+    if (user || showAdd) {
+      dispatch({ type: ACTION_TYPES.TOGGLE_ADD });
+    } else {
+      dispatch({ type: ACTION_TYPES.TOGGLE_SIGN_IN, showSignIn: true });
+    }
+  }
+
   const Toggle = async (id, selected, setSelected) => {
     if (!user) {
-      setShowSignIn(!showSignIn);
+      dispatch({
+        type: ACTION_TYPES.TOGGLE_SIGN_IN,
+      });
       return;
     }
 
     if (user) {
-      setVotesLoading(true);
-      const { data: options, error: optionsError } = await supabase
-        .from('options')
-        .select('id, name, votes')
-        .eq('id', id);
+      dispatch({
+        type: ACTION_TYPES.TOGGLE_VOTES_LOADING,
+        loading: true,
+      });
 
-      if (optionsError) {
-        console.error(optionsError);
-      }
+      const options = await getOption(id);
 
       const { id: optionId, votes: optionVotes } = options[0];
 
@@ -104,94 +92,49 @@ export default function Home() {
 
       optionVotes += voted ? -1 : 1;
 
-      const { data, error } = await supabase
-        .from('options')
-        .update({ votes: optionVotes })
-        .eq('id', id);
-
-      if (error) {
-        console.log(error);
-      }
+      const data = await updateOptionVotes(id, optionVotes);
 
       if (!voted) {
         confetti();
         setSelected(true);
-
-        const { data: votes, error: profilesError } = await supabase
-          .from('votes')
-          .insert([
-            {
-              user_id: user.id,
-              // user_email: user.email,
-              option_id: optionId,
-            },
-          ]);
-
-        setUserVotes([...userVotes, { option_id: id }]);
+        const vote = await insertVote(optionId, user);
+        dispatch({
+          type: ACTION_TYPES.SET_USER_VOTES,
+          userVotes: [...userVotes, { option_id: id }],
+        });
       } else {
         setSelected(false);
-        const { data, error } = await supabase
-          .from('votes')
-          .delete()
-          .eq('user_id', user.id)
-          .eq('option_id', id);
-
-        if (error) {
-          console.log(error);
-        }
-        setUserVotes(userVotes.filter((vote) => vote.option_id !== id));
+        const vote = await deleteVote(optionId, user);
+        dispatch({
+          type: ACTION_TYPES.SET_USER_VOTES,
+          userVotes: userVotes.filter((vote) => vote.option_id !== id),
+        });
       }
       getOptions();
     }
   };
 
-  async function signInWithGithub() {
-    await supabase.auth.signIn({
-      provider: 'github',
-    });
-  }
-
-  async function signInWithGoogle() {
-    await supabase.auth.signIn({
-      provider: 'google',
-    });
-  }
-
   async function handleSignOut() {
-    let { error } = await supabase.auth.signOut();
-
+    let { error } = await signOut();
     location.reload();
-
     if (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
-  console.log('user', user);
-  // Add auth for twitter when live
-  // async function signInWithTwitter() {
-  //   await supabase.auth.signIn({
-  //     provider: "twitter",
-  //   });
-  // }
   useEffect(() => {
     setSession(supabase.auth.session());
-
-    supabase.auth.onAuthStateChange((_event, session) => {
+    supabase.auth.onAuthStateChange(async (_event, session) => {
       setSession(session);
-      setUser(session.user);
-      supabase
-        .from('profiles')
-        .upsert({
-          id: session.user.id,
-          email: session.user.email,
-        })
-        .then((res) => console.log(res));
+      dispatch({
+        type: ACTION_TYPES.SET_USER,
+        user: session.user,
+      });
+      await upsertUser(session.user);
     });
   }, []);
 
   return (
-    //
     <>
       <Box
         w="100vw"
@@ -216,30 +159,10 @@ export default function Home() {
           as="main"
           flexWrap="wrap"
         >
-          <Container
-            options={voteOptions}
-            Toggle={Toggle}
-            toggleAdd={toggleAdd}
-            submitOption={submitOption}
-            userVotes={userVotes}
-            filter={filter}
-            setFilter={setFilter}
-            votesLoading={votesLoading}
-          />
+          <Container Toggle={Toggle} toggleAdd={toggleAdd} />
 
-          <SignInModal
-            show={showSignIn}
-            title="My Modal"
-            Toggle={Toggle}
-            signInWithGithub={signInWithGithub}
-            signInWithGoogle={signInWithGoogle}
-          />
-          <AddCompanyModal
-            show={showAdd}
-            currentOptions={voteOptions.map((option) => option.url)}
-            Toggle={toggleAdd}
-            submitOption={submitOption}
-          />
+          <SignInModal title="My Modal" Toggle={Toggle} />
+          <AddCompanyModal Toggle={toggleAdd} />
         </Box>
         <Footer />
       </Box>

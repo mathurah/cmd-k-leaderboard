@@ -7,16 +7,15 @@ export const getAllOptions = async (filter) => {
     .from('options')
     .select()
     .order(filter, { ascending: false });
-  console.log(options);
   return options;
 };
 
 export const getOption = async (id) => {
-  const { data: option, error } = await supabase
+  const { data: options, error } = await supabase
     .from('options')
     .select()
     .eq('id', id);
-  return option;
+  return options;
 };
 
 export const insertOption = async (option, user) => {
@@ -26,6 +25,7 @@ export const insertOption = async (option, user) => {
     created_by: user.id,
     submitted_by_user: option.isUser,
   });
+  return newOption;
 };
 
 export const updateOptionVotes = async (id, votes) => {

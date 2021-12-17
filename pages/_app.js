@@ -1,7 +1,8 @@
 import '@fontsource/inter';
 import './globals.css';
 import { StoreProvider } from '../context/state';
-import { initialState, reducer } from '../context/reducer';
+import { initialState } from '../context/constants';
+import { reducer } from '../context/reducer';
 import {
   ChakraProvider,
   Container,
@@ -14,11 +15,11 @@ import theme from './theme';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <StoreProvider initialState={initialState} reducer={reducer}>
-      <ChakraProvider theme={theme}>
+    <ChakraProvider theme={theme}>
+      <StoreProvider initialState={initialState} reducer={reducer}>
         <Component {...pageProps} />
-      </ChakraProvider>
-    </StoreProvider>
+      </StoreProvider>
+    </ChakraProvider>
   );
 }
 
