@@ -24,7 +24,6 @@ export default function Home() {
   const [session, setSession] = useState();
   const [user, setUser] = useState();
   const [filter, setFilter] = useState(FILTER_ENUM.TOP);
-  const [active, setActive] = useState(false);
   const [userVotes, setUserVotes] = useState();
   const [votesLoading, setVotesLoading] = useState(false);
 
