@@ -8,16 +8,15 @@
 .footNoteText {
   color: #adadb0;
   justify-content: right;
-  padding: 2rem;
   background-color: #1b1b23;
   border-radius: 4px;
   text-align: center;
-  height: 32px;
 }
 
 .footnote {
   background: #24242e;
   display: flex;
   justify-content: right;
-  padding: 10px, 16px, 0px, 16px;
+  height: 2rem;
+  top: 1rem;
 }
