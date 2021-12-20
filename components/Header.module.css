@@ -1,5 +1,50 @@
-.background {
-  background: red;
-  transform: rotate(2deg);
-  background-repeat: repeat-x;
+.main {
+  position: relative;
+  transform: rotate(-2deg);
 }
+
+.aboveBG {
+  position: absolute;
+  margin-left: auto;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  text-align: center;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid;
+  overflow: hidden;
+  position: relative;
+  background-position-y: -10;
+  /* background-position-x: -80;  */
+  margin-top: -10px;
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: 200px;
+  background: url("../public/hero-background-repeat.png");
+}
+
+.header {
+  font-size: 72px;
+  margin-top: 10rem;
+  color: white;
+  font-weight: 800;
+  padding: 24px;
+}
+
+@media (max-width: 650px) {
+  .header {
+    font-size: 32px;
+  }
+}
+/*   TODO: FIX WHITESPACE AROUND BACKGROUND*/

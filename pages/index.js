@@ -21,6 +21,8 @@ import {
 } from "../api/supabase";
 import { Store } from "../context/state";
 import { ACTION_TYPES } from "../context/constants";
+import MainTitle from "../components/MainTitle";
+import Footnote from "../components/Footnote";
 
 export default function Home() {
   const [session, setSession] = useState(null);
@@ -151,6 +153,8 @@ export default function Home() {
       </Head>
 
       <Header user={user} session={session} handleSignOut={handleSignOut} />
+      <MainTitle />
+      <Footnote />
 
       {/* <Box
           width="100%"
