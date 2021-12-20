@@ -23,6 +23,7 @@ import { Store } from "../context/state";
 import { ACTION_TYPES } from "../context/constants";
 import MainTitle from "../components/MainTitle";
 import Footnote from "../components/Footnote";
+import Leaderboard from "../components/Leaderboard";
 
 export default function Home() {
   const [session, setSession] = useState(null);
@@ -155,6 +156,7 @@ export default function Home() {
       <Header user={user} session={session} handleSignOut={handleSignOut} />
       <MainTitle />
       <Footnote />
+      <Leaderboard />
 
       {/* <Box
           width="100%"
