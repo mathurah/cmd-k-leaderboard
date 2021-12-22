@@ -1,6 +1,8 @@
 .main {
   position: relative;
-  transform: rotate(-2deg);
+  width: 100vw;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 .aboveBG {
@@ -13,12 +15,17 @@
 }
 
 .background {
+  transform: rotate(-2deg);
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  border: 1px solid;
+  /* overflow: hidden; */
   position: relative;
   background-position-y: -10;
+  /* background-repeat: repeat-x; */
   margin-top: -10px;
+  margin-left: -20px;
 }
 
 .background::before {
@@ -26,9 +33,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 200vw;
   height: 100vh;
   background-size: 200px;
+  /* background-repeat: repeat-x; */
   background: url("../public/hero-background-repeat.png");
 }
 
