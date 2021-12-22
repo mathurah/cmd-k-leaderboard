@@ -164,7 +164,6 @@ export default function Home() {
         <MainTitle />
         <Footnote />
         <Leaderboard />
-        <div style={{ maxWidth: '100%' }}>.</div>
 
         {/* <Box
           width="100%"

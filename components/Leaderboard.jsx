@@ -1,5 +1,5 @@
-import React from "react";
-import LeaderboardTitle from "./LeaderboardTitle";
+import React from 'react';
+import LeaderboardTitle from './LeaderboardTitle';
 
 const Leaderboard = () => {
   return (
