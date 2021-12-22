@@ -16,9 +16,11 @@ const Header = ({ user, handleSignOut }) => {
           <div className={styles.aboveBG}>
             <Marquee></Marquee>
             <div className={styles.header}>
-              <h1>
+              {/* <h1>Hello</h1> */}
+
+              {/* <h1>
                 Vote for a command menu <br></br> in your favorite apps
-              </h1>
+              </h1> */}
             </div>
             <Button className={(styles.btn, styles.cta)}>Vote Now</Button>
           </div>
