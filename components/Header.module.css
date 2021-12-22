@@ -18,17 +18,15 @@
   transform: rotate(-2deg);
   width: 200vw;
   height: 100vh;
-  /* border: 1px solid; */
-  /* overflow: hidden; */
+  overflow: hidden;
   position: relative;
   background-position-y: -10;
-  /* background-repeat: repeat-x; */
   margin-top: -10px;
   margin-left: -20px;
 }
 
 .background::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -36,7 +34,7 @@
   height: 100vh;
   background-size: 200px;
   /* background-repeat: repeat-x; */
-  background: url('../public/hero-background-repeat.png');
+  background: url("../public/hero-background-repeat.png");
 }
 
 .header {
@@ -46,8 +44,8 @@
   font-weight: 800;
   padding: 24px;
   line-height: 72px;
-  font-family: 'Cartridge';
-  font-feature-settings: 'ss01';
+  font-family: "Cartridge";
+  font-feature-settings: "ss01";
   /* text-shadow: -6px -6px 0 , 6px -6px 0 #491849, -6px 6px 0 #491849, */
   -webkit-font-smoothing: antialiased;
   text-shadow: -6px -6px 0 #491849, 0 -6px 0 #491849, 6px -6px 0 #491849,
