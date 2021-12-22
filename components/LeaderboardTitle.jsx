@@ -1,13 +1,12 @@
-import React from "react";
-import styles from "./Leaderboard.module.css";
-import LeaderboardBackground from "./LeaderboardBackground";
+import React from 'react';
+import styles from './Leaderboard.module.css';
 const LeaderboardTitle = () => {
   return (
     <>
       <div className={styles.container}>
-        <LeaderboardBackground>
-          <div className={styles.text}>Leaderboard</div>
-        </LeaderboardBackground>
+        <div className={styles.text}>
+          <h2>Leaderboard</h2>
+        </div>
       </div>
     </>
   );

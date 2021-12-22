@@ -15,7 +15,6 @@
   text-align: center;
   font-family: arial black;
   color: white;
-  font-size: 40px;
   text-shadow: 0px 0px #421e0e, 1px 1px #421e0e, 2px 2px #421e0e,
     3px 3px #421e0e, 4px 4px #421e0e, 5px 5px #421e0e, 6px 6px #421e0e,
     7px 7px #421e0e, 8px 8px #421e0e, 9px 9px #421e0e, 10px 10px #421e0e,
@@ -31,6 +30,22 @@
     47px 47px #421e0e, 48px 48px #421e0e, 49px 49px #421e0e, 50px 50px #421e0e,
     51px 51px #421e0e, 52px 52px #421e0e, 53px 53px #421e0e, 54px 54px #421e0e,
     55px 55px #421e0e, 56px 56px #421e0e;
+  background: linear-gradient(
+    to bottom,
+    #ecc152 0%,
+    #ecc152 33.33%,
+    #db8740 0%,
+    #db8740 66.66%,
+    #d95559 0%
+  );
+  overflow-y: hidden;
+
+  width: 100%;
+}
+
+.text h2 {
+  font-family: 'Cartridge';
+  font-size: 64px;
 }
 
 .colorContainer {
@@ -41,17 +56,8 @@
   position: relative;
 }
 
-.yellow {
-  background-color: yellow;
-  height: 3vh;
-}
-
-.orange {
-  height: 3vh;
-  background-color: rgb(252, 244, 229);
-}
-
-.red {
-  height: 3vh;
-  background-color: darkorange;
+@media (max-width: 650px) {
+  .text h2 {
+    font-size: 32px;
+  }
 }
