@@ -35,11 +35,16 @@
 }
 
 .header {
-  font-size: 72px;
+  font-size: 80px;
   margin-top: 10rem;
   color: white;
   font-weight: 800;
   padding: 24px;
+  font-family: "Cartridge";
+  /* -webkit-text-stroke: 0.05rem #391849; */
+
+  /* text-shadow: -6px -6px 0 #000, 0 -6px 0 #000, 6px -6px 0 #000, 6px 0 0 #000,
+    6px 6px 0 #000, 0 6px 0 #000, -6px 6px 0 #000, -6px 0 0 #000; */
 }
 
 @media (max-width: 650px) {
@@ -47,4 +52,6 @@
     font-size: 32px;
   }
 }
-/*   TODO: FIX WHITESPACE AROUND BACKGROUND*/
+/*   TODO: FIX WHITESPACE AROUND BACKGROUND*
+    TODO: add font and stroke background to it - how do I get the special font characters?
+*/
