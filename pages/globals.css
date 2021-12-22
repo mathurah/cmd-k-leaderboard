@@ -3,8 +3,8 @@
 }
 
 @font-face {
-  font-family: "Cartridge";
-  src: url("/fonts/Cartridge/Cartridge-Regular.ttf");
+  font-family: 'Cartridge';
+  src: url('/fonts/Cartridge/Cartridge-Regular.ttf');
   font-style: normal;
   font-weight: 500;
   letter-spacing: 0%;
@@ -15,7 +15,12 @@ body {
   padding: 0;
   margin: 0;
   max-height: 100vh;
-  font-feature-settings: "ss01";
+  font-feature-settings: 'ss01';
+}
+
+.home {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 a {
