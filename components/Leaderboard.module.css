@@ -3,7 +3,6 @@
   justify-content: center;
   display: flex;
   width: 100vw;
-  height: 100px;
   box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -44,7 +43,7 @@
 }
 
 .text h2 {
-  font-family: 'Cartridge';
+  font-family: "Cartridge";
   font-size: 64px;
 }
 
