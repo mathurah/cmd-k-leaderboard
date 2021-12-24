@@ -19,7 +19,7 @@
   transform: rotate(-2deg);
   background-color: #20202a;
   width: 200vw;
-  height: 100vh;
+  height: 1100px;
   overflow: hidden;
   position: relative;
   background-position-y: -10;
@@ -33,15 +33,17 @@
   top: 0;
   left: 0;
   width: 200vw;
-  height: 100vh;
-  /* background-size: 200px; */
-  /* background-repeat: repeat-x; */
+  height: 1100px;
+  background-size: cover;
+  background-repeat: repeat-x;
   background: url('../public/hero-background-repeat.png');
 }
 
 .header {
   font-size: 80px;
-  margin-top: 10rem;
+  display: flex;
+  justify-content: center;
+  /* margin-top: 10rem; */
   color: white;
   font-weight: 400;
   /* padding: 24px; */
@@ -58,6 +60,16 @@
   /* -webkit-text-stroke: 0.05rem #391849; */
 }
 
+.title {
+  max-width: 1000px;
+  align-self: center;
+  text-align: center;
+}
+
+.title span {
+  display: inline-block;
+}
+
 .headerContainer {
   width: 50%;
   padding-left: 50px;
@@ -71,6 +83,14 @@
     text-shadow: -4px -4px 0 #491849, 0 -4px 0 #491849, 4px -4px 0 #491849,
       4px 0 0 #491849, 4px 4px 0 #491849, 0 4px 0 #491849, -4px 4px 0 #491849,
       -4px 0 0 #491849;
+  }
+  .background {
+    height: 700px;
+    background-size: contain;
+  }
+  .background::before {
+    height: 700px;
+    background-size: contain;
   }
 }
 
