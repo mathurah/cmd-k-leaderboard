@@ -1,11 +1,11 @@
-import React from 'react';
-import styles from './Header.module.css';
-import { useState, useContext } from 'react';
-import { Store } from '../context/state';
-import { useSupabase } from '../hooks/useSupabase.js';
-import { signOut } from '../api/supabase';
-import Button from './Button';
-import Marquee from './Marquee';
+import React from "react";
+import styles from "./Header.module.css";
+import { useState, useContext } from "react";
+import { Store } from "../context/state";
+import { useSupabase } from "../hooks/useSupabase.js";
+import { signOut } from "../api/supabase";
+import Button from "./Button";
+import Marquee from "./Marquee";
 const Header = () => {
   const supabase = useSupabase();
   const {

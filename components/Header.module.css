@@ -28,7 +28,7 @@
 }
 
 .background::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -36,32 +36,28 @@
   height: 1100px;
   background-size: cover;
   background-repeat: repeat-x;
-  background: url('../public/hero-background-repeat.png');
+  background: url("../public/hero-background-repeat.png");
 }
 
 .header {
   font-size: 80px;
   display: flex;
   justify-content: center;
-  /* margin-top: 10rem; */
   color: white;
   font-weight: 400;
-  /* padding: 24px; */
+  padding: 24px;
   line-height: 72px;
-  font-family: 'Cartridge';
-  font-feature-settings: 'ss02' on;
-  /* text-shadow: -6px -6px 0 , 6px -6px 0 #491849, -6px 6px 0 #491849, */
+  font-family: "Cartridge";
+  font-feature-settings: "ss02" on;
   -webkit-font-smoothing: antialiased;
   text-shadow: -6px -6px 0 #491849, 0 -6px 0 #491849, 6px -6px 0 #491849,
     6px 0 0 #491849, 6px 6px 0 #491849, 0 6px 0 #491849, -6px 6px 0 #491849,
     -6px 0 0 #491849;
-  /* max-width: 80%; */
-
-  /* -webkit-text-stroke: 0.05rem #391849; */
 }
 
 .title {
   max-width: 1000px;
+  margin: 24px;
 }
 
 .title span {
