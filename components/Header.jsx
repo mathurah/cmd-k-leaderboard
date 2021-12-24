@@ -26,6 +26,21 @@ const Header = ({ user, handleSignOut }) => {
                   company: 'FigmaFigmaFigma',
                   count: 1000,
                 },
+                {
+                  url: 'https://www.figma.com/',
+                  company: 'FigmaFigmaFigma',
+                  count: 1000,
+                },
+                {
+                  url: 'https://www.figma.com/',
+                  company: 'Figma',
+                  count: 1000,
+                },
+                {
+                  url: 'https://www.figma.com/',
+                  company: 'FigmaFigmaFigma',
+                  count: 1000,
+                },
               ]}
             />
             <div className={styles.headerContainer}>
@@ -34,7 +49,7 @@ const Header = ({ user, handleSignOut }) => {
 
                 <div className={styles.title}>
                   <h1>
-                    <span>Vote for a </span>
+                    <span>Vote for a &nbsp;</span>
                     <span>command menu </span>
                     <span>in your favorite apps</span>
                   </h1>
