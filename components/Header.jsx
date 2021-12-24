@@ -14,14 +14,31 @@ const Header = ({ user, handleSignOut }) => {
       <div className={styles.main}>
         <div className={styles.background}>
           <div className={styles.aboveBG}>
-            <Marquee></Marquee>
+            <Marquee
+              votes={[
+                {
+                  url: 'https://www.figma.com/',
+                  company: 'Figma',
+                  count: 1000,
+                },
+                {
+                  url: 'https://www.figma.com/',
+                  company: 'FigmaFigmaFigma',
+                  count: 1000,
+                },
+              ]}
+            />
             <div className={styles.headerContainer}>
               <div className={styles.header}>
                 {/* <h1>Hello</h1> */}
 
-                <h1>
-                  Vote for a command menu <br></br> in your favorite apps
-                </h1>
+                <div className={styles.title}>
+                  <h1>
+                    <span>Vote for a </span>
+                    <span>command menu </span>
+                    <span>in your favorite apps</span>
+                  </h1>
+                </div>
               </div>
 
               <Button style="cta">Vote Now</Button>
