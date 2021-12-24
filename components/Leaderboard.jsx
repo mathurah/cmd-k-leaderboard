@@ -4,6 +4,7 @@ import styles from './Leaderboard.module.css';
 import { TOP_COLORS } from '../styles/constants';
 import { useState, useContext } from 'react';
 import { Store } from '../context/state';
+import Button from './Button';
 
 const Leaderboard = () => {
   const {
@@ -57,7 +58,19 @@ const LeaderboardItem = ({ url, company, index, votes, bg }) => {
         <div className={styles.leaderboardItemCompany}>{company}</div>
       </div>
       <div className={styles.leaderboardItemGroup}>
-        <div className={styles.leaderboardTwitter}>{'tellem'}</div>
+        <div className={styles.leaderboardTwitter}>
+          <Button style="tweet">
+            <a
+              target="blank"
+              href={`https://twitter.com/intent/tweet?url=https://www.commandbar.com/&text=${company} should be the next company to add Cmd+K to their site! @commandbar`}
+            >
+              <div className={styles.leaderboardTwitterButton}>
+                <div className={styles.tellem}>tell 'em</div>
+                <img src="twitter.svg" />
+              </div>
+            </a>
+          </Button>
+        </div>
         <div className={styles.leaderboardItemVotes}>{votes}</div>
       </div>
     </div>

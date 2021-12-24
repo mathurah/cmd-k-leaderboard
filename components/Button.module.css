@@ -9,7 +9,7 @@
   border: 4px solid rgba(255, 255, 255, 0.1);
   color: #ffffff;
   width: 193px;
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
 }
 
 .cta:hover {
@@ -39,7 +39,7 @@
   box-shadow: 8px 8px 0px 4px rgba(0, 0, 0, 0.16);
   color: #ffffff;
   width: 193px;
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
 }
 
 .primary:hover {
@@ -64,10 +64,24 @@
   box-sizing: border-box;
   border-radius: 4px;
   font-size: 16px;
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   color: white;
   padding: 0px, 16px, 0px, 16px;
 }
+
+.tweet {
+  width: 124px;
+  height: 48px;
+  border-radius: 4px;
+  background: rgba(36, 36, 47, 0.16);
+  border: 4px solid rgba(36, 36, 47, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 16px;
+  color: white;
+}
+
 @media (max-width: 650px) {
   .cta {
     font-size: 24px;
