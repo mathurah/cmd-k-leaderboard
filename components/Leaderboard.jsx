@@ -23,7 +23,7 @@ const Leaderboard = () => {
               <div>#</div>
               <div>APP</div>
             </div>
-            <div>VOTES</div>
+            <div className={styles.leaderboardLabelsRight}>VOTES</div>
           </div>
           {!votesLoading && (
             <div className={styles.leaderboardList}>
