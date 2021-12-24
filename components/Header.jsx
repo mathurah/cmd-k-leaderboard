@@ -37,8 +37,9 @@ const Header = () => {
 
                 <div className={styles.title}>
                   <h1>
-                    <span>Vote for a &nbsp;</span>
-                    <span>command menu </span>
+                    <span>
+                      <span>Vote for a </span> <span> command menu </span>
+                    </span>
                     <span>in your favorite apps</span>
                   </h1>
                 </div>

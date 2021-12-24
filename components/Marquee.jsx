@@ -19,7 +19,7 @@ const COLORS = [
 const Marquee = ({ votes }) => {
   return (
     <div className={styles.marqueeContainer}>
-      <Ticker offset="run-in" speed={12}>
+      <Ticker offset="run-in" speed={10}>
         {() => (
           <div className={styles.marquee}>
             {votes.length ? (

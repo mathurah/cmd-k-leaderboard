@@ -5,7 +5,6 @@ const Leaderboard = () => {
   return (
     <>
       <div>
-        <div></div>
         <LeaderboardTitle />
       </div>
     </>
