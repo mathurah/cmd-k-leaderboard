@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Ticker from 'react-ticker';
+import { getPrefersReducedMotion } from '../api/window';
 import styles from './Marquee.module.css';
 
 const COLORS = [
@@ -17,33 +18,45 @@ const COLORS = [
 ];
 
 const Marquee = ({ votes }) => {
+  const [motion, setMotion] = useState(true);
+  useEffect(() => {
+    setMotion(getPrefersReducedMotion());
+  }, []);
+
   return (
     <div className={styles.marqueeContainer}>
-      <Ticker offset="run-in" speed={10}>
-        {() => (
-          <div className={styles.marquee}>
-            {votes.length ? (
-              votes.map(({ url, company, count }, index) => {
-                return (
-                  <Tile
-                    url={url}
-                    company={company}
-                    count={count}
-                    index={index}
-                    color={COLORS[Math.min(index, COLORS.length - 1)]}
-                  />
-                );
-              })
-            ) : (
-              <></>
-            )}
-          </div>
-        )}
-      </Ticker>
+      {motion ? (
+        <Ticker offset="run-in" speed={10}>
+          {() => <MarqueeBase votes={votes} />}
+        </Ticker>
+      ) : (
+        <div className={styles.staticMarquee}>
+          <MarqueeBase votes={votes} />
+        </div>
+      )}
     </div>
   );
 };
 
+const MarqueeBase = ({ votes }) => (
+  <div className={styles.marquee}>
+    {votes.length ? (
+      votes.map(({ url, company, count }, index) => {
+        return (
+          <Tile
+            url={url}
+            company={company}
+            count={count}
+            index={index}
+            color={COLORS[Math.min(index, COLORS.length - 1)]}
+          />
+        );
+      })
+    ) : (
+      <></>
+    )}
+  </div>
+);
 const Tile = ({ url, company, count, index, color }) => {
   return (
     <div key={index} style={{ backgroundColor: color }} className={styles.tile}>
