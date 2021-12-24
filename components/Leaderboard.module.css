@@ -1,3 +1,10 @@
+.leaderboard {
+  font-family: 'Cartridge';
+  font-feature-settings: 'ss01';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .container {
   align-items: center;
   justify-content: center;
@@ -48,7 +55,7 @@
 }
 
 .text h2 {
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   font-size: 64px;
   margin-bottom: 4px;
 }
@@ -59,6 +66,27 @@
   height: 9vh;
   width: 100vw;
   position: relative;
+}
+
+.leaderboardContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 1216px;
+  width: 100%;
+  align-items: center;
+  padding: 32px 36px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.leaderboardInstructions {
+  background-color: #ecc152;
+  font-family: 'Cartridge';
+  font-weight: 400;
+  font-feature-settings: 'ss03';
+  color: #121217;
+  font-size: 24px;
+  border-radius: 4px;
+  padding: 4px 16px 2px 16px;
 }
 
 @media (max-width: 650px) {
