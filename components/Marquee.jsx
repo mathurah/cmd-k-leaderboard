@@ -2,25 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Ticker from 'react-ticker';
 import { getPrefersReducedMotion } from '../api/window';
 import styles from './Marquee.module.css';
-
-const COLORS = [
-  '#4242CB',
-  '#7042CB',
-  '#9D42CB',
-  '#CB42CB',
-  '#C12D90',
-  '#D22D64',
-  '#CD3030',
-  '#AF440E',
-  '#A05305',
-  '#876705',
-  '#3A3A44',
-];
+import { TOP_COLORS } from '../styles/constants';
 
 const Marquee = ({ votes }) => {
   const [motion, setMotion] = useState(true);
   useEffect(() => {
-    setMotion(getPrefersReducedMotion());
+    setMotion(!getPrefersReducedMotion());
   }, []);
 
   return (
@@ -48,7 +35,7 @@ const MarqueeBase = ({ votes }) => (
             company={company}
             count={count}
             index={index}
-            color={COLORS[Math.min(index, COLORS.length - 1)]}
+            color={TOP_COLORS[Math.min(index, TOP_COLORS.length - 1)]}
           />
         );
       })
