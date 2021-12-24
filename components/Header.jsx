@@ -21,6 +21,11 @@ const Header = ({ user, handleSignOut }) => {
                   company: 'Figma',
                   count: 1000,
                 },
+                {
+                  url: 'https://www.figma.com/',
+                  company: 'FigmaFigmaFigma',
+                  count: 1000,
+                },
               ]}
             />
             <div className={styles.headerContainer}>
