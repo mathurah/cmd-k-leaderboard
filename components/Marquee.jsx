@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Ticker from 'react-ticker';
 import styles from './Marquee.module.css';
 
 const COLORS = [
@@ -18,19 +19,23 @@ const COLORS = [
 const Marquee = ({ votes }) => {
   return (
     <>
-      <div className={styles.marquee}>
-        {(votes || []).map(({ url, company, count }, index) => {
-          return (
-            <Tile
-              url={url}
-              company={company}
-              count={count}
-              index={index}
-              color={COLORS[Math.min(index, COLORS.length - 1)]}
-            />
-          );
-        })}
-      </div>
+      <Ticker speed={12}>
+        {() => (
+          <div className={styles.marquee}>
+            {(votes || []).map(({ url, company, count }, index) => {
+              return (
+                <Tile
+                  url={url}
+                  company={company}
+                  count={count}
+                  index={index}
+                  color={COLORS[Math.min(index, COLORS.length - 1)]}
+                />
+              );
+            })}
+          </div>
+        )}
+      </Ticker>
     </>
   );
 };
