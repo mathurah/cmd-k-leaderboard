@@ -18,25 +18,29 @@ const COLORS = [
 
 const Marquee = ({ votes }) => {
   return (
-    <>
-      <Ticker speed={12}>
+    <div className={styles.marqueeContainer}>
+      <Ticker offset="run-in" speed={12}>
         {() => (
           <div className={styles.marquee}>
-            {(votes || []).map(({ url, company, count }, index) => {
-              return (
-                <Tile
-                  url={url}
-                  company={company}
-                  count={count}
-                  index={index}
-                  color={COLORS[Math.min(index, COLORS.length - 1)]}
-                />
-              );
-            })}
+            {votes.length ? (
+              votes.map(({ url, company, count }, index) => {
+                return (
+                  <Tile
+                    url={url}
+                    company={company}
+                    count={count}
+                    index={index}
+                    color={COLORS[Math.min(index, COLORS.length - 1)]}
+                  />
+                );
+              })
+            ) : (
+              <></>
+            )}
           </div>
         )}
       </Ticker>
-    </>
+    </div>
   );
 };
 

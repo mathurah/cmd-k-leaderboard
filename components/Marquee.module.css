@@ -16,6 +16,10 @@
   }
 } */
 
+.marqueeContainer {
+  width: 55%;
+}
+
 .marquee {
   margin-top: calc(1120px / 14);
   margin-bottom: calc(1.5 * 1120px / 14);

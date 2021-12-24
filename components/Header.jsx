@@ -9,7 +9,7 @@ import Marquee from './Marquee';
 const Header = () => {
   const supabase = useSupabase();
   const {
-    state: { voteOptions, user },
+    state: { voteOptions, user, votesLoading },
     dispatch,
   } = useContext(Store);
   return (
@@ -18,14 +18,18 @@ const Header = () => {
         <div className={styles.background}>
           <div className={styles.aboveBG}>
             <Marquee
-              votes={voteOptions
-                .sort((a, b) => b.votes - a.votes)
-                .slice(0, 5)
-                .map(({ name, url, votes }) => ({
-                  company: name,
-                  count: votes,
-                  url,
-                }))}
+              votes={
+                votesLoading
+                  ? []
+                  : voteOptions
+                      // .sort((a, b) => b.votes - a.votes)
+                      .slice(0, 5)
+                      .map(({ name, url, votes }) => ({
+                        company: name,
+                        count: votes,
+                        url,
+                      }))
+              }
             />
             <div className={styles.headerContainer}>
               <div className={styles.header}>
