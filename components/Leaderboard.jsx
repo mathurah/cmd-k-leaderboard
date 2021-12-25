@@ -5,11 +5,12 @@ import { useState, useContext } from 'react';
 import { Store } from '../context/state';
 import Button from './Button';
 
-const Leaderboard = () => {
+const Leaderboard = ({ Toggle }) => {
   const {
     state: { voteOptions, user, userVotes, votesLoading },
     dispatch,
   } = useContext(Store);
+
   return (
     <>
       <div className={styles.leaderboard}>
@@ -25,7 +26,7 @@ const Leaderboard = () => {
             </div>
             <div className={styles.leaderboardLabelsRight}>VOTES</div>
           </div>
-          {!votesLoading && (
+          {
             <div className={styles.leaderboardList}>
               {voteOptions.map(({ url, name, votes, id }, index) => (
                 <LeaderboardItem
@@ -35,10 +36,13 @@ const Leaderboard = () => {
                   votes={votes}
                   id={id}
                   bg={TOP_COLORS[Math.min(index, TOP_COLORS.length - 1)]}
+                  handleVote={() => {
+                    Toggle(id);
+                  }}
                 />
               ))}
             </div>
-          )}
+          }
         </div>
       </div>
     </>
@@ -55,11 +59,20 @@ const LeaderboardTitle = ({}) => {
   );
 };
 
-const LeaderboardItem = ({ url, company, index, votes, bg, id }) => {
+const LeaderboardItem = ({
+  url,
+  company,
+  index,
+  votes,
+  bg,
+  id,
+  handleVote,
+}) => {
   const {
     state: { userVotes },
     dispatch,
   } = useContext(Store);
+
   return (
     <div style={{ backgroundColor: bg }} className={styles.leaderboardItem}>
       <div className={styles.leaderboardItemGroup}>
@@ -92,7 +105,7 @@ const LeaderboardItem = ({ url, company, index, votes, bg, id }) => {
         </div>
         <div>
           {userVotes.map(({ option_id }) => option_id).includes(id) ? (
-            <Button style={'voted'}>
+            <Button onClick={handleVote} style={'voted'}>
               <div className={styles.leaderboardItemVotes}>
                 <div className={styles.x}>
                   <svg
@@ -112,7 +125,7 @@ const LeaderboardItem = ({ url, company, index, votes, bg, id }) => {
               </div>
             </Button>
           ) : (
-            <Button style={'vote'}>
+            <Button onClick={handleVote} style={'vote'}>
               <div className={styles.leaderboardItemVotes}>
                 <div>+</div>
                 <div>{votes}</div>

@@ -29,7 +29,7 @@ import AddSection from '../components/AddSection';
 export default function Home() {
   const [session, setSession] = useState(null);
   const {
-    state: { showAdd, userVotes, filter, user },
+    state: { showAdd, userVotes, filter, user, votesLoading },
     dispatch,
   } = useContext(Store);
 
@@ -74,7 +74,11 @@ export default function Home() {
     }
   }
 
-  const Toggle = async (id, selected, setSelected) => {
+  const Toggle = async (id) => {
+    if (votesLoading) {
+      return;
+    }
+
     if (!user) {
       dispatch({
         type: ACTION_TYPES.TOGGLE_SIGN_IN,
@@ -100,14 +104,12 @@ export default function Home() {
 
       if (!voted) {
         confetti();
-        setSelected(true);
         const vote = await insertVote(optionId, user);
         dispatch({
           type: ACTION_TYPES.SET_USER_VOTES,
           userVotes: [...userVotes, { option_id: id }],
         });
       } else {
-        setSelected(false);
         const vote = await deleteVote(optionId, user);
         dispatch({
           type: ACTION_TYPES.SET_USER_VOTES,
@@ -164,7 +166,7 @@ export default function Home() {
         <Header user={user} session={session} handleSignOut={handleSignOut} />
         <MainTitle />
         <Footnote />
-        <Leaderboard toggleAdd={toggleAdd} />
+        <Leaderboard toggleAdd={toggleAdd} Toggle={Toggle} />
         <AddSection toggleAdd={toggleAdd} />
         <Footer />
         <SignInModal title="Sign In Modal" Toggle={Toggle} />
