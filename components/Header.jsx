@@ -1,17 +1,24 @@
-import React from "react";
-import styles from "./Header.module.css";
-import { useState, useContext } from "react";
-import { Store } from "../context/state";
-import { useSupabase } from "../hooks/useSupabase.js";
-import { signOut } from "../api/supabase";
-import Button from "./Button";
-import Marquee from "./Marquee";
+import React from 'react';
+import styles from './Header.module.css';
+import { useState, useContext } from 'react';
+import { Store } from '../context/state';
+import { useSupabase } from '../hooks/useSupabase.js';
+import { signOut } from '../api/supabase';
+import Button from './Button';
+import Marquee from './Marquee';
+import { ACTION_TYPES } from '../context/constants';
 const Header = () => {
   const supabase = useSupabase();
   const {
     state: { voteOptions, user, votesLoading },
     dispatch,
   } = useContext(Store);
+
+  const handleSignOut = async () => {
+    await signOut(supabase);
+    dispatch({ type: ACTION_TYPES.SIGN_OUT });
+  };
+
   return (
     <>
       <div className={styles.main}>
@@ -43,7 +50,14 @@ const Header = () => {
                 </div>
               </div>
 
-              <Button style="cta">Vote Now</Button>
+              <div className={styles.headerButtonGroup}>
+                <Button style="cta">Vote Now</Button>
+                {user && (
+                  <Button style="signOut" onClick={() => handleSignOut()}>
+                    sign out @{user.user_metadata.user_name}
+                  </Button>
+                )}
+              </div>
             </div>
           </div>
         </div>

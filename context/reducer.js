@@ -31,6 +31,12 @@ export const reducer = (state = initialState, action) => {
         ...state,
         user: action.user,
       };
+    case ACTION_TYPES.SIGN_OUT:
+      return {
+        ...state,
+        user: null,
+        userVotes: [],
+      };
     case ACTION_TYPES.SET_VOTE_OPTIONS:
       return {
         ...state,

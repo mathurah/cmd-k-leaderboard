@@ -28,7 +28,7 @@
 }
 
 .background::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -36,7 +36,7 @@
   height: 1100px;
   background-size: cover;
   background-repeat: repeat-x;
-  background: url("../public/hero-background-repeat.png");
+  background: url('../public/hero-background-repeat.png');
 }
 
 .header {
@@ -47,8 +47,8 @@
   font-weight: 400;
   padding: 24px;
   line-height: 72px;
-  font-family: "Cartridge";
-  font-feature-settings: "ss02" on;
+  font-family: 'Cartridge';
+  font-feature-settings: 'ss02' on;
   -webkit-font-smoothing: antialiased;
   text-shadow: -6px -6px 0 #491849, 0 -6px 0 #491849, 6px -6px 0 #491849,
     6px 0 0 #491849, 6px 6px 0 #491849, 0 6px 0 #491849, -6px 6px 0 #491849,
@@ -69,6 +69,15 @@
   padding-left: 50px;
   padding-top: 0px;
   margin-top: -40px;
+}
+
+.headerButtonGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  height: 125px;
 }
 
 @media (max-width: 650px) {
