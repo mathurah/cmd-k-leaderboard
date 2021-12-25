@@ -1,0 +1,32 @@
+.addSectionContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.addSection {
+  display: flex;
+  flex-direction: column;
+  max-width: 1216px;
+  width: 100%;
+  align-items: center;
+  padding: 0px 36px;
+  background-color: #24242e;
+  font-family: 'Cartridge';
+  font-feature-settings: 'ss03';
+}
+
+.addContainer {
+  margin-top: 64px;
+  margin-bottom: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 24px;
+}
