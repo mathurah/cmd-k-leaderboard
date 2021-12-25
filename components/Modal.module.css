@@ -1,0 +1,53 @@
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+}
+
+.modal {
+  width: 100%;
+  max-width: 800px;
+  background-color: #24242e;
+  top: 30%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.close {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: white;
+  padding: 40px;
+}
+
+.closeX {
+  cursor: pointer;
+}
+
+.signIn {
+  margin-top: -10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Cartridge';
+}
+
+.text {
+  font-family: 'Cartridge';
+  color: white;
+  font-size: 72px;
+}
+
+.button {
+  padding: 54px 0px 64px 0px;
+}

@@ -164,9 +164,10 @@ export default function Home() {
         <Header user={user} session={session} handleSignOut={handleSignOut} />
         <MainTitle />
         <Footnote />
-        <Leaderboard />
-        <AddSection />
+        <Leaderboard toggleAdd={toggleAdd} />
+        <AddSection toggleAdd={toggleAdd} />
         <Footer />
+        <SignInModal title="Sign In Modal" Toggle={Toggle} />
         {/* <Box
           width="100%"
           display="flex"
