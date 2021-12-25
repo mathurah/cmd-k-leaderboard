@@ -12,7 +12,6 @@ const SignInModal = ({ Toggle }) => {
     state: { showSignIn: show },
     dispatch,
   } = useContext(Store);
-
   return (
     <Modal show={show} Toggle={Toggle}>
       <div className={styles.close}>
@@ -40,7 +39,10 @@ const SignInModal = ({ Toggle }) => {
       <div className={styles.signIn}>
         <div className={styles.text}>Sign in to vote</div>
         <div className={styles.button}>
-          <Button style="add_section">Sign in to Twitter</Button>
+          <Button onClick={() => signIn('github')} style="add_section">
+            Sign in to Twitter
+          </Button>
+          {/*change to twitter*/}
         </div>
       </div>
     </Modal>

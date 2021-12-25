@@ -184,6 +184,16 @@
   margin-left: 2px;
 }
 
+.leaderboardItemVotes:hover .x {
+  filter: invert(21%) sepia(37%) saturate(3816%) hue-rotate(339deg)
+    brightness(118%) contrast(95%);
+}
+
+.x {
+  align-self: center;
+  padding-bottom: 5px;
+}
+
 @media (max-width: 650px) {
   .text h2 {
     font-size: 32px;
