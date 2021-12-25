@@ -24,6 +24,7 @@ import { ACTION_TYPES } from '../context/constants';
 import MainTitle from '../components/MainTitle';
 import Footnote from '../components/Footnote';
 import Leaderboard from '../components/Leaderboard';
+import AddSection from '../components/AddSection';
 
 export default function Home() {
   const [session, setSession] = useState(null);
@@ -163,8 +164,10 @@ export default function Home() {
         <Header user={user} session={session} handleSignOut={handleSignOut} />
         <MainTitle />
         <Footnote />
-        <Leaderboard />
-
+        <Leaderboard toggleAdd={toggleAdd} />
+        <AddSection toggleAdd={toggleAdd} />
+        <Footer />
+        <SignInModal title="Sign In Modal" Toggle={Toggle} />
         {/* <Box
           width="100%"
           display="flex"

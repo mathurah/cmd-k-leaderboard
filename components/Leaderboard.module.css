@@ -1,6 +1,6 @@
 .leaderboard {
-  font-family: "Cartridge";
-  font-feature-settings: "ss01";
+  font-family: 'Cartridge';
+  font-feature-settings: 'ss01';
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +48,7 @@
 }
 
 .text h2 {
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   font-size: 64px;
   margin-bottom: 4px;
 }
@@ -69,15 +69,15 @@
   align-items: center;
   padding: 32px 36px;
   background-color: #24242e;
-  margin-top: 32px;
+  margin: 32px 0px;
   color: rgba(255, 255, 255, 0.5);
 }
 
 .leaderboardInstructions {
   background-color: #ecc152;
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   font-weight: 400;
-  font-feature-settings: "ss03";
+  font-feature-settings: 'ss03';
   color: #121217;
   font-size: 24px;
   border-radius: 4px;
@@ -111,7 +111,7 @@
   width: 100%;
   color: white;
   font-size: 32px;
-  font-feature-settings: "ss03";
+  font-feature-settings: 'ss03';
   height: 80vh;
   overflow-y: scroll;
 }
@@ -166,17 +166,32 @@
   font-size: 16px;
 }
 
+.leaderboardItemTwitter:hover .leaderboardItemTwitterButton .twitter {
+  filter: invert(54%) sepia(95%) saturate(2614%) hue-rotate(176deg)
+    brightness(99%) contrast(91%);
+}
+
 .leaderboardItemVotes {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-size: 32px;
-  line-height: 46px;
+  line-height: 44px;
 }
 
 .tellem {
   margin-right: 8px;
   margin-left: 2px;
+}
+
+.leaderboardItemVotes:hover .x {
+  filter: invert(21%) sepia(37%) saturate(3816%) hue-rotate(339deg)
+    brightness(118%) contrast(95%);
+}
+
+.x {
+  align-self: center;
+  padding-bottom: 5px;
 }
 
 @media (max-width: 650px) {
@@ -186,8 +201,4 @@
   .tellem {
     display: none;
   }
-}
-
-.twitter:hover {
-  fill: blue;
 }
