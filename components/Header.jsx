@@ -33,8 +33,6 @@ const Header = () => {
             />
             <div className={styles.headerContainer}>
               <div className={styles.header}>
-                {/* <h1>Hello</h1> */}
-
                 <div className={styles.title}>
                   <h1>
                     <span>

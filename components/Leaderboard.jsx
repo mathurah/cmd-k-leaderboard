@@ -1,10 +1,9 @@
-import React from 'react';
-import LeaderboardTitle from './LeaderboardTitle';
-import styles from './Leaderboard.module.css';
-import { TOP_COLORS } from '../styles/constants';
-import { useState, useContext } from 'react';
-import { Store } from '../context/state';
-import Button from './Button';
+import React from "react";
+import styles from "./Leaderboard.module.css";
+import { TOP_COLORS } from "../styles/constants";
+import { useState, useContext } from "react";
+import { Store } from "../context/state";
+import Button from "./Button";
 
 const Leaderboard = () => {
   const {
@@ -45,6 +44,16 @@ const Leaderboard = () => {
   );
 };
 
+const LeaderboardTitle = ({}) => {
+  return (
+    <>
+      <div className={styles.text}>
+        <h2>Leaderboard</h2>
+      </div>
+    </>
+  );
+};
+
 const LeaderboardItem = ({ url, company, index, votes, bg }) => {
   return (
     <div style={{ backgroundColor: bg }} className={styles.leaderboardItem}>
@@ -66,7 +75,11 @@ const LeaderboardItem = ({ url, company, index, votes, bg }) => {
             >
               <div className={styles.leaderboardItemTwitterButton}>
                 <div className={styles.tellem}>tell 'em</div>
-                <img src="twitter.svg" />
+                <img
+                  className={styles.twitter}
+                  alt="Twitter Logo"
+                  src="twitter.svg"
+                />
               </div>
             </a>
           </Button>

@@ -1,6 +1,6 @@
 .leaderboard {
-  font-family: 'Cartridge';
-  font-feature-settings: 'ss01';
+  font-family: "Cartridge";
+  font-feature-settings: "ss01";
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +48,7 @@
 }
 
 .text h2 {
-  font-family: 'Cartridge';
+  font-family: "Cartridge";
   font-size: 64px;
   margin-bottom: 4px;
 }
@@ -75,9 +75,9 @@
 
 .leaderboardInstructions {
   background-color: #ecc152;
-  font-family: 'Cartridge';
+  font-family: "Cartridge";
   font-weight: 400;
-  font-feature-settings: 'ss03';
+  font-feature-settings: "ss03";
   color: #121217;
   font-size: 24px;
   border-radius: 4px;
@@ -111,7 +111,7 @@
   width: 100%;
   color: white;
   font-size: 32px;
-  font-feature-settings: 'ss03';
+  font-feature-settings: "ss03";
   height: 80vh;
   overflow-y: scroll;
 }
@@ -186,4 +186,8 @@
   .tellem {
     display: none;
   }
+}
+
+.twitter:hover {
+  fill: blue;
 }
