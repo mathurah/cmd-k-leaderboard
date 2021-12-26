@@ -142,14 +142,6 @@ export default function Home() {
 
   return (
     <>
-      {/* <Box
-        w="100vw"
-        h="100vh"
-        overflow="scroll"
-        d="flex"
-        flexDirection="column"
-        font-family="Inter"
-      > */}
       <div className="home">
         <Head>
           <title>CMD k Leaderboard</title>
@@ -162,28 +154,13 @@ export default function Home() {
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-
-        <Header user={user} session={session} handleSignOut={handleSignOut} />
+        <Header />
         <MainTitle />
         <Footnote />
-        <Leaderboard toggleAdd={toggleAdd} Toggle={Toggle} />
+        <Leaderboard Toggle={Toggle} />
         <AddSection toggleAdd={toggleAdd} />
         <Footer />
         <SignInModal title="Sign In Modal" Toggle={Toggle} />
-        {/* <Box
-          width="100%"
-          display="flex"
-          justifyContent="center"
-          as="main"
-          flexWrap="wrap"
-        > */}
-        {/* <Container Toggle={Toggle} toggleAdd={toggleAdd} />
-
-          <SignInModal title="My Modal" Toggle={Toggle} />
-          <AddCompanyModal Toggle={toggleAdd} />
-        </Box>
-        <Footer /> */}
-        {/* </Box> */}
       </div>
     </>
   );
