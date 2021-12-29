@@ -233,6 +233,74 @@
   padding-bottom: 5px;
 }
 
+.addStarContainer {
+  position: absolute;
+  right: calc(
+    0.5 * (100vw - 1100px + 20%)
+  ); /* TODO: use media query to adjust */
+  width: 100px;
+  height: 100px;
+  /* top: 75px; */
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.addStarLabel {
+  z-index: 1;
+  color: white;
+  font-size: 24px;
+  width: 55px;
+  line-height: 21px;
+  animation: rock 4s linear infinite;
+  cursor: pointer;
+}
+
+.addStar {
+  animation: spin 4s linear infinite;
+  cursor: pointer;
+  position: absolute;
+}
+
+.addStar:active,
+.addStarLabel:active .addStar {
+  filter: invert(98%) sepia(82%) saturate(5201%) hue-rotate(318deg)
+    brightness(101%) contrast(85%);
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes rock {
+  0% {
+    transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+  }
+  20% {
+    transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+  }
+  30% {
+    transform: rotate(12deg);
+    -webkit-transform: rotate(12deg);
+  }
+  60% {
+    transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+  }
+}
+
 @media (max-width: 650px) {
   .text h2 {
     font-size: 32px;
