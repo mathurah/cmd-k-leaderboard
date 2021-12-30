@@ -17,7 +17,12 @@
 
 .background {
   transform: rotate(-2deg);
-  background-color: #20202a;
+  background: linear-gradient(
+    to bottom,
+    #4242cb 0%,
+    #4242cb 1%,
+    #20202a 0%
+  ); /*'gradient' gets rid of dotted black line at top bug*/
   width: 200vw;
   height: 1100px;
   overflow: hidden;
