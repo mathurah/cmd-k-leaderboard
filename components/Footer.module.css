@@ -9,6 +9,7 @@
   margin: 24px 0px;
 }
 
-.footer span {
+.footer strong {
   color: white;
+  font-weight: 400;
 }

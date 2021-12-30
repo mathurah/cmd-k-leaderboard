@@ -51,8 +51,12 @@ import NewsletterModal from './NewsletterModal.jsx';
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      This project is made with 💛 in SF, XYZ & Berlin by{' '}
-      <span>&nbsp;CommandBar</span>
+      <div>
+        This project is made with 💛 in SF, XYZ & Berlin by{' '}
+        <a href="https://www.commandbar.com/" target={'_blank'}>
+          <strong>CommandBar</strong>
+        </a>
+      </div>
     </div>
   );
 };

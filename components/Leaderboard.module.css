@@ -323,7 +323,10 @@
   }
   .leaderboardItemCompanyContainer {
     /* max-width: 100px; */
-    max-width: calc(100vw - 300px);
+    max-width: calc(100vw - 250px);
+  }
+  .leaderboardContainer {
+    padding: 32px 10px;
   }
   .leaderboardList {
     padding: 0;
