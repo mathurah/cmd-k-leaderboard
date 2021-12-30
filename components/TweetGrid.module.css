@@ -79,3 +79,26 @@
   opacity: 1;
   color: black;
 }
+
+@media (max-width: 650px) {
+  .tweetGrid,
+  .tweetCol {
+    overflow-x: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+  }
+  .tweetGrid::-webkit-scrollbar,
+  .tweetCol::-webkit-scrollbar {
+    /* WebKit */
+    width: 0;
+    height: 0;
+  }
+  .tweetCol {
+    overflow: visible;
+    flex-direction: row;
+    align-items: center;
+  }
+  .tweetPanel {
+    width: calc(100vw - 40px);
+  }
+}
