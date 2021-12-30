@@ -24,6 +24,7 @@ const Leaderboard = ({ Toggle }) => {
           }}
           className={styles.addStarContainer}
         >
+          {/* Add onClick for cmd+k */}
           <AddStar variant={hover ? 'hover' : 'reg'} />
           <div className={styles.addStarLabel}>Add App</div>
         </div>

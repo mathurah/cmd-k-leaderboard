@@ -25,6 +25,7 @@ import MainTitle from '../components/MainTitle';
 import Footnote from '../components/Footnote';
 import Leaderboard from '../components/Leaderboard';
 import AddSection from '../components/AddSection';
+import TweetGrid from '../components/TweetGrid';
 
 export default function Home() {
   const [session, setSession] = useState(null);
@@ -157,6 +158,7 @@ export default function Home() {
         <Header />
         <MainTitle />
         <Footnote />
+        <TweetGrid />
         <Leaderboard Toggle={Toggle} />
         <AddSection toggleAdd={toggleAdd} />
         <Footer />
