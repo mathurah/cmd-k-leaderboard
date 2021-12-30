@@ -11,12 +11,14 @@
   background-color: #1b1b23;
   border-radius: 4px;
   text-align: center;
+  padding: 10px 16px;
+  font-family: 'Cartridge';
+  margin: 16px 32px;
 }
 
 .footnote {
   background: #24242e;
   display: flex;
-  justify-content: right;
-  height: 2rem;
-  top: 1rem;
+  flex-direction: row;
+  justify-content: flex-end;
 }
