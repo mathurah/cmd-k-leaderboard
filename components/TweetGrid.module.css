@@ -1,3 +1,28 @@
+.tweetGrid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: 'Cartridge';
+  max-width: 837px;
+  margin-top: 24px;
+}
+
+.tweetGridContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  background-color: #24242e;
+  padding-bottom: 96px;
+  margin-bottom: 32px;
+}
+
+.tweetCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .tweetPanel {
   display: flex;
   flex-direction: column;
@@ -6,6 +31,7 @@
   border-radius: 4px;
   /* align-items: flex-start; */
   color: white;
+  margin: 8px 12px;
   padding: 16px;
 }
 
@@ -22,6 +48,7 @@
   flex-direction: row;
   text-align: left;
   font-size: 20px;
+  line-height: 24px;
   justify-content: flex-start;
   margin-top: 8px;
 }
@@ -51,8 +78,4 @@
     brightness(98%) contrast(91%);
   opacity: 1;
   color: black;
-}
-
-.tweetGrid {
-  font-family: 'Cartridge';
 }

@@ -18,10 +18,7 @@ const TWEETS = [
       user: '@simontheis',
       url: 'https://twitter.com/simontheis/status/1458167867229229059?s=20',
       content: (
-        <p>
-          Everything should have cmd+k Face with tears of joy apps, websites,
-          the cable-drawer
-        </p>
+        <p>Everything should have cmd+k 😂 apps, websites, the cable-drawer</p>
       ),
     },
     {
@@ -41,8 +38,8 @@ const TWEETS = [
       url: 'https://twitter.com/hvpandya/status/1468513964048871424?s=20',
       content: (
         <p>
-          ✨ Underrated UX Cmd + K panel in Slack shows you a list of Unread
-          messages to quickly jump to.
+          ✨ Underrated UX <br /> Cmd + K panel in Slack shows you a list of
+          Unread messages to quickly jump to.
         </p>
       ),
     },
@@ -71,16 +68,18 @@ const TWEETS = [
 
 const TweetGrid = () => {
   return (
-    <div className={styles.tweetGrid}>
-      <div className={styles.tweetCol}>
-        {TWEETS[0].map((tweet, index) => (
-          <Tweet key={index} tweet={tweet} />
-        ))}
-      </div>
-      <div className={styles.tweetCol}>
-        {TWEETS[1].map((tweet, index) => (
-          <Tweet key={index} tweet={tweet} />
-        ))}
+    <div className={styles.tweetGridContainer}>
+      <div className={styles.tweetGrid}>
+        <div className={styles.tweetCol}>
+          {TWEETS[0].map((tweet, index) => (
+            <Tweet key={index} tweet={tweet} />
+          ))}
+        </div>
+        <div className={styles.tweetCol}>
+          {TWEETS[1].map((tweet, index) => (
+            <Tweet key={index} tweet={tweet} />
+          ))}
+        </div>
       </div>
     </div>
   );
