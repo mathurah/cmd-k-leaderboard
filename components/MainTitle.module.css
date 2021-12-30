@@ -1,6 +1,8 @@
 .mainTitle {
   background: #24242e;
   display: flex;
+  margin: 0 auto;
+  max-width: 1200px;
   justify-content: center;
   padding: 1rem;
 }
@@ -19,6 +21,8 @@
 .footnote {
   background: #24242e;
   display: flex;
+  margin: 0 auto;
+  max-width: 1200px;
   flex-direction: row;
   justify-content: flex-end;
 }
