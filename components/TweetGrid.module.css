@@ -85,6 +85,10 @@
 }
 
 @media (max-width: 650px) {
+  .tweetGridContainer {
+    margin-bottom: 0px;
+    padding-bottom: 9px;
+  }
   .tweetGrid,
   .tweetCol {
     overflow-x: scroll;

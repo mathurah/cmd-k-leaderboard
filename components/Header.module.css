@@ -141,8 +141,24 @@
     height: 1900px;
     background-size: contain;
   }
-}
+  .header {
+    padding-bottom: 0px;
+  }
 
-/*   TODO: FIX WHITESPACE AROUND BACKGROUND*
-    TODO: add font and stroke background to it - how do I get the special font characters?
-*/
+  .headerContainerA {
+    margin-top: -36.84px;
+  }
+
+  .headerContainerB {
+    margin-top: 40.53px;
+  }
+
+  .headerContainerC,
+  .headerContainerD {
+    margin-top: 173.16px;
+  }
+
+  .headerButtonGroup {
+    height: 100px;
+  }
+}
