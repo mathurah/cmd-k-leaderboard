@@ -17,7 +17,8 @@
 } */
 
 .marqueeContainer {
-  width: 55%;
+  width: 100vw;
+  transform: rotate(-2deg);
 }
 
 .marquee {

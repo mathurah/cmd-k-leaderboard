@@ -4,50 +4,66 @@
   max-width: 100vw;
   overflow: hidden;
   background-color: #4242cb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .aboveBG {
+  max-width: 100vw;
   position: absolute;
   margin-left: auto;
   left: 0;
   right: 0;
   margin-right: auto;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .background {
-  transform: rotate(-2deg);
   background: linear-gradient(
     to bottom,
     #4242cb 0%,
     #4242cb 1%,
     #20202a 0%
   ); /*'gradient' gets rid of dotted black line at top bug*/
-  width: 200vw;
-  height: 1100px;
+  width: 400vw;
+  height: 3040px;
   overflow: hidden;
   position: relative;
   background-position-y: -10;
-  margin-top: -10px;
-  margin-left: -20px;
 }
 
 .background::before {
+  transform: rotate(-2deg);
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 200vw;
-  height: 1100px;
+  width: 400vw;
+  height: 3040px;
   background-size: cover;
   background-repeat: repeat-x;
   background: url('../public/hero-background-repeat.png');
+  background-color: repeating-linear-gradient(
+    to bottom,
+    #3a3a44 0px,
+    #3a3a44 80px,
+    #24242f 80px,
+    #24242f 160px
+  );
 }
 
 .header {
+  transform: rotate(-2deg);
   font-size: 80px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   color: white;
   font-weight: 400;
   padding: 24px 0px;
@@ -70,13 +86,17 @@
 }
 
 .headerContainer {
-  width: 50%;
-  padding-left: 50px;
+  /* margin-left: 7px; 2 * 100px * tan(2deg) */
+  margin-top: -100px;
   padding-top: 0px;
-  margin-top: -40px;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .headerButtonGroup {
+  transform: rotate(-2deg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,11 +114,11 @@
       -4px 0 0 #491849;
   }
   .background {
-    height: 700px;
+    height: 1900px;
     background-size: contain;
   }
   .background::before {
-    height: 700px;
+    height: 1900px;
     background-size: contain;
   }
 }
