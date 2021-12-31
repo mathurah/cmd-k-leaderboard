@@ -81,13 +81,21 @@
   margin: 24px;
 }
 
+.titleLong {
+  max-width: 1260px;
+  margin: 24px;
+}
+
 .title span {
   display: inline-block;
 }
 
-.headerContainer {
+.headerContainerA,
+.headerContainerB,
+.headerContainerC,
+.headerContainerD {
   /* margin-left: 7px; 2 * 100px * tan(2deg) */
-  margin-top: -100px;
+
   padding-top: 0px;
   max-width: 100vw;
   display: flex;
@@ -95,6 +103,18 @@
   align-items: center;
 }
 
+.headerContainerA {
+  margin-top: -100px;
+}
+
+.headerContainerB {
+  margin-top: 110px;
+}
+
+.headerContainerC,
+.headerContainerD {
+  margin-top: 470px;
+}
 .headerButtonGroup {
   transform: rotate(-2deg);
   display: flex;

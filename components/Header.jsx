@@ -38,7 +38,7 @@ const Header = () => {
                       }))
               }
             />
-            <div className={styles.headerContainer}>
+            <div className={styles.headerContainerA}>
               <div className={styles.header}>
                 <div className={styles.title}>
                   <h1>
@@ -57,6 +57,27 @@ const Header = () => {
                     sign out @{user.user_metadata.user_name}
                   </Button>
                 )}
+              </div>
+            </div>
+            <div className={styles.headerContainerB}>
+              <div className={styles.header}>
+                <div className={styles.title}>
+                  <h1>We love command menus</h1>
+                </div>
+              </div>
+            </div>
+            <div className={styles.headerContainerC}>
+              <div className={styles.header}>
+                <div className={styles.titleLong}>
+                  <h1>...but most apps don't have them...</h1>
+                </div>
+              </div>
+            </div>
+            <div className={styles.headerContainerD}>
+              <div className={styles.header}>
+                <div className={styles.title}>
+                  <h1>let's change that, together!</h1>
+                </div>
               </div>
             </div>
           </div>
