@@ -26,7 +26,7 @@
   background: linear-gradient(
     to bottom,
     #4242cb 0%,
-    #4242cb 1%,
+    #4242cb 2%,
     #20202a 0%
   ); /*'gradient' gets rid of dotted black line at top bug*/
   width: 400vw;
