@@ -1,10 +1,31 @@
 .mainTitle {
   background: #24242e;
   display: flex;
-  margin: 0 auto;
+  justify-self: center;
   max-width: 1216px;
   justify-content: center;
   padding: 1rem;
+}
+
+.mainTitleLeft,
+.mainTitleRight {
+  background-image: url('../public/gray-title.svg');
+  background-repeat: repeat-x;
+  background-origin: content-box;
+  width: calc(0.5 * (100vw - 1216px));
+  height: 240.36px;
+  padding: 1rem;
+  float: right;
+}
+
+.mainTitleLeft {
+  background-position: right;
+}
+
+.mainTitleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .footNoteText {
@@ -25,4 +46,11 @@
   max-width: 1216px;
   flex-direction: row;
   justify-content: flex-end;
+}
+
+@media (max-width: 1216px) {
+  .mainTitleLeft,
+  .mainTitleRight {
+    display: none;
+  }
 }
