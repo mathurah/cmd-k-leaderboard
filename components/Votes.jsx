@@ -84,7 +84,7 @@ const Votes = ({ Toggle, toggleAdd }) => {
         paddingBottom="1rem"
       >
         <Box w="100%" paddingLeft="10px" maxH="50vh" overflow="auto">
-          {options.map((option) => (
+          {(options || []).map((option) => (
             <Vote
               key={option.id}
               id={option.id}

@@ -88,7 +88,7 @@
   white-space: nowrap;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
   .marquee {
     height: calc(700px / 14);
     margin-top: calc(700px / 14);

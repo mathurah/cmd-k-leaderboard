@@ -153,7 +153,7 @@
 }
 
 /* TODO: add x element change and center the numbers more */
-@media (max-width: 650px) {
+@media (max-width: 700px) {
   .cta {
     font-size: 24px;
     width: 144.75px;

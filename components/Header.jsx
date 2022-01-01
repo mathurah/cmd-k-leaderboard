@@ -7,6 +7,10 @@ import { signOut } from '../api/supabase';
 import Button from './Button';
 import Marquee from './Marquee';
 import { ACTION_TYPES } from '../context/constants';
+
+const CMDK1 = 'Animation_Bar_1.svg';
+const ABSTRACT_COLOR = 'AbstractColor.svg';
+
 const Header = () => {
   const supabase = useSupabase();
   const {
@@ -38,31 +42,33 @@ const Header = () => {
                       }))
               }
             />
-            <div className={styles.headerContainerA}>
-              <div className={styles.header}>
-                <div className={styles.title}>
-                  <h1>
-                    <span>
-                      <span>Vote for a </span> <span> command menu </span>
-                    </span>
-                    <span>in your favorite apps</span>
-                  </h1>
+            <div className={styles.headerWrapper}>
+              <div className={styles.headerContainerA}>
+                <div className={styles.header}>
+                  <div className={styles.title}>
+                    <h1>
+                      <span>
+                        <span>Vote for a </span> <span> command menu </span>
+                      </span>
+                      <span>in your favorite apps</span>
+                    </h1>
+                  </div>
+                </div>
+
+                <div className={styles.headerButtonGroup}>
+                  <Button style="cta">Vote Now</Button>
+                  {user && (
+                    <Button style="signOut" onClick={() => handleSignOut()}>
+                      sign out @{user.user_metadata.user_name}
+                    </Button>
+                  )}
                 </div>
               </div>
-
-              <div className={styles.headerButtonGroup}>
-                <Button style="cta">Vote Now</Button>
-                {user && (
-                  <Button style="signOut" onClick={() => handleSignOut()}>
-                    sign out @{user.user_metadata.user_name}
-                  </Button>
-                )}
-              </div>
-            </div>
-            <div className={styles.headerContainerB}>
-              <div className={styles.header}>
-                <div className={styles.title}>
-                  <h1>We love command menus</h1>
+              <div className={styles.headerContainerB}>
+                <div className={styles.header}>
+                  <div className={styles.title}>
+                    <h1>We love command menus</h1>
+                  </div>
                 </div>
               </div>
             </div>
