@@ -14,8 +14,14 @@ import { gsap, Linear, Power4 } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 
-const CMDK1 = 'Animation_Bar_1.svg';
+const CMDK = [1, 2, 3].map((_, i) => `Animation_Bar_${i + 1}.svg`);
 const ABSTRACT_COLOR = 'AbstractColor.svg';
+const ABSTRACT_GRAY = 'AbstractGray.svg';
+const STARS = {
+  big: 'BigStar.svg',
+  small: 'SmallStar.svg',
+  fat: 'FatStar.svg',
+};
 
 const Header = () => {
   const supabase = useSupabase();
@@ -64,18 +70,45 @@ const Header = () => {
       },
     });
 
-    tl.from(
+    tl.to(
+      document.querySelector('#UIGray'),
+      {
+        duration: 0,
+        zIndex: -100,
+      },
+      '<'
+    );
+
+    tl.to(
       document.querySelector('#CMDK1'),
       {
-        opacity: 0.7,
-        y: -250,
-        duration: 20,
+        duration: 0,
+        zIndex: -100,
+      },
+      '<'
+    );
+
+    tl.to(
+      document.querySelector('#CMDK2'),
+      {
+        duration: 0,
+        zIndex: -100,
       },
       '<'
     );
 
     tl.from(
-      document.querySelector('#UI1'),
+      document.querySelector('#CMDK'),
+      {
+        opacity: 0.7,
+        y: -250,
+        duration: 20,
+      },
+      '>'
+    );
+
+    tl.from(
+      document.querySelector('#UI'),
       {
         opacity: 0.7,
         y: -150,
@@ -87,7 +120,25 @@ const Header = () => {
     tl.to(
       document.querySelector('#CMDK1'),
       {
-        opacity: -1000,
+        zIndex: 2,
+        duration: 0,
+      },
+      '>'
+    );
+
+    tl.to(
+      document.querySelector('#CMDK0'),
+      {
+        zIndex: -100,
+        duration: 0,
+      },
+      '<'
+    );
+
+    tl.to(
+      document.querySelector('#CMDK'),
+      {
+        opacity: 1,
         duration: 80,
         scrollTo: { y: 3500, autoKill: false },
       },
@@ -95,9 +146,9 @@ const Header = () => {
     );
 
     tl.to(
-      document.querySelector('#UI1'),
+      document.querySelector('#UI'),
       {
-        opacity: -1000,
+        opacity: 1,
         duration: 80,
       },
       '<'
@@ -167,7 +218,6 @@ const Header = () => {
                 </div>
               </div>
             </div>
-
             <div className={styles.headerContainerC}>
               <div className={styles.header}>
                 <div className={styles.titleLong}>
@@ -183,17 +233,62 @@ const Header = () => {
               </div>
             </div>
             <div className={styles.animations} id="trigger">
-              <div id={'CMDK1'} className={styles.animationBar1}>
-                <img src={CMDK1} alt="animation bar" />
+              <div id={'CMDK'} className={styles.animationBar1}>
+                <img
+                  id="CMDK0"
+                  className={styles.stackImg}
+                  src={CMDK[0]}
+                  alt="animation bar"
+                />
+                <img
+                  id="CMDK1"
+                  className={styles.stackImg}
+                  src={CMDK[1]}
+                  alt="animation bar"
+                />
+                <img
+                  id="CMDK2"
+                  className={styles.stackImg}
+                  src={CMDK[2]}
+                  alt="animation bar"
+                />
               </div>
-              <div id={'UI1'} className={styles.abstractUI1}>
-                <img src={ABSTRACT_COLOR} alt="abstract color" />
+
+              <div id={'UI'} className={styles.abstractUI1}>
+                <img
+                  id="UIColor"
+                  className={styles.stackImg}
+                  src={ABSTRACT_COLOR}
+                  alt="abstract color"
+                />
+                <img
+                  id="UIGray"
+                  className={styles.stackImg}
+                  src={ABSTRACT_GRAY}
+                  alt="abstract gray"
+                />
+                <div className={styles.starsLeft}>
+                  <StarGroup />
+                </div>
+                <div className={styles.starsRight}>
+                  <StarGroup />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </>
+  );
+};
+
+const StarGroup = () => {
+  return (
+    <div className={styles.starGroup}>
+      <img className={styles.bigStar} src={STARS.big} />
+      <img className={styles.smallStar} src={STARS.small} />
+      <img className={styles.fatStar} src={STARS.fat} />
+    </div>
   );
 };
 

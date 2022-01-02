@@ -9,6 +9,48 @@
   align-items: center;
 }
 
+.stackImg {
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.starsLeft {
+  position: relative;
+  left: 120px;
+  top: -40px;
+}
+
+.starsRight {
+  float: right;
+  position: relative;
+  right: 60px;
+  top: -240px;
+  transform: scaleX(-1);
+}
+
+.starGroup {
+  position: relative;
+  /* left: -200px; */
+  z-index: 5;
+}
+
+.bigStar,
+.fatStar,
+.smallStar {
+  position: relative;
+}
+
+.smallStar {
+  top: -80px;
+  right: 8px;
+}
+
+.fatStar {
+  top: -280px;
+  right: 35px;
+}
+
 .animationBar1,
 .animationBar2,
 .animationBar5 {
@@ -61,11 +103,13 @@
 
 .animationBar1 {
   margin-top: 1350px;
+  width: 33.3%;
   /* opacity: 0; */
 }
 
 .abstractUI1 {
   margin-top: 1300px;
+  width: 100%;
   /* opacity: 0; */
 }
 
