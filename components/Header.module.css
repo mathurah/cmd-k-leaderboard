@@ -226,8 +226,8 @@
 
 .animationBar1 {
   margin-top: 1350px;
-  width: calc(100% - 800px);
-  max-width: 640px;
+  width: 640px;
+  max-width: 60vw;
   /* opacity: 0; */
 }
 
@@ -409,5 +409,12 @@
 
   .headerButtonGroup {
     height: 100px;
+  }
+  .animationBar1 {
+    margin-top: 1050px;
+  }
+
+  .abstractUI1 {
+    margin-top: 1000px;
   }
 }

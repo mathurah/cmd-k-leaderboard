@@ -39,16 +39,18 @@ const Header = () => {
     await signOut(supabase);
     dispatch({ type: ACTION_TYPES.SIGN_OUT });
   };
-  const [duration, setDuration] = useState(3040);
+  // const [duration, setDuration] = useState(3040);
 
   useEffect(() => {
-    window.onresize = () => {
-      if (duration !== 3040 && window.innerWidth > 700) {
-        setDuration(3040);
-      } else if (duration === 3040 && window.innerWidth < 700) {
-        setDuration(1120);
-      }
-    };
+    // window.onresize = () => {
+    //   // if (duration !== 3040 && window.innerWidth > 700) {
+    //   //   setDuration(3040);
+    //   // } else if (duration === 3040 && window.innerWidth < 700) {
+    //   //   setDuration(1120);
+    //   // }
+    // };
+
+    // setDuration(window.innerWidth > 700 ? 3040 : 1120);
 
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(ScrollToPlugin);
@@ -168,8 +170,13 @@ const Header = () => {
     tl.to(
       document.querySelector('#UI'),
       {
-        marginTop: duration - 400,
-        marginRight: 10,
+        marginTop:
+          window.innerWidth > 1220
+            ? 2640
+            : window.innerWidth > 700
+            ? 3438 - 0.65 * window.innerWidth
+            : 2301 - 0.657 * window.innerWidth,
+        marginRight: window.innerWidth > 700 ? 10 : 0,
         duration: 70,
       },
       '>'
@@ -178,7 +185,12 @@ const Header = () => {
     tl.to(
       document.querySelector('#CMDK'),
       {
-        marginTop: 2800,
+        marginTop:
+          window.innerWidth > 1220
+            ? 2800
+            : window.innerWidth > 700
+            ? 3518 - 0.65 * window.innerWidth
+            : 2361 - 0.657 * window.innerWidth,
         // backgroundColor: 'red',
         // scale: 2,
         duration: 70,
