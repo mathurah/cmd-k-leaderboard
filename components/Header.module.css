@@ -383,4 +383,10 @@
   .abstractUI {
     margin-top: 1000px;
   }
+  .starsLeft {
+    left: 3%;
+  }
+  .starsRight {
+    right: 0%;
+  }
 }
