@@ -264,18 +264,18 @@ const Header = () => {
       [document.querySelector('#UIColor')],
       {
         autoAlpha: 1,
-        duration: 5,
+        duration: 3,
       },
-      '<-3'
+      '<-20'
     );
 
     tl.to(
       [document.querySelector('#UIGray')],
       {
         autoAlpha: 0,
-        duration: 5,
+        duration: 3,
       },
-      '<'
+      '<+2'
     );
 
     var ScrollMagic = require('scrollmagic');
