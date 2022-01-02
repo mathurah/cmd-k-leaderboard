@@ -33,22 +33,43 @@
   position: relative;
   /* left: -200px; */
   z-index: 5;
+
+  display: none;
 }
 
 .bigStar,
 .fatStar,
 .smallStar {
   position: relative;
+  animation: star 1.5s normal forwards ease-in;
+  opacity: 0;
 }
 
 .smallStar {
   top: -80px;
   right: 8px;
+  animation-delay: 0.5s;
 }
 
 .fatStar {
   top: -280px;
   right: 35px;
+  animation-delay: 1s;
+}
+
+@keyframes star {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
 }
 
 .animationBar1,

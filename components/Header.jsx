@@ -70,37 +70,18 @@ const Header = () => {
       },
     });
 
-    tl.to(
-      document.querySelector('#UIGray'),
-      {
-        duration: 0,
-        zIndex: -100,
-      },
-      '<'
-    );
-
-    tl.to(
-      document.querySelector('#CMDK1'),
-      {
-        duration: 0,
-        zIndex: -100,
-      },
-      '<'
-    );
-
-    tl.to(
-      document.querySelector('#CMDK2'),
-      {
-        duration: 0,
-        zIndex: -100,
-      },
-      '<'
+    tl.set(
+      [
+        document.querySelector('#UIGray'),
+        document.querySelector('#CMDK1'),
+        document.querySelector('#CMDK2'),
+      ],
+      { autoAlpha: 0 }
     );
 
     tl.from(
       document.querySelector('#CMDK'),
       {
-        opacity: 0.7,
         y: -250,
         duration: 20,
       },
@@ -110,7 +91,6 @@ const Header = () => {
     tl.from(
       document.querySelector('#UI'),
       {
-        opacity: 0.7,
         y: -150,
         duration: 20,
       },
@@ -120,7 +100,7 @@ const Header = () => {
     tl.to(
       document.querySelector('#CMDK1'),
       {
-        zIndex: 2,
+        autoAlpha: 1,
         duration: 0,
       },
       '>'
@@ -129,27 +109,73 @@ const Header = () => {
     tl.to(
       document.querySelector('#CMDK0'),
       {
-        zIndex: -100,
+        autoAlpha: 0,
         duration: 0,
       },
       '<'
     );
 
     tl.to(
-      document.querySelector('#CMDK'),
+      document.querySelector('#starsLeft'),
       {
-        opacity: 1,
-        duration: 80,
-        scrollTo: { y: 3500, autoKill: false },
+        display: 'block',
+        duration: 0,
+      },
+      '<'
+    );
+
+    tl.to(
+      document.querySelector('#CMDK2'),
+      {
+        autoAlpha: 0,
+        duration: 10,
       },
       '>'
     );
 
     tl.to(
+      document.querySelector('#CMDK2'),
+      {
+        autoAlpha: 1,
+        duration: 0,
+      },
+      '>'
+    );
+
+    tl.to(
+      document.querySelector('#CMDK1'),
+      {
+        autoAlpha: 0,
+        duration: 0,
+      },
+      '<'
+    );
+
+    tl.to(
+      document.querySelector('#starsRight'),
+      {
+        display: 'block',
+        duration: 0,
+      },
+      '<'
+    );
+
+    tl.to(
       document.querySelector('#UI'),
       {
-        opacity: 1,
-        duration: 80,
+        y: '180%',
+        duration: 70,
+      },
+      '>'
+    );
+
+    tl.to(
+      document.querySelector('#CMDK'),
+      {
+        marginTop: '140%',
+        // backgroundColor: 'red',
+        // scale: 2,
+        duration: 70,
       },
       '<'
     );
@@ -268,10 +294,10 @@ const Header = () => {
                   alt="abstract gray"
                 />
                 <div className={styles.starsLeft}>
-                  <StarGroup />
+                  <StarGroup id={'starsLeft'} />
                 </div>
                 <div className={styles.starsRight}>
-                  <StarGroup />
+                  <StarGroup id={'starsRight'} />
                 </div>
               </div>
             </div>
@@ -282,9 +308,9 @@ const Header = () => {
   );
 };
 
-const StarGroup = () => {
+const StarGroup = ({ id }) => {
   return (
-    <div className={styles.starGroup}>
+    <div className={styles.starGroup} id={id}>
       <img className={styles.bigStar} src={STARS.big} />
       <img className={styles.smallStar} src={STARS.small} />
       <img className={styles.fatStar} src={STARS.fat} />
