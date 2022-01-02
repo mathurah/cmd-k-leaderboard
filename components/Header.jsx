@@ -357,7 +357,7 @@ const Header = () => {
               </div>
             </div>
             <div className={styles.animations} id="trigger">
-              <div id={'CMDK'} className={styles.animationBar1}>
+              <div id={'CMDK'} className={styles.animationBar}>
                 <img
                   id="CMDK0"
                   className={styles.stackImg}
@@ -378,7 +378,7 @@ const Header = () => {
                 />
               </div>
 
-              <div id={'UI'} className={styles.abstractUI1}>
+              <div id={'UI'} className={styles.abstractUI}>
                 <img
                   id="UIColor"
                   className={styles.stackImg}

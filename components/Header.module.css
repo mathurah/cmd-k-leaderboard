@@ -174,26 +174,6 @@
   }
 }
 
-.animationBar1,
-.animationBar2,
-.animationBar5 {
-  position: absolute;
-  /* margin-top: -200px; */
-  max-width: 1216px;
-  z-index: 2;
-}
-
-.abstractUI1,
-.abstractUI2,
-.abstractUI5 {
-  position: absolute;
-  /* margin-top: -370px; */
-  margin: 0 auto;
-  padding-right: 6px;
-  max-width: 1222px;
-  z-index: 1;
-}
-
 .animations {
   position: absolute;
   height: 3040px;
@@ -209,37 +189,23 @@
   flex-direction: column;
   align-items: center;
 }
-
-.abstractUI2 {
-  opacity: 0;
-  margin-top: 940px;
-}
-
-.animationBar2 {
-  opacity: 0;
-  margin-top: 990px;
-}
-
-.abstractUI2 {
-  margin-bottom: -90px;
-}
-
-.animationBar1 {
+.animationBar {
+  position: absolute;
+  max-width: 1216px;
+  z-index: 2;
   margin-top: 1350px;
   width: 640px;
   max-width: 60vw;
-  /* opacity: 0; */
 }
 
-.abstractUI1 {
+.abstractUI {
+  position: absolute;
+  margin: 0 auto;
+  padding-right: 6px;
+  max-width: 1222px;
+  z-index: 1;
   margin-top: 1300px;
   width: 100%;
-  /* opacity: 0; */
-}
-
-.animationBar5,
-.abstractUI5 {
-  margin-top: 3040px;
 }
 
 .invisible {
@@ -410,11 +376,11 @@
   .headerButtonGroup {
     height: 100px;
   }
-  .animationBar1 {
+  .animationBar {
     margin-top: 1050px;
   }
 
-  .abstractUI1 {
+  .abstractUI {
     margin-top: 1000px;
   }
 }
