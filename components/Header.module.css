@@ -226,7 +226,8 @@
 
 .animationBar1 {
   margin-top: 1350px;
-  width: 33.3%;
+  width: calc(100% - 800px);
+  max-width: 640px;
   /* opacity: 0; */
 }
 

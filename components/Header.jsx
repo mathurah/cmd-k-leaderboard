@@ -71,7 +71,7 @@ const Header = () => {
         start: 'top top',
         scrub: true,
         end: 'bottom bottom',
-        markers: true,
+        markers: false, //set to true for debugging
       },
     });
 
@@ -168,7 +168,8 @@ const Header = () => {
     tl.to(
       document.querySelector('#UI'),
       {
-        y: '180%',
+        marginTop: duration - 400,
+        marginRight: 10,
         duration: 70,
       },
       '>'
@@ -177,7 +178,7 @@ const Header = () => {
     tl.to(
       document.querySelector('#CMDK'),
       {
-        marginTop: '140%',
+        marginTop: 2800,
         // backgroundColor: 'red',
         // scale: 2,
         duration: 70,
@@ -244,7 +245,7 @@ const Header = () => {
         autoAlpha: 1,
         duration: 3,
       },
-      '+=0'
+      '-=18'
     );
 
     tl.to(
@@ -253,14 +254,14 @@ const Header = () => {
         autoAlpha: 1,
         duration: 5,
       },
-      '<-17'
+      '<-3'
     );
 
     tl.to(
       [document.querySelector('#UIGray')],
       {
         autoAlpha: 0,
-        duration: 4,
+        duration: 5,
       },
       '<'
     );

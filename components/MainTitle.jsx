@@ -7,7 +7,7 @@ const RAINBOW = 'State=Rainbow 1.svg';
 
 const MainTitle = () => {
   return (
-    <div className={styles.mainTitleContainer}>
+    <div id={'end'} className={styles.mainTitleContainer}>
       <div className={styles.mainTitleLeft} />
       <div className={styles.mainTitle}>
         <img alt="I WANT CMD+K" src={RAINBOW} />
