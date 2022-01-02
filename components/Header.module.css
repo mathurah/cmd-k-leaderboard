@@ -9,6 +9,108 @@
   align-items: center;
 }
 
+.sadFaceContainer {
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  margin-top: -470px;
+  display: none;
+}
+
+.sadFace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: 0 auto;
+  animation: face 3s normal forwards;
+}
+
+.sadFaceEyes,
+.sadFaceBase,
+.sadFaceBrows {
+  position: relative;
+}
+
+.sadFaceEyes {
+  bottom: 172px;
+  animation: eyes 3s normal forwards;
+}
+
+.sadFaceBrows {
+  bottom: 252px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sadFaceBrowsL {
+  margin-right: 33px;
+  animation: browL 3s normal forwards;
+}
+
+.sadFaceBrowsR {
+  transform: scaleX(-1);
+  margin-left: 33px;
+  animation: browR 3s normal backwards;
+}
+
+@keyframes face {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes eyes {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  80% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes browL {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  80% {
+    transform: translateX(20px) translateY(10px);
+  }
+  100% {
+    transform: translateX(20px) translateY(10px);
+  }
+}
+
+@keyframes browR {
+  0% {
+    transform: scaleX(-1) translateX(0) translateY(0);
+  }
+  80% {
+    transform: scaleX(-1) translateX(20px) translateY(10px);
+  }
+  100% {
+    transform: scaleX(-1) translateX(20px) translateY(10px);
+  }
+}
 .stackImg {
   position: absolute;
   margin: 0 auto;

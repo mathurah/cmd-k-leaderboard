@@ -22,6 +22,11 @@ const STARS = {
   small: 'SmallStar.svg',
   fat: 'FatStar.svg',
 };
+const SAD_FACE = {
+  base: 'SadBase.svg',
+  eyes: 'SadEyes.svg',
+  brow: 'SadBrow.svg',
+};
 
 const Header = () => {
   const supabase = useSupabase();
@@ -180,6 +185,86 @@ const Header = () => {
       '<'
     );
 
+    tl.to(
+      [
+        document.querySelector('#CMDK'),
+        document.querySelector('#CMDK2'),
+        document.querySelector('#UIColor'),
+      ],
+      {
+        autoAlpha: 20,
+        duration: 0,
+      },
+      '<'
+    );
+
+    tl.to(
+      [document.querySelector('#UIGray')],
+      {
+        autoAlpha: -19,
+        duration: 0,
+      },
+      '<'
+    );
+
+    tl.to(
+      [
+        document.querySelector('#CMDK'),
+        document.querySelector('#CMDK2'),
+        document.querySelector('#UIColor'),
+      ],
+      {
+        autoAlpha: 0,
+        duration: 20,
+      },
+      '<'
+    );
+
+    tl.to(
+      document.querySelector('#UIGray'),
+      {
+        autoAlpha: 1,
+        duration: 14,
+      },
+      '<'
+    );
+
+    tl.to(
+      document.querySelector('#sad'),
+      {
+        display: 'flex',
+        duration: 0,
+      },
+      '>+4'
+    );
+
+    tl.to(
+      [document.querySelector('#CMDK'), document.querySelector('#CMDK0')],
+      {
+        autoAlpha: 1,
+        duration: 3,
+      },
+      '+=0'
+    );
+
+    tl.to(
+      [document.querySelector('#UIColor')],
+      {
+        autoAlpha: 1,
+        duration: 5,
+      },
+      '<-17'
+    );
+
+    tl.to(
+      [document.querySelector('#UIGray')],
+      {
+        autoAlpha: 0,
+        duration: 4,
+      },
+      '<'
+    );
+
     var ScrollMagic = require('scrollmagic');
 
     var controller = new ScrollMagic.Controller();
@@ -217,7 +302,7 @@ const Header = () => {
             <div className={styles.headerWrapper}>
               <div className={styles.headerContainerA}>
                 <div className={styles.header}>
-                  <div className={styles.title}>
+                  <div id="hello" className={styles.title}>
                     <h1>
                       <span>
                         <span>Vote for a </span> <span> command menu </span>
@@ -246,14 +331,14 @@ const Header = () => {
             </div>
             <div className={styles.headerContainerC}>
               <div className={styles.header}>
-                <div className={styles.titleLong}>
+                <div id="hello" className={styles.titleLong}>
                   <h1>...but most apps don't have them...</h1>
                 </div>
               </div>
             </div>
             <div className={styles.headerContainerD}>
               <div className={styles.header}>
-                <div className={styles.title}>
+                <div id="hello" className={styles.title}>
                   <h1>let's change that, together!</h1>
                 </div>
               </div>
@@ -299,6 +384,9 @@ const Header = () => {
                 <div className={styles.starsRight}>
                   <StarGroup id={'starsRight'} />
                 </div>
+                <div id={'sad'} className={styles.sadFaceContainer}>
+                  <SadFace />
+                </div>
               </div>
             </div>
           </div>
@@ -314,6 +402,32 @@ const StarGroup = ({ id }) => {
       <img className={styles.bigStar} src={STARS.big} />
       <img className={styles.smallStar} src={STARS.small} />
       <img className={styles.fatStar} src={STARS.fat} />
+    </div>
+  );
+};
+
+const SadFace = () => {
+  return (
+    <div className={styles.sadFace}>
+      <div className={styles.sadFaceBase}>
+        <img src={SAD_FACE.base} alt="sad face" />
+      </div>
+      <div className={styles.sadFaceEyes}>
+        <img src={SAD_FACE.eyes} alt="sad face eyes" />
+      </div>
+      <div className={styles.sadFaceBrows}>
+        <img
+          className={styles.sadFaceBrowsL}
+          src={SAD_FACE.brow}
+          alt="sad face brows"
+        />
+        <div className={styles.sadFaceBrowsM} />
+        <img
+          className={styles.sadFaceBrowsR}
+          src={SAD_FACE.brow}
+          alt="sad face brows"
+        />
+      </div>
     </div>
   );
 };
