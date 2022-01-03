@@ -42,7 +42,6 @@ const SignInModal = ({ Toggle }) => {
           <Button onClick={() => signIn('github')} style="add_section">
             Sign in to Twitter
           </Button>
-          {/*change to twitter*/}
         </div>
       </div>
     </Modal>

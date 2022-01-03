@@ -77,7 +77,7 @@ export const upsertUser = async (user) => {
 
 export const signIn = async (provider) => {
   await supabase.auth.signIn({
-    provider,
+    provider: 'twitter',
   });
 };
 

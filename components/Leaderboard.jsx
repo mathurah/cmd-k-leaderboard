@@ -5,9 +5,9 @@ import { useState, useContext } from 'react';
 import { Store } from '../context/state';
 import Button from './Button';
 
-const Leaderboard = ({ Toggle }) => {
+const Leaderboard = ({ Toggle, toggleAdd }) => {
   const {
-    state: { voteOptions, user, userVotes, votesLoading },
+    state: { voteOptions, user, userVotes, votesLoading, state },
     dispatch,
   } = useContext(Store);
 
@@ -23,7 +23,9 @@ const Leaderboard = ({ Toggle }) => {
             setHover(false);
           }}
           className={styles.addStarContainer}
+          onClick={toggleAdd}
         >
+        
           {/* Add onClick for cmd+k */}
           <AddStar variant={hover ? 'hover' : 'reg'} />
           <div className={styles.addStarLabel}>Add App</div>
@@ -168,9 +170,9 @@ const LeaderboardItem = ({
   );
 };
 
-const AddStar = ({ variant }) => {
+const AddStar = ({ variant, toggleAdd }) => {
   return (
-    <div className={styles.addStar}>
+    <div className={styles.addStar} >
       {variant === 'hover' ? (
         <svg
           width="114"

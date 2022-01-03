@@ -34,12 +34,14 @@ a {
 }
 
 .react-autosuggest__input {
-  width: 280px;
-  height: 30px;
+  width:670px;
+  height: 96px;
+  margin-top: 8px; 
   padding: 10px 20px;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Cartridge';
+  font-feature-settings: 'ss03';
   font-weight: 300;
-  font-size: 16px;
+  font-size: 24px;
   border: 1px solid #aaa;
   border-radius: 4px;
   align-self: center;
@@ -62,7 +64,7 @@ a {
   display: block;
   position: absolute;
   top: 51px;
-  width: 280px;
+  max-width: 280px;
   border: 1px solid #aaa;
   background-color: #fff;
   font-family: Helvetica, sans-serif;

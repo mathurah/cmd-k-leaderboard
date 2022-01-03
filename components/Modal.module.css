@@ -13,7 +13,9 @@
 .modal {
   width: 100%;
   max-width: 800px;
-  background-color: #24242e;
+  background: #24242E;
+box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.25);
+border-radius: 16px;
   top: 30%;
   display: flex;
   justify-content: center;
@@ -46,6 +48,20 @@
   font-family: 'Cartridge';
   color: white;
   font-size: 72px;
+  line-height: 72px;
+}
+
+
+.textAddApp {
+  font-family: 'Cartridge';
+  color: white;
+  font-size: 48px;
+  line-height: 48px;
+  padding: 2rem; 
+  -webkit-font-smoothing: antialiased;
+  text-shadow: -6px -6px 0 #000, 0 -6px 0 #000, 6px -6px 0 #000,
+    6px 0 0 #000, 6px 6px 0 #000, 0 6px 0 #000, -6px 6px 0 #000,
+    -6px 0 0 #000;
 }
 
 .button {

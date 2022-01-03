@@ -7,7 +7,10 @@ const Modal = ({ show, Toggle, children }) => {
     <>
       {show ? (
         <div className={styles.overlay}>
-          <div className={styles.modal}>{children}</div>
+        
+          <div className={styles.modal}>{children}
+          
+          </div>
         </div>
       ) : null}
     </>

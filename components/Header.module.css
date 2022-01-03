@@ -390,3 +390,14 @@
     right: 0%;
   }
 }
+
+
+.signOut {
+  display: flex; 
+  flex-direction: row;
+}
+
+.signOutSvg {
+margin-top: 5px; 
+margin-left: 0.4rem; 
+}

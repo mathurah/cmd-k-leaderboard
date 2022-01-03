@@ -159,7 +159,7 @@ export default function Home() {
         <MainTitle />
         <Footnote />
         <TweetGrid />
-        <Leaderboard Toggle={Toggle} />
+        <Leaderboard Toggle={Toggle} toggleAdd={toggleAdd} />
         <AddSection toggleAdd={toggleAdd} />
         <Footer />
         <SignInModal title="Sign In Modal" Toggle={Toggle} />
