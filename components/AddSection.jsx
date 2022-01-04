@@ -6,7 +6,7 @@ import Button from './Button';
 import AddCompanyModal from './AddCompanyModal';
 
 const AddSection = ({ toggleAdd }) => {
-  const { state, dispatch } = useContext(Store);
+  const { state: {showAdd: show}, dispatch } = useContext(Store);
 
   return (
     <>
@@ -16,7 +16,6 @@ const AddSection = ({ toggleAdd }) => {
             <div className={styles.text}>Don't see your favourite app?</div>
             <Button style="add_section" onClick={toggleAdd}>
               Add app
-              {state.showAdd && <AddCompanyModal />}
             </Button>
           </div>
         </div>

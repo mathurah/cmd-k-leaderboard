@@ -7,7 +7,7 @@ import Button from './Button';
 
 const Leaderboard = ({ Toggle, toggleAdd }) => {
   const {
-    state: { voteOptions, user, userVotes, votesLoading, state },
+    state: { voteOptions, user, userVotes, votesLoading },
     dispatch,
   } = useContext(Store);
 

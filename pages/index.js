@@ -163,6 +163,7 @@ export default function Home() {
         <AddSection toggleAdd={toggleAdd} />
         <Footer />
         <SignInModal title="Sign In Modal" Toggle={Toggle} />
+        <AddCompanyModal Toggle={toggleAdd} />
       </div>
     </>
   );

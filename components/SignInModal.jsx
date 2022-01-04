@@ -39,7 +39,7 @@ const SignInModal = ({ Toggle }) => {
       <div className={styles.signIn}>
         <div className={styles.text}>Sign in to vote</div>
         <div className={styles.button}>
-          <Button onClick={() => signIn('github')} style="add_section">
+          <Button onClick={() => signIn('twitter')} style="add_section">
             Sign in to Twitter
           </Button>
         </div>
