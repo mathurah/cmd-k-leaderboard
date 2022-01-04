@@ -179,7 +179,7 @@
   height: 3040px;
   z-index: 10;
   width: 100vw;
-  margin-top: -400px;
+  margin-top: 700px;
   top: 0;
   margin-left: auto;
   margin-right: auto;
@@ -193,7 +193,7 @@
   position: absolute;
   max-width: 1216px;
   z-index: 2;
-  margin-top: 1350px;
+  margin-top: 250px;
   width: 640px;
   max-width: 60vw;
 }
@@ -204,7 +204,7 @@
   padding-right: 6px;
   max-width: 1222px;
   z-index: 1;
-  margin-top: 1300px;
+  margin-top: 200px;
   width: 100%;
 }
 
@@ -377,11 +377,11 @@
     height: 100px;
   }
   .animationBar {
-    margin-top: 1050px;
+    margin-top: -50px;
   }
 
   .abstractUI {
-    margin-top: 1000px;
+    margin-top: -100px;
   }
   .starsLeft {
     left: 3%;

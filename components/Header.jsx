@@ -172,10 +172,10 @@ const Header = () => {
       {
         marginTop:
           window.innerWidth > 1220
-            ? 2640
+            ? 2640 - 1100
             : window.innerWidth > 700
-            ? 3438 - 0.65 * window.innerWidth
-            : 2301 - 0.657 * window.innerWidth,
+            ? 3438 - 1100 - 0.65 * window.innerWidth
+            : 2301 - 1100 - 0.657 * window.innerWidth,
         marginRight: window.innerWidth > 700 ? 10 : 0,
         duration: 70,
       },
@@ -187,10 +187,10 @@ const Header = () => {
       {
         marginTop:
           window.innerWidth > 1220
-            ? 2800
+            ? 2800 - 1100
             : window.innerWidth > 700
-            ? 3518 - 0.65 * window.innerWidth
-            : 2361 - 0.657 * window.innerWidth,
+            ? 3518 - 1100 - 0.65 * window.innerWidth
+            : 2361 - 1100 - 0.657 * window.innerWidth,
         // backgroundColor: 'red',
         // scale: 2,
         duration: 70,

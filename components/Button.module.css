@@ -10,6 +10,7 @@
   color: #ffffff;
   width: 193px;
   font-family: 'Cartridge';
+  z-index: 8;
 }
 
 .cta:hover {
