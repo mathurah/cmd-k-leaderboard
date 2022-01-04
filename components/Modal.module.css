@@ -18,7 +18,7 @@
   border-radius: 16px;
   top: 30%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   border-radius: 10px;
   text-align: center;
@@ -29,7 +29,7 @@
   flex-direction: row;
   justify-content: flex-end;
   color: white;
-  padding: 40px;
+  padding: 34px;
 }
 
 .closeX {
@@ -42,18 +42,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
 }
 
 .text {
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   color: white;
   font-size: 72px;
   line-height: 72px;
 }
 
 .textAddApp {
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   color: white;
   font-size: 48px;
   line-height: 48px;
@@ -70,36 +70,141 @@
 .companySelector {
   display: flex;
   flex-direction: row;
-  width: 670px;
-  background-color: grey;
-  height: 96px;
-  margin-top: 2rem;
-  padding: 10px 20px;
+  width: 675px;
+  justify-content: space-between;
   align-self: center;
-  justify-content: center;
 }
 
-@media (max-width: 700px) {
-  .companySelector {
-    width: 300px;
-  }
+.selectCancel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #cd3030;
+  height: 98px;
+  width: 98px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.companyAutoOption,
+.companyOption {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: red; */
+  /* width: calc(100%-20px); */
+  padding: 16px;
+  background: #ffffff;
+  /* box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.25); */
 }
 
 .companyOption {
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
   width: 560px;
-  background: linear-gradient(
-      0deg,
-      rgba(36, 36, 46, 0.12),
-      rgba(36, 36, 46, 0.12)
-    ),
-    #ffffff;
-  box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
+  height: 98px;
+}
+
+.companyAutoOption {
+  width: 678px;
+}
+
+.companyAutoOptionLogo {
+  width: 64px;
+  height: 64px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10.6667px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.companyAutoOptionText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  font-family: 'Cartridge';
+  color: #24242f;
+  margin-left: 18px;
+  padding: 6px 0px;
+}
+
+.companyAutoOptionLeft {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.companyAutoOptionName {
+  font-size: 32px;
+  line-height: 32px;
+}
+
+.companyAutoOptionDomain {
+  opacity: 0.5;
+  font-size: 16px;
+  line-height: 24px;
+  padding-top: 4px;
+}
+
+.companyAutoOptionVoted {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Cartridge';
+  color: white;
+  font-size: 24px;
+  line-height: 29px;
+  padding: 3.75px 10px 5px 10px;
+  width: 92px;
+  align-self: center;
+  background-color: #4242cb;
+  border-radius: 6px;
 }
 
 .companyImage {
   padding-left: 1rem;
+}
+
+.addBtnContainer {
+  padding: 33px 0px 64px 0px;
+  width: 678px;
+  align-self: center;
+}
+
+@media (max-width: 700px) {
+  .companySelector {
+    width: calc(100vw - 40px);
+  }
+
+  .companyOption {
+    width: calc(100vw - 40px);
+  }
+
+  .selectCancel {
+    position: absolute;
+    transform: scale(0.7);
+    right: 20px;
+    height: 30px;
+    width: 30px;
+  }
+  .textAddApp {
+    height: 208px;
+    font-size: 36px;
+  }
+
+  .addBtnContainer,
+  .companyAutoOption {
+    width: calc(100vw - 20px);
+  }
+}
+
+@media (max-width: 400px) {
+  .textAddApp {
+    font-size: 28px;
+  }
 }

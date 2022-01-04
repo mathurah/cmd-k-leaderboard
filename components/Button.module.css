@@ -152,6 +152,24 @@
   border: 4px solid white;
 }
 
+.addModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-family: 'Cartridge';
+  height: 64px;
+  background: #4242cb;
+  border: 4px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  box-shadow: 8px 8px 0px 4px rgba(0, 0, 0, 0.16);
+  border-radius: 16px;
+  color: white;
+  font-size: 32px;
+  line-height: 48px;
+}
+
 /* TODO: add x element change and center the numbers more */
 @media (max-width: 700px) {
   .cta {

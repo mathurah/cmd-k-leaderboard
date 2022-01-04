@@ -34,14 +34,14 @@ a {
 }
 
 .react-autosuggest__input {
-  width: 670px;
+  width: 678px;
   height: 96px;
   margin-top: 8px;
-  padding: 10px 20px;
+  padding: 16px 32px;
   font-family: 'Cartridge';
   font-feature-settings: 'ss03';
   font-weight: 300;
-  font-size: 24px;
+  font-size: 40px;
   border: 1px solid #aaa;
   border-radius: 4px;
   align-self: center;
@@ -58,6 +58,7 @@ a {
 
 .react-autosuggest__suggestions-container {
   display: none;
+  width: 678px;
 }
 
 .react-autosuggest__container--open .react-autosuggest__suggestions-container {
@@ -65,7 +66,7 @@ a {
   position: absolute;
   top: 51px;
   /* height: 430px;  */
-  width:670px;
+  width: 678px;
   border: 1px solid #aaa;
   background-color: #fff;
   font-family: Helvetica, sans-serif;
@@ -84,7 +85,8 @@ a {
 
 .react-autosuggest__suggestion {
   cursor: pointer;
-  padding: 2px 5px;
+  /* padding: 2px 5px; */
+  border: none;
 }
 
 .react-autosuggest__suggestion:not(:first-child) {
@@ -100,22 +102,49 @@ a {
   /* display: block; */
   position: relative;
   margin: 0 auto;
-  margin-top: 47vh;
+  margin-top: calc(50vh + 45px);
   height: 400px;
+  left: calc(50% - 679px / 2);
+  float: center;
   overflow-y: scroll;
 }
 
 @media (max-width: 700px) {
+  .react-autosuggest__container--open
+    .react-autosuggest__suggestions-container {
+    height: 100vh;
+  }
+  .react-autosuggest__container--open,
+  .react-autosuggest__suggestions-container,
+  .react-autosuggest__suggestions-container--open,
+  .react-autosuggest__container--open,
+  .react-autosuggest__container {
+    width: calc(100vw - 20px);
+    left: 0;
+  }
 
-  .react-autosuggest__container--open .react-autosuggest__suggestions-container{
-    height: 100vh
+  .react-autosuggest__container {
+    padding-left: 10px;
+    padding-right: 10px;
   }
-  .react-autosuggest__container--open .react-autosuggest__suggestions-container, .react-autosuggest__input{
-    width: 300px;    
+
+  .react-autosuggest__input,
+  .react-autosuggest__input--focused,
+  .react-autosuggest__input--open,
+  .react-autosuggest__suggestion,
+  .react-autosuggest__suggestions-list {
+    width: calc(100vw - 20px);
+    background-color: #0c7eaf;
+    /* max-width: 100%; */
   }
+
   .react-autosuggest__suggestions-container--open {
-    margin-top: 59.5vh;
-
+    margin-top: calc(50vh + 73px);
+    left: 10px;
     height: 20vh;
+  }
+
+  .react-autosuggest__input {
+    font-size: 30px;
   }
 }
