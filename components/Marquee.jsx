@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Ticker from 'react-ticker';
-import { getPrefersReducedMotion } from '../api/window';
-import styles from './Marquee.module.css';
-import { TOP_COLORS } from '../styles/constants';
+import React, { useState, useEffect } from "react";
+import Ticker from "react-ticker";
+import { getPrefersReducedMotion } from "../api/window";
+import styles from "./Marquee.module.css";
+import { TOP_COLORS } from "../styles/constants";
 
 const Marquee = ({ votes }) => {
   const [motion, setMotion] = useState(true);
@@ -34,6 +34,7 @@ const MarqueeBase = ({ votes }) => (
             url={url}
             company={company}
             count={count}
+            key={index}
             index={index}
             color={TOP_COLORS[Math.min(index, TOP_COLORS.length - 1)]}
           />

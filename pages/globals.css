@@ -3,8 +3,8 @@
 }
 
 @font-face {
-  font-family: 'Cartridge';
-  src: url('/fonts/Cartridge/Cartridge-Regular.ttf');
+  font-family: "Cartridge";
+  src: url("/fonts/Cartridge/Cartridge-Regular.ttf");
   font-style: normal;
   font-weight: 500;
   letter-spacing: 0%;
@@ -15,7 +15,7 @@ body {
   padding: 0;
   margin: 0;
   max-height: 100vh;
-  font-feature-settings: 'ss01';
+  font-feature-settings: "ss01";
   background-color: #1b1b23;
 }
 
@@ -38,8 +38,8 @@ a {
   height: 96px;
   margin-top: 8px;
   padding: 16px 32px;
-  font-family: 'Cartridge';
-  font-feature-settings: 'ss03';
+  font-family: "Cartridge";
+  font-feature-settings: "ss03";
   font-weight: 300;
   font-size: 40px;
   border: 1px solid #aaa;
@@ -94,7 +94,6 @@ a {
 }
 
 .react-autosuggest__suggestion--focused {
-  background-color: #0c7eaf;
   color: #fff;
 }
 
@@ -134,8 +133,6 @@ a {
   .react-autosuggest__suggestion,
   .react-autosuggest__suggestions-list {
     width: calc(100vw - 20px);
-    background-color: #0c7eaf;
-    /* max-width: 100%; */
   }
 
   .react-autosuggest__suggestions-container--open {

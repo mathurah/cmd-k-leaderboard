@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import Head from 'next/head';
 import { Box } from '@chakra-ui/react';
 import Header from '../components/Header';
@@ -140,6 +140,10 @@ export default function Home() {
       await upsertUser(session.user);
     });
   }, []);
+
+  // const leaderboardRef = useRef();
+  // const headerButtonRef = useRef();
+  // const scrollToComponent = (ref) = window.scrollTo(0, ref.current.offsetTop);
 
   return (
     <>

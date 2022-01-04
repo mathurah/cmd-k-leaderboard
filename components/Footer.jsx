@@ -1,12 +1,12 @@
-import React from 'react';
-import styles from './Footer.module.css';
+import React from "react";
+import styles from "./Footer.module.css";
 
-import { Box, Text, IconButton, Button } from '@chakra-ui/react';
-import { HiLogout } from 'react-icons/hi';
-import { useState } from 'react';
+import { Box, Text, IconButton, Button } from "@chakra-ui/react";
+import { HiLogout } from "react-icons/hi";
+import { useState } from "react";
 
-import { useSupabase } from '../hooks/useSupabase.js';
-import NewsletterModal from './NewsletterModal.jsx';
+import { useSupabase } from "../hooks/useSupabase.js";
+import NewsletterModal from "./NewsletterModal.jsx";
 // const Footer = () => {
 //   const [showNewsletterModal, setShowNewsletterModal] = useState(false);
 //   const supabase = useSupabase();
@@ -52,8 +52,8 @@ const Footer = () => {
   return (
     <div className={styles.footer}>
       <div>
-        This project is made with 💛 in SF, XYZ & Berlin by{' '}
-        <a href="https://www.commandbar.com/" target={'_blank'}>
+        This project is made with 💛 in SF, XYZ & Berlin by{" "}
+        <a href="https://www.commandbar.com/" target="blank">
           <strong>CommandBar</strong>
         </a>
       </div>
