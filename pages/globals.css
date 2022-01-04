@@ -34,9 +34,9 @@ a {
 }
 
 .react-autosuggest__input {
-  width:670px;
+  width: 670px;
   height: 96px;
-  margin-top: 8px; 
+  margin-top: 8px;
   padding: 10px 20px;
   font-family: 'Cartridge';
   font-feature-settings: 'ss03';
