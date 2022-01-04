@@ -20,11 +20,18 @@ class MyDocument extends Document {
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments)}
                 gtag('js', new Date());
+                ga('create', 'UA-XXXXX-Y', 'auto');
+                ga(function(tracker) {
+                  console.log('here')
+                  var clientId = tracker.get('clientId');
+                  console.log(clientId)
+                });
+                console.log(clientId)
 
                 gtag('config', ${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS});
                 `
               }}
-            />
+          />
           
         </body>
       </Html>

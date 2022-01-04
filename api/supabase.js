@@ -76,9 +76,12 @@ export const upsertUser = async (user) => {
 /* AUTH */
 
 export const signIn = async (provider) => {
-  await supabase.auth.signIn({
-    provider,
-  });
+  // await supabase.auth.signIn({
+  //   provider,
+  // });
+
+  const { data: newUser, error } = await supabase.from('users').insert();
+  return newUser;
 };
 
 export const signOut = async () => {
