@@ -9,10 +9,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter&display=optional"
             rel="stylesheet"
           />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
+
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}></script>
           <script
             dangerouslySetInnerHTML={{
@@ -32,7 +29,10 @@ class MyDocument extends Document {
                 `
               }}
           />
-          
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
         </body>
       </Html>
     );
