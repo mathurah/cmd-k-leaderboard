@@ -5,7 +5,7 @@ import { useState, useContext } from "react";
 import { Store } from "../context/state";
 import Button from "./Button";
 
-const Leaderboard = ({ Toggle, toggleAdd }) => {
+const Leaderboard = ({ toggle, toggleAdd }) => {
   const {
     state: { voteOptions, user, userVotes, votesLoading },
     dispatch,
@@ -14,7 +14,7 @@ const Leaderboard = ({ Toggle, toggleAdd }) => {
   const [hover, setHover] = useState(false);
   return (
     <>
-      <div className={styles.leaderboard}>
+      <div id="iwant" className={styles.leaderboard}>
         <LeaderboardTitle />
 
         <div
@@ -52,7 +52,7 @@ const Leaderboard = ({ Toggle, toggleAdd }) => {
                   id={id}
                   bg={TOP_COLORS[Math.min(index, TOP_COLORS.length - 1)]}
                   handleVote={() => {
-                    Toggle(id);
+                    toggle(id);
                   }}
                 />
               ))}

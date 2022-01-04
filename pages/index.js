@@ -141,10 +141,6 @@ export default function Home() {
     });
   }, []);
 
-  // const leaderboardRef = useRef();
-  // const headerButtonRef = useRef();
-  // const scrollToComponent = (ref) = window.scrollTo(0, ref.current.offsetTop);
-
   return (
     <>
       <div className="home">
@@ -163,11 +159,11 @@ export default function Home() {
         <MainTitle />
         <Footnote />
         <TweetGrid />
-        <Leaderboard Toggle={Toggle} toggleAdd={toggleAdd} />
+        <Leaderboard toggle={Toggle} toggleAdd={toggleAdd} />
         <AddSection toggleAdd={toggleAdd} />
         <Footer />
         <SignInModal title="Sign In Modal" Toggle={Toggle} />
-        <AddCompanyModal Toggle={toggleAdd} toggleVote={Toggle} />
+        <AddCompanyModal toggle={toggleAdd} toggleVote={Toggle} />
       </div>
     </>
   );

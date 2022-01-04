@@ -326,7 +326,9 @@ const Header = (reference, click) => {
                 </div>
 
                 <div className={styles.headerButtonGroup}>
-                  <Button style="cta">Vote Now</Button>
+                  <a href="#iwant">
+                    <Button style="cta">Vote Now</Button>
+                  </a>
                   {user && (
                     <Button style="signOut" onClick={() => handleSignOut()}>
                       <span className={styles.signOut}>
