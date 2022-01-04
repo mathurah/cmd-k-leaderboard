@@ -1,18 +1,17 @@
-import { Text, Checkbox, Box, Input, Button, Image } from '@chakra-ui/react';
-import Autosuggest from 'react-autosuggest';
-import themeable from 'react-themeable';
-import { useState, useContext } from 'react';
-import Modal from './Modal';
-import { Store } from '../context/state';
-import { insertOption } from '../api/supabase';
-import { ACTION_TYPES } from '../context/constants';
-import styles from './Modal.module.css';
-
+import { Text, Checkbox, Box, Input, Button, Image } from "@chakra-ui/react";
+import Autosuggest from "react-autosuggest";
+import themeable from "react-themeable";
+import { useState, useContext } from "react";
+import Modal from "./Modal";
+import { Store } from "../context/state";
+import { insertOption } from "../api/supabase";
+import { ACTION_TYPES } from "../context/constants";
+import styles from "./Modal.module.css";
 
 const AddCompanyModal = ({ Toggle }) => {
-  const [name, setName] = useState('');
-  const [query, setQuery] = useState('');
-  const [url, setUrl] = useState('');
+  const [name, setName] = useState("");
+  const [query, setQuery] = useState("");
+  const [url, setUrl] = useState("");
   const [selected, setSelected] = useState(null);
   const [submitted, setSubmitted] = useState(null);
   const [isUser, setIsUser] = useState(false);
@@ -27,9 +26,9 @@ const AddCompanyModal = ({ Toggle }) => {
 
   const clearOptions = () => {
     setCompanyOptions([]);
-    setName('');
-    setUrl('');
-    setQuery('');
+    setName("");
+    setUrl("");
+    setQuery("");
     setIsUser(false);
   };
 
@@ -77,12 +76,14 @@ const AddCompanyModal = ({ Toggle }) => {
       <Box p="1rem">
         <Text as="b">{company.name} </Text>
         <Text>{company.domain}</Text>
+
+        {/* Need to add logic if company is already selected  */}
       </Box>
     </Box>
   );
 
   const autosuggestInputProps = {
-    placeholder: 'Search for a company',
+    placeholder: "Search for a company",
     value: query,
     name,
     onChange: (event, { newValue }) => {
@@ -92,7 +93,7 @@ const AddCompanyModal = ({ Toggle }) => {
 
   return (
     <Modal show={show} Toggle={Toggle}>
-     <div className={styles.close}>
+      <div className={styles.close}>
         <div onClick={Toggle} className={styles.closeX}>
           <svg
             width="36"
@@ -115,12 +116,12 @@ const AddCompanyModal = ({ Toggle }) => {
         </div>
       </div>
 
-      <div className = {styles.signIn}>
-          <div className={styles.textAddApp}>
+      <div className={styles.signIn}>
+        <div className={styles.textAddApp}>
           Add an app you think should have a command menu
-          </div>
+        </div>
       </div>
-      
+
       <Box d="flex" alignItems="center" justifyContent="center">
         <Autosuggest
           suggestions={companyOptions || []}
@@ -133,24 +134,28 @@ const AddCompanyModal = ({ Toggle }) => {
         />
       </Box>
       {selected !== null && (
-        <Box
-          w="100%"
-          m="2rem"
-          d="flex"
-          justifyContent="center"
-          pt="15px"
-          pb="15px"
-        >
-          <Image
-            height="5rem"
-            alt="Company logo"
-            src={`${selected.logo}`}
-          ></Image>
-          <Box p="1rem">
-            <Text as="b">{selected.name} </Text>
-            <Text>{selected.domain}</Text>
-          </Box>
-        </Box>
+        <div className={styles.companySelector}>
+          <div className={styles.companyOption}>
+            <Image
+              className={styles.companyImage}
+              height="4rem"
+              alt="Company logo"
+              src={`${selected.logo}`}
+            ></Image>
+            <Box>
+              <Text as="b">{selected.name} </Text>
+              <Text>{selected.domain}</Text>
+            </Box>
+          </div>
+          <Box
+            w="100%"
+            m="2rem"
+            d="flex"
+            justifyContent="center"
+            pt="15px"
+            pb="15px"
+          ></Box>
+        </div>
       )}
       {!submitted ? (
         currentOptions.includes(url) ? (
