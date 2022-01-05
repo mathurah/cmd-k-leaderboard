@@ -1,15 +1,17 @@
-import { FILTER_ENUM, ACTION_TYPES } from './constants';
+import { FILTER_ENUM, ACTION_TYPES } from "./constants";
 export const reducer = (state = initialState, action) => {
-    // console.log({action, state});
+  console.log({ action, state });
 
   switch (action.type) {
     case ACTION_TYPES.TOGGLE_SIGN_IN:
       return {
         ...state,
-        showSignIn:
-          action.showSignIn !== undefined
-            ? action.showSignIn
-            : !state.showSignIn,
+        showSignIn: false,
+
+        // INFO: showSignIn is hardcoded to false until we're ready for real auth
+        // action.showSignIn !== undefined
+        //   ? action.showSignIn
+        //   : !state.showSignIn,
       };
     case ACTION_TYPES.TOGGLE_ADD:
       return {
