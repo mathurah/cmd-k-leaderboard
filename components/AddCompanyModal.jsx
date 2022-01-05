@@ -40,6 +40,7 @@ const AddCompanyModal = ({ toggle, toggleVote }) => {
 
   const submitOption = async ({ name, url, isUser }) => {
     const response = await insertOption({ name, url, isUser }, user);
+    toggleVote(response[0].id);
     if (response) {
       dispatch({
         type: ACTION_TYPES.SET_VOTE_OPTIONS,
@@ -219,7 +220,7 @@ const AddCompanyModal = ({ toggle, toggleVote }) => {
             }}
             style="addModal"
           >
-            Add company
+            Add and Vote
           </Button>
         )}
       </div>
