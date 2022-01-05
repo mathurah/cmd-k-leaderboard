@@ -9,7 +9,7 @@ import { ACTION_TYPES } from "../context/constants";
 import styles from "./Modal.module.css";
 import Button from "./Button";
 
-const AddCompanyModal = ({ Toggle, toggleVote }) => {
+const AddCompanyModal = ({ toggle, toggleVote }) => {
   const [name, setName] = useState("");
   const [query, setQuery] = useState("");
   const [url, setUrl] = useState("");
@@ -116,9 +116,9 @@ const AddCompanyModal = ({ Toggle, toggleVote }) => {
   };
 
   return (
-    <Modal show={show} Toggle={Toggle}>
+    <Modal show={show} Toggle={toggle}>
       <div className={styles.close}>
-        <div onClick={Toggle} className={styles.closeX}>
+        <div onClick={toggle} className={styles.closeX}>
           <svg
             width="36"
             height="36"
@@ -197,7 +197,7 @@ const AddCompanyModal = ({ Toggle, toggleVote }) => {
           <Button
             onClick={() => {
               toggleVote(currentVotes[selected.domain].id);
-              Toggle();
+              toggle();
               setSubmitted(true);
               clearOptions();
             }}
