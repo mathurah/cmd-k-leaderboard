@@ -215,7 +215,7 @@ const AddCompanyModal = ({ toggle, toggleVote }) => {
               setSubmitted(true);
               submitOption({ name, url, isUser });
               clearOptions();
-              Toggle();
+              toggle();
             }}
             style="addModal"
           >
