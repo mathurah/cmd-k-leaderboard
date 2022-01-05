@@ -89,7 +89,11 @@ const LeaderboardItem = ({
   } = useContext(Store);
 
   return (
-    <div style={{ backgroundColor: bg }} className={styles.leaderboardItem}>
+    <div
+      id={`leaderboard_item_${id}`}
+      style={{ backgroundColor: bg }}
+      className={styles.leaderboardItem}
+    >
       <div className={styles.leaderboardItemGroup}>
         <div className={styles.leaderboardItemIndex}>{index}</div>
         <div className={styles.leaderboardItemImgContainer}>
@@ -159,8 +163,10 @@ const LeaderboardItem = ({
           ) : (
             <Button onClick={handleVote} style={"vote"}>
               <div className={styles.leaderboardItemVotes}>
-                <div>+</div>
-                <div>{votes}</div>
+                <div className={styles.buttonText}>
+                  <div>+</div>
+                  <div>{votes}</div>
+                </div>
               </div>
             </Button>
           )}
