@@ -163,10 +163,8 @@ const LeaderboardItem = ({
           ) : (
             <Button onClick={handleVote} style={'vote'}>
               <div className={styles.leaderboardItemVotes}>
-                {/* <div className={styles.buttonText}>/ */}
                 <div>+</div>
                 <div>{votes}</div>
-                {/* </div> */}
               </div>
             </Button>
           )}
