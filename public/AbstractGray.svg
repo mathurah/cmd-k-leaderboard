@@ -1,10 +1,9 @@
 <svg width="1224" height="808" viewBox="0 0 1224 808" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_1417_75501)">
 <g clip-path="url(#clip0_1417_75501)">
-<g clip-path="url(#clip1_1417_75501)">
-<rect width="1216" height="808.511" rx="16" fill="#2A2A2A"/>
+<path d="M0 16C0 7.16343 7.16344 0 16 0H1200C1208.84 0 1216 7.16344 1216 16V800H0V16Z" fill="#2A2A2A"/>
 <g filter="url(#filter1_ddd_1417_75501)">
-<g clip-path="url(#clip2_1417_75501)">
+<g clip-path="url(#clip1_1417_75501)">
 <rect width="1216" height="810.667" rx="16" fill="#EBEBEB"/>
 <rect width="1216" height="41.04" fill="#787878"/>
 <circle opacity="0.1" cx="20.5199" cy="20.52" r="6.84" fill="white"/>
@@ -40,7 +39,7 @@
 <rect opacity="0.1" x="410.562" y="128.947" width="57" height="15.2" rx="4.05333" fill="white"/>
 </g>
 <g opacity="0.66">
-<g clip-path="url(#clip3_1417_75501)">
+<g clip-path="url(#clip2_1417_75501)">
 <rect x="295.295" y="159.707" width="297.532" height="103.867" rx="4" fill="#656565"/>
 </g>
 </g>
@@ -60,7 +59,7 @@
 <rect opacity="0.1" x="623.227" y="128.947" width="78.5333" height="15.2" rx="4.05333" fill="white"/>
 </g>
 <g opacity="0.66">
-<g clip-path="url(#clip4_1417_75501)">
+<g clip-path="url(#clip3_1417_75501)">
 <rect x="623.227" y="159.707" width="297.532" height="164.667" rx="4" fill="#656565"/>
 </g>
 </g>
@@ -76,7 +75,7 @@
 <rect opacity="0.1" x="1052.49" y="128.947" width="110.2" height="15.2" rx="4.05333" fill="white"/>
 </g>
 <g opacity="0.66">
-<g clip-path="url(#clip5_1417_75501)">
+<g clip-path="url(#clip4_1417_75501)">
 <rect x="951.159" y="159.707" width="297.532" height="149.467" rx="4" fill="#656565"/>
 </g>
 </g>
@@ -88,7 +87,6 @@
 </g>
 <g opacity="0.66">
 <rect x="951.159" y="619.373" width="297.532" height="202.667" rx="4" fill="#656565"/>
-</g>
 </g>
 </g>
 </g>
@@ -124,21 +122,18 @@
 <feBlend mode="normal" in="SourceGraphic" in2="effect3_dropShadow_1417_75501" result="shape"/>
 </filter>
 <clipPath id="clip0_1417_75501">
-<path d="M0 16C0 7.16343 7.16344 0 16 0H1200C1208.84 0 1216 7.16344 1216 16V784C1216 792.837 1208.84 800 1200 800H16C7.16346 800 0 792.837 0 784V16Z" fill="white"/>
+<path d="M0 16C0 7.16343 7.16344 0 16 0H1200C1208.84 0 1216 7.16344 1216 16V800H0V16Z" fill="white"/>
 </clipPath>
 <clipPath id="clip1_1417_75501">
-<rect width="1216" height="808.511" rx="16" fill="white"/>
-</clipPath>
-<clipPath id="clip2_1417_75501">
 <rect width="1216" height="810.667" rx="16" fill="white"/>
 </clipPath>
-<clipPath id="clip3_1417_75501">
+<clipPath id="clip2_1417_75501">
 <rect x="295.295" y="159.707" width="297.532" height="103.867" rx="4" fill="white"/>
 </clipPath>
-<clipPath id="clip4_1417_75501">
+<clipPath id="clip3_1417_75501">
 <rect x="623.227" y="159.707" width="297.532" height="164.667" rx="4" fill="white"/>
 </clipPath>
-<clipPath id="clip5_1417_75501">
+<clipPath id="clip4_1417_75501">
 <rect x="951.159" y="159.707" width="297.532" height="149.467" rx="4" fill="white"/>
 </clipPath>
 </defs>
