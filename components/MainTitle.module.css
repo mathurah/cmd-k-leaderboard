@@ -14,7 +14,7 @@
   background-origin: content-box;
   width: calc(0.5 * (100vw - 1216px));
   height: 240.36px;
-  padding: 1rem;
+  /* padding: 1rem; */
   float: right;
 }
 
@@ -25,7 +25,7 @@
 .mainTitleContainer {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  width: 100vw;
 }
 
 .footNoteText {
@@ -52,6 +52,13 @@
 @media (max-width: 1216px) {
   .mainTitleLeft,
   .mainTitleRight {
-    display: none;
+    /* display: none; */
+    background: #24242e;
+  }
+}
+
+@media (max-width: 1280px) {
+  .mainTitleContainer {
+    /* background: #24242e; */
   }
 }
