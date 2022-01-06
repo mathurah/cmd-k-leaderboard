@@ -30,7 +30,7 @@ import TweetGrid from '../components/TweetGrid';
 export default function Home() {
   const [session, setSession] = useState(null);
   const {
-    state: { showAdd, userVotes, filter, user, votesLoading },
+    state: { showAdd, userVotes, filter, user, votesLoading, voteOptions },
     dispatch,
   } = useContext(Store);
 
@@ -93,6 +93,21 @@ export default function Home() {
         loading: true,
       });
 
+      const voted = userVotes.map((vote) => vote.option_id).includes(id);
+      let currentOption = voteOptions.filter((option) => option.id === id)[0];
+      let newOption = {
+        ...currentOption,
+        votes: currentOption.votes + (voted ? -1 : 1),
+      };
+
+      dispatch({
+        type: ACTION_TYPES.SET_VOTE_OPTIONS,
+        voteOptions: [
+          ...voteOptions.filter((option) => option.id !== id),
+          newOption,
+        ].sort((a, b) => b.votes - a.votes),
+      });
+
       const options = await getOption(id);
 
       const { id: optionId, votes: optionVotes } = options[0];
@@ -100,8 +115,6 @@ export default function Home() {
       const voted = userVotes.map((vote) => vote.option_id).includes(optionId);
 
       optionVotes += voted ? -1 : 1;
-
-      const data = await updateOptionVotes(id, optionVotes);
 
       if (!voted) {
         confetti();
@@ -117,7 +130,13 @@ export default function Home() {
           userVotes: userVotes.filter((vote) => vote.option_id !== id),
         });
       }
-      getOptions();
+      const data = await updateOptionVotes(id, optionVotes);
+
+      // getOptions();
+      dispatch({
+        type: ACTION_TYPES.TOGGLE_VOTES_LOADING,
+        loading: false,
+      });
     }
   };
 
