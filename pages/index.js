@@ -1,13 +1,13 @@
-import { useState, useEffect, useContext, useRef } from 'react';
-import Head from 'next/head';
-import { Box } from '@chakra-ui/react';
-import Header from '../components/Header';
-import Container from '../components/Container';
-import SignInModal from '../components/SignInModal';
-import AddCompanyModal from '../components/AddCompanyModal';
-import Footer from '../components/Footer';
-import { useSupabase } from '../hooks/useSupabase.js';
-import confetti from 'canvas-confetti';
+import { useState, useEffect, useContext, useRef } from "react";
+import Head from "next/head";
+import { Box } from "@chakra-ui/react";
+import Header from "../components/Header";
+import Container from "../components/Container";
+import SignInModal from "../components/SignInModal";
+import AddCompanyModal from "../components/AddCompanyModal";
+import Footer from "../components/Footer";
+import { useSupabase } from "../hooks/useSupabase.js";
+import confetti from "canvas-confetti";
 
 import {
   deleteVote,
@@ -15,17 +15,18 @@ import {
   getOption,
   getUserVotes,
   insertVote,
+  signIn,
   signOut,
   updateOptionVotes,
   upsertUser,
-} from '../api/supabase';
-import { Store } from '../context/state';
-import { ACTION_TYPES } from '../context/constants';
-import MainTitle from '../components/MainTitle';
-import Footnote from '../components/Footnote';
-import Leaderboard from '../components/Leaderboard';
-import AddSection from '../components/AddSection';
-import TweetGrid from '../components/TweetGrid';
+} from "../api/supabase";
+import { Store } from "../context/state";
+import { ACTION_TYPES } from "../context/constants";
+import MainTitle from "../components/MainTitle";
+import Footnote from "../components/Footnote";
+import Leaderboard from "../components/Leaderboard";
+import AddSection from "../components/AddSection";
+import TweetGrid from "../components/TweetGrid";
 
 export default function Home() {
   const [session, setSession] = useState(null);
@@ -130,15 +131,16 @@ export default function Home() {
   }
 
   useEffect(() => {
-    setSession(supabase.auth.session());
-    supabase.auth.onAuthStateChange(async (_event, session) => {
-      setSession(session);
+    const setUser = async () => {
+      const tracking_id = localStorage.getItem("client_id");
+      const newUser = await signIn({ tracking_id });
+
       dispatch({
         type: ACTION_TYPES.SET_USER,
-        user: session.user,
+        user: newUser,
       });
-      await upsertUser(session.user);
-    });
+    };
+    setUser();
   }, []);
 
   return (
