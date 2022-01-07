@@ -326,7 +326,7 @@ const Header = (reference, click) => {
                 </div>
 
                 <div className={styles.headerButtonGroup}>
-                  <a href="#iwant">
+                  <a href="leaderboard">
                     <Button style="cta">Vote Now</Button>
                   </a>
                   {user && (

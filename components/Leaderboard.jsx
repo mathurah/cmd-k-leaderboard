@@ -14,7 +14,7 @@ const Leaderboard = ({ toggle, toggleAdd }) => {
   const [hover, setHover] = useState(false);
   return (
     <>
-      <div id="iwant" className={styles.leaderboard}>
+      <div id="leaderboard" className={styles.leaderboard}>
         <LeaderboardTitle />
 
         <div
