@@ -325,7 +325,10 @@ const Header = (reference, click) => {
                     <Button style="signOut" onClick={() => handleSignOut()}>
                       <span className={styles.signOut}>
                         {' '}
-                        sign out @{user.user_metadata.user_name}{' '}
+                        sign out @
+                        {
+                          user.identities[0].identity_data.preferred_username
+                        }{' '}
                         <svg
                           className={styles.signOutSvg}
                           width="12"
