@@ -56,7 +56,7 @@ const Header = (reference, click) => {
         pin: false,
         start: 'top top',
         scrub: true,
-        end: 'bottom bottom',
+        end: window.innerWidth > 700 ? 'bottom bottom' : 'bottom center',
         markers: false, //set to true for debugging
       },
     });
