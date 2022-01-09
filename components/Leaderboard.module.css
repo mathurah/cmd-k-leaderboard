@@ -1,5 +1,5 @@
 .leaderboard {
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,7 +47,7 @@
 }
 
 .text h2 {
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   font-size: 64px;
   margin-bottom: 4px;
 }
@@ -74,9 +74,9 @@
 
 .leaderboardInstructions {
   background-color: #ecc152;
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   font-weight: 400;
-  font-feature-settings: "ss03";
+  font-feature-settings: 'ss03';
   color: #121217;
   font-size: 24px;
   border-radius: 4px;
@@ -100,19 +100,19 @@
   width: 113px;
   align-items: center;
   margin: 16px 0px 16px 28px;
-  font-feature-settings: "ss01";
+  font-feature-settings: 'ss01';
 }
 
 .leaderboardLabelsRight {
   margin-right: 110px;
-  font-feature-settings: "ss02";
+  font-feature-settings: 'ss02';
 }
 
 .leaderboardList {
   width: 100%;
   color: white;
   font-size: 32px;
-  font-feature-settings: "ss03";
+  font-feature-settings: 'ss03';
   height: 80vh;
   padding-right: 32px;
   overflow-y: scroll;
@@ -121,8 +121,7 @@
 .leaderboardList::-webkit-scrollbar {
   width: 32px;
   background: #3a3a44;
-  box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.25),
-    inset 0px 0px 4px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 6px;
 }
@@ -374,8 +373,8 @@
   }
   .leaderboardLabelsRight {
     margin-right: 22px;
-    font-family: "Cartridge";
-    font-feature-settings: "ss02";
+    font-family: 'Cartridge';
+    font-feature-settings: 'ss02';
   }
   .leaderboardLabelsLeft {
     margin-left: 12px;
