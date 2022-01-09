@@ -224,14 +224,19 @@ const Header = (reference, click) => {
     );
 
     tl.to(
-      [
-        document.querySelector('#CMDK'),
-        document.querySelector('#CMDK2'),
-        document.querySelector('#UIColor'),
-      ],
+      [document.querySelector('#UIColor')],
       {
         autoAlpha: 0,
         duration: 20,
+      },
+      '<'
+    );
+
+    tl.to(
+      [document.querySelector('#CMDK'), document.querySelector('#CMDK2')],
+      {
+        autoAlpha: 0,
+        duration: 10,
       },
       '<'
     );
@@ -251,7 +256,7 @@ const Header = (reference, click) => {
         display: 'flex',
         duration: 0,
       },
-      '>+4'
+      '>-1'
     );
 
     tl.to(
@@ -260,7 +265,7 @@ const Header = (reference, click) => {
         autoAlpha: 1,
         duration: 4,
       },
-      '>-6'
+      '>-3'
     );
 
     // back to normal, final position
@@ -271,7 +276,7 @@ const Header = (reference, click) => {
         autoAlpha: 1,
         duration: 3,
       },
-      '-=18'
+      '-=16'
     );
 
     tl.to(
@@ -349,7 +354,7 @@ const Header = (reference, click) => {
                 </div>
 
                 <div className={styles.headerButtonGroup}>
-                  <a href="leaderboard">
+                  <a href="#leaderboard">
                     <Button style="cta">Vote Now</Button>
                   </a>
                   {user && (
