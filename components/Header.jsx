@@ -39,31 +39,15 @@ const Header = (reference, click) => {
     await signOut(supabase);
     dispatch({ type: ACTION_TYPES.SIGN_OUT });
   };
-  // const [duration, setDuration] = useState(3040);
 
   useEffect(() => {
-    // window.onresize = () => {
-    //   // if (duration !== 3040 && window.innerWidth > 700) {
-    //   //   setDuration(3040);
-    //   // } else if (duration === 3040 && window.innerWidth < 700) {
-    //   //   setDuration(1120);
-    //   // }
-    // };
-
-    // setDuration(window.innerWidth > 700 ? 3040 : 1120);
-
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(ScrollToPlugin);
 
     function updatePercentage() {
-      //percent.innerHTML = (tl.progress() *100 ).toFixed();
       tl.progress();
-      // console.log(tl.progress());
     }
-    // var autoScroll = gsap.timeline({}).to(window, {
-    //   duration: 100,
-    //   scrollTo: { y: 3040, autoKill: false },
-    // });
+
     var tl = gsap.timeline({
       onUpdate: updatePercentage,
       paused: false,
@@ -77,6 +61,7 @@ const Header = (reference, click) => {
       },
     });
 
+    // initial states
     tl.set(
       [
         document.querySelector('#UIGray'),
@@ -104,6 +89,7 @@ const Header = (reference, click) => {
       '<'
     );
 
+    // first CMD K switch
     tl.to(
       document.querySelector('#CMDK1'),
       {
@@ -131,6 +117,7 @@ const Header = (reference, click) => {
       '<'
     );
 
+    // second CMD K switch
     tl.to(
       document.querySelector('#CMDK2'),
       {
@@ -167,6 +154,7 @@ const Header = (reference, click) => {
       '<'
     );
 
+    // define final position
     tl.to(
       document.querySelector('#UI'),
       {
@@ -197,6 +185,8 @@ const Header = (reference, click) => {
       },
       '<'
     );
+
+    // sad + gray UI
 
     tl.to(
       [
@@ -250,6 +240,8 @@ const Header = (reference, click) => {
       },
       '>+4'
     );
+
+    // back to normal, final position
 
     tl.to(
       [document.querySelector('#CMDK'), document.querySelector('#CMDK0')],

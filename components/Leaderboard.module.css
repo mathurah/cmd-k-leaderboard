@@ -240,7 +240,7 @@
 
 .x {
   align-self: center;
-  padding-bottom: 5px;
+  padding-top: 3px;
 }
 
 .addStarContainer {
@@ -368,6 +368,7 @@
   }
   .leaderboardItemVotes {
     font-size: 16px;
+    line-height: 28px;
     margin-left: -8px;
     vertical-align: middle;
     display: flex;
@@ -379,6 +380,7 @@
     height: 16px;
     width: 12px;
     padding-top: 1px;
+    transform: scale(0.7);
   }
   .leaderboardLabelsRight {
     margin-right: 22px;
