@@ -14,7 +14,7 @@ const Leaderboard = ({ toggle, toggleAdd }) => {
   const [hover, setHover] = useState(false);
   return (
     <>
-      <div id="iwant" className={styles.leaderboard}>
+      <div id="leaderboard" className={styles.leaderboard}>
         <LeaderboardTitle />
 
         <div
@@ -108,21 +108,25 @@ const LeaderboardItem = ({
 
       <div className={styles.leaderboardItemGroup}>
         <div className={styles.leaderboardItemTwitter}>
-          <Button style="tweet">
-            <a
-              target="blank"
-              href={`https://twitter.com/intent/tweet?url=https://www.commandbar.com/&text=${company} should be the next company to add Cmd+K to their site! @commandbar`}
-            >
-              <div className={styles.leaderboardItemTwitterButton}>
-                <div className={styles.tellem}>tell em</div>
-                <img
-                  className={styles.twitter}
-                  alt="Twitter Logo"
-                  src="twitter.svg"
-                />
-              </div>
-            </a>
-          </Button>
+          {userVotes.map(({ option_id }) => option_id).includes(id) ? (
+            <Button style="tweet">
+              <a
+                target="blank"
+                href={`https://twitter.com/intent/tweet?url=https://www.commandbar.com/&text=${company} should be the next company to add Cmd+K to their site! @commandbar`}
+              >
+                <div className={styles.leaderboardItemTwitterButton}>
+                  <div className={styles.tellem}>tell em</div>
+                  <img
+                    className={styles.twitter}
+                    alt="Twitter Logo"
+                    src="twitter.svg"
+                  />
+                </div>
+              </a>
+            </Button>
+          ) : (
+            <></>
+          )}
         </div>
         <div className={styles.leaderboardItemVotesContainer}>
           {userVotes.map(({ option_id }) => option_id).includes(id) ? (

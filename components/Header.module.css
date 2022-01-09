@@ -242,7 +242,7 @@
 
 .background::before {
   transform: rotate(-2deg);
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -250,7 +250,7 @@
   height: 3040px;
   background-size: cover;
   background-repeat: repeat-x;
-  background: url('../public/hero-background-repeat.png');
+  background: url("../public/hero-background-repeat.png");
   background-color: repeating-linear-gradient(
     to bottom,
     #3a3a44 0px,
@@ -272,14 +272,25 @@
   font-weight: 400;
   padding: 24px 0px;
   line-height: 72px;
-  font-family: 'Cartridge';
-  font-feature-settings: 'ss02' on;
+  font-family: "Cartridge";
+  font-feature-settings: "ss02" on;
   -webkit-font-smoothing: antialiased;
-  text-shadow: -6px -6px 0 #491849, 0 -6px 0 #491849, 6px -6px 0 #491849,
-    6px 0 0 #491849, 6px 6px 0 #491849, 0 6px 0 #491849, -6px 6px 0 #491849,
-    -6px 0 0 #491849;
+  text-shadow: 7px 7px 0px #7f0080, 6px 6px 0px #7f0080, 5px 5px 0px #7f0080,
+    4px 4px 0px #7f0080, 3px 3px 0px #7f0080, 2px 2px 0px #7f0080,
+    1px 1px 0px #7f0080, 0px 2px 8px rgba(0, 0, 0, 0.48);
 }
 
+.header2 {
+  text-shadow: 7px 7px 0px #614901, 6px 6px 0px #614901, 5px 5px 0px #614901,
+    4px 4px 0px #614901, 3px 3px 0px #614901, 2px 2px 0px #614901,
+    1px 1px 0px #614901, 0px 2px 8px rgba(0, 0, 0, 0.48);
+}
+
+.header3 {
+  text-shadow: 7px 7px 0px #02022a, 6px 6px 0px #02022a, 5px 5px 0px #02022a,
+    4px 4px 0px #02022a, 3px 3px 0px #02022a, 2px 2px 0px #02022a,
+    1px 1px 0px #02022a, 0px 2px 8px rgba(0, 0, 0, 0.48);
+}
 .title {
   max-width: 1000px;
   margin: 24px;
@@ -340,9 +351,6 @@
   .header {
     font-size: 32px;
     line-height: 40px;
-    text-shadow: -4px -4px 0 #491849, 0 -4px 0 #491849, 4px -4px 0 #491849,
-      4px 0 0 #491849, 4px 4px 0 #491849, 0 4px 0 #491849, -4px 4px 0 #491849,
-      -4px 0 0 #491849;
   }
   .background {
     height: 1900px;
@@ -391,13 +399,12 @@
   }
 }
 
-
 .signOut {
-  display: flex; 
+  display: flex;
   flex-direction: row;
 }
 
 .signOutSvg {
-margin-top: 5px; 
-margin-left: 0.4rem; 
+  margin-top: 5px;
+  margin-left: 0.4rem;
 }

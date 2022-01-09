@@ -1,6 +1,5 @@
 .leaderboard {
-  font-family: 'Cartridge';
-  font-feature-settings: 'ss01';
+  font-family: "Cartridge";
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +47,7 @@
 }
 
 .text h2 {
-  font-family: 'Cartridge';
+  font-family: "Cartridge";
   font-size: 64px;
   margin-bottom: 4px;
 }
@@ -75,9 +74,9 @@
 
 .leaderboardInstructions {
   background-color: #ecc152;
-  font-family: 'Cartridge';
+  font-family: "Cartridge";
   font-weight: 400;
-  font-feature-settings: 'ss03';
+  font-feature-settings: "ss03";
   color: #121217;
   font-size: 24px;
   border-radius: 4px;
@@ -101,17 +100,19 @@
   width: 113px;
   align-items: center;
   margin: 16px 0px 16px 28px;
+  font-feature-settings: "ss01";
 }
 
 .leaderboardLabelsRight {
   margin-right: 110px;
+  font-feature-settings: "ss02";
 }
 
 .leaderboardList {
   width: 100%;
   color: white;
   font-size: 32px;
-  font-feature-settings: 'ss03';
+  font-feature-settings: "ss03";
   height: 80vh;
   padding-right: 32px;
   overflow-y: scroll;
@@ -214,7 +215,8 @@
   flex-direction: row;
   justify-content: space-between;
   font-size: 32px;
-  line-height: 44px;
+  line-height: 32px;
+  margin-top: -2px;
   right: 0;
 }
 
@@ -255,6 +257,7 @@
   font-size: 24px;
   width: 55px;
   line-height: 21px;
+  margin-top: -2px;
   animation: rock 4s linear infinite;
   cursor: pointer;
 }
@@ -358,7 +361,7 @@
   .leaderboardItemVotes {
     font-size: 16px;
     margin-left: -8px;
-    line-height: 26px;
+    vertical-align: middle;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -371,6 +374,8 @@
   }
   .leaderboardLabelsRight {
     margin-right: 22px;
+    font-family: "Cartridge";
+    font-feature-settings: "ss02";
   }
   .leaderboardLabelsLeft {
     margin-left: 12px;

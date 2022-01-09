@@ -52,7 +52,7 @@ const Footer = () => {
   return (
     <div className={styles.footer}>
       <div>
-        This project is made with 💛 in SF, XYZ & Berlin by{" "}
+        This project is made with 💛 in SF, Waterloo, & Berlin by{" "}
         <a href="https://www.commandbar.com/" target="blank">
           <strong>CommandBar</strong>
         </a>

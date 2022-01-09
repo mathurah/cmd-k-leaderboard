@@ -326,7 +326,7 @@ const Header = (reference, click) => {
                 </div>
 
                 <div className={styles.headerButtonGroup}>
-                  <a href="#iwant">
+                  <a href="leaderboard">
                     <Button style="cta">Vote Now</Button>
                   </a>
                   {user && (
@@ -353,7 +353,7 @@ const Header = (reference, click) => {
                 </div>
               </div>
               <div id="title2" className={styles.headerContainerB}>
-                <div className={styles.header}>
+                <div className={`${styles.header} ${styles.header2}`}>
                   <div className={styles.title}>
                     <h1>We love command menus</h1>
                   </div>
@@ -361,14 +361,14 @@ const Header = (reference, click) => {
               </div>
             </div>
             <div className={styles.headerContainerC}>
-              <div className={styles.header}>
+              <div className={`${styles.header} ${styles.header3}`}>
                 <div id="hello" className={styles.titleLong}>
                   <h1>...but most apps don't have them...</h1>
                 </div>
               </div>
             </div>
             <div className={styles.headerContainerD}>
-              <div className={styles.header}>
+              <div className={`${styles.header} ${styles.header3}`}>
                 <div id="hello" className={styles.title}>
                   <h1>let's change that, together!</h1>
                 </div>
