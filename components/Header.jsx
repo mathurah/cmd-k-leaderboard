@@ -67,6 +67,9 @@ const Header = (reference, click) => {
         document.querySelector('#UIGray'),
         document.querySelector('#CMDK1'),
         document.querySelector('#CMDK2'),
+        document.querySelector('#title2'),
+        document.querySelector('#title3'),
+        document.querySelector('#title4'),
       ],
       { autoAlpha: 0 }
     );
@@ -90,8 +93,9 @@ const Header = (reference, click) => {
     );
 
     // first CMD K switch
+
     tl.to(
-      document.querySelector('#CMDK1'),
+      [document.querySelector('#CMDK1')],
       {
         autoAlpha: 1,
         duration: 0,
@@ -115,6 +119,15 @@ const Header = (reference, click) => {
         duration: 0,
       },
       '<'
+    );
+
+    tl.to(
+      [document.querySelector('#title2')],
+      {
+        autoAlpha: 1,
+        duration: 2,
+      },
+      '>-2'
     );
 
     // second CMD K switch
@@ -241,6 +254,15 @@ const Header = (reference, click) => {
       '>+4'
     );
 
+    tl.to(
+      [document.querySelector('#title3')],
+      {
+        autoAlpha: 1,
+        duration: 4,
+      },
+      '>-6'
+    );
+
     // back to normal, final position
 
     tl.to(
@@ -268,6 +290,15 @@ const Header = (reference, click) => {
         duration: 3,
       },
       '<+2'
+    );
+
+    tl.to(
+      [document.querySelector('#title4')],
+      {
+        autoAlpha: 1,
+        duration: 4,
+      },
+      '>-6'
     );
 
     var ScrollMagic = require('scrollmagic');
@@ -307,7 +338,7 @@ const Header = (reference, click) => {
             <div className={styles.headerWrapper}>
               <div className={styles.headerContainerA}>
                 <div className={styles.header}>
-                  <div id="hello" className={styles.title}>
+                  <div id="title1" className={styles.title}>
                     <h1>
                       <span>
                         <span>Vote for a </span> <span> command menu </span>
@@ -347,9 +378,9 @@ const Header = (reference, click) => {
                   )}
                 </div>
               </div>
-              <div id="title2" className={styles.headerContainerB}>
+              <div className={styles.headerContainerB}>
                 <div className={`${styles.header} ${styles.header2}`}>
-                  <div className={styles.title}>
+                  <div id="title2" className={styles.title}>
                     <h1>We love command menus</h1>
                   </div>
                 </div>
@@ -357,14 +388,14 @@ const Header = (reference, click) => {
             </div>
             <div className={styles.headerContainerC}>
               <div className={`${styles.header} ${styles.header3}`}>
-                <div id="hello" className={styles.titleLong}>
+                <div id="title3" className={styles.titleLong}>
                   <h1>...but most apps don't have them...</h1>
                 </div>
               </div>
             </div>
             <div className={styles.headerContainerD}>
               <div className={`${styles.header} ${styles.header3}`}>
-                <div id="hello" className={styles.title}>
+                <div id="title4" className={styles.title}>
                   <h1>let's change that, together!</h1>
                 </div>
               </div>
