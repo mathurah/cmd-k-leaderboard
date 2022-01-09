@@ -9,7 +9,7 @@
 
 .mainTitleLeft,
 .mainTitleRight {
-  background-image: url("../public/gray-title.svg");
+  background-image: url('../public/gray-title.svg');
   background-repeat: repeat-x;
   background-origin: content-box;
   width: calc(0.5 * (100vw - 1216px));
@@ -25,7 +25,8 @@
 .mainTitleContainer {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  /* width: 100vw; */
+  justify-content: center;
 }
 
 .footNoteText {
@@ -36,7 +37,7 @@
   border-radius: 4px;
   text-align: center;
   padding: 10px 16px;
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   margin: 16px 32px;
 }
 
