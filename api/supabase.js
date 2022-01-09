@@ -6,7 +6,11 @@ export const getAllOptions = async (filter) => {
   const { data: options, error } = await supabase
     .from('options')
     .select()
-    .order(filter, { ascending: false });
+    .order(filter, { ascending: false })
+    .order('created_at', { ascending: false });
+  if (error) {
+    handleError(error);
+  }
   return options;
 };
 
@@ -15,6 +19,9 @@ export const getOption = async (id) => {
     .from('options')
     .select()
     .eq('id', id);
+  if (error) {
+    handleError(error);
+  }
   return options;
 };
 
@@ -25,6 +32,9 @@ export const insertOption = async (option, user) => {
     created_by: user.id,
     submitted_by_user: option.isUser,
   });
+  if (error) {
+    handleError(error);
+  }
   return newOption;
 };
 
@@ -33,6 +43,9 @@ export const updateOptionVotes = async (id, votes) => {
     .from('options')
     .update({ votes })
     .eq('id', id);
+  if (error) {
+    handleError(error);
+  }
   return option;
 };
 
@@ -43,6 +56,9 @@ export const getUserVotes = async (user) => {
     .from('votes')
     .select('option_id')
     .eq('user_id', user.id);
+  if (error) {
+    handleError(error);
+  }
   return votes;
 };
 
@@ -51,6 +67,9 @@ export const insertVote = async (optionId, user) => {
     option_id: optionId,
     user_id: user.id,
   });
+  if (error) {
+    handleError(error);
+  }
   return newVote;
 };
 
@@ -60,6 +79,9 @@ export const deleteVote = async (optionId, user) => {
     .delete()
     .eq('option_id', optionId)
     .eq('user_id', user.id);
+  if (error) {
+    handleError(error);
+  }
   return deletedVote;
 };
 
@@ -70,6 +92,9 @@ export const upsertUser = async (user) => {
     id: user.id,
     email: user.email,
   });
+  if (error) {
+    handleError(error);
+  }
   return newUser;
 };
 
@@ -81,9 +106,19 @@ export const signIn = async (provider) => {
   });
 
   // const { data: newUser, error } = await supabase.from('users').insert();
+  // if (error) {
+  //   handleError(error);
+  // }
   // return newUser;
 };
 
 export const signOut = async () => {
   await supabase.auth.signOut();
+};
+
+const handleError = (error) => {
+  console.error(error);
+  if (error.message === 'JWT expired') {
+    signOut();
+  }
 };

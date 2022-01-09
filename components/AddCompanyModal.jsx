@@ -1,18 +1,18 @@
-import { Text, Checkbox, Box, Input, Image } from "@chakra-ui/react";
-import Autosuggest from "react-autosuggest";
-import themeable from "react-themeable";
-import { useState, useContext } from "react";
-import Modal from "./Modal";
-import { Store } from "../context/state";
-import { insertOption } from "../api/supabase";
-import { ACTION_TYPES } from "../context/constants";
-import styles from "./Modal.module.css";
-import Button from "./Button";
+import { Text, Checkbox, Box, Input, Image } from '@chakra-ui/react';
+import Autosuggest from 'react-autosuggest';
+import themeable from 'react-themeable';
+import { useState, useContext } from 'react';
+import Modal from './Modal';
+import { Store } from '../context/state';
+import { insertOption } from '../api/supabase';
+import { ACTION_TYPES } from '../context/constants';
+import styles from './Modal.module.css';
+import Button from './Button';
 
 const AddCompanyModal = ({ toggle, toggleVote }) => {
-  const [name, setName] = useState("");
-  const [query, setQuery] = useState("");
-  const [url, setUrl] = useState("");
+  const [name, setName] = useState('');
+  const [query, setQuery] = useState('');
+  const [url, setUrl] = useState('');
   const [selected, setSelected] = useState(null);
   const [submitted, setSubmitted] = useState(null);
   const [isUser, setIsUser] = useState(false);
@@ -31,9 +31,9 @@ const AddCompanyModal = ({ toggle, toggleVote }) => {
 
   const clearOptions = () => {
     setCompanyOptions([]);
-    setName("");
-    setUrl("");
-    setQuery("");
+    setName('');
+    setUrl('');
+    setQuery('');
     setSelected(null);
     setIsUser(false);
   };
@@ -41,11 +41,25 @@ const AddCompanyModal = ({ toggle, toggleVote }) => {
   const submitOption = async ({ name, url, isUser }) => {
     const response = await insertOption({ name, url, isUser }, user);
     toggleVote(response[0].id);
+
     if (response) {
       dispatch({
         type: ACTION_TYPES.SET_VOTE_OPTIONS,
         voteOptions: [...voteOptions, response[0]],
       });
+      if (voteOptions.length) {
+        document
+          .getElementById(
+            `leaderboard_item_${
+              voteOptions.find((option) => option.id === response[0].id)
+                ? voteOptions.find((option) => option.id === response[0].id).id
+                : voteOptions.find((option) => option.votes === 1)
+                ? voteOptions.find((option) => option.votes === 1).id
+                : voteOptions[0].id
+            }`
+          )
+          .scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
   };
 
@@ -108,7 +122,7 @@ const AddCompanyModal = ({ toggle, toggleVote }) => {
   );
 
   const autosuggestInputProps = {
-    placeholder: "Search for a company",
+    placeholder: 'Search for a company',
     value: query,
     name,
     onChange: (event, { newValue }) => {
@@ -207,8 +221,8 @@ const AddCompanyModal = ({ toggle, toggleVote }) => {
             {userVotes
               .map(({ option_id }) => option_id)
               .includes(currentVotes[selected.domain].id)
-              ? "Remove Vote"
-              : "Vote"}
+              ? 'Remove Vote'
+              : 'Vote'}
           </Button>
         ) : (
           <Button
