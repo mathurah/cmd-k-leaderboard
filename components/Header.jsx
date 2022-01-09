@@ -1,31 +1,31 @@
-import React, { useRef } from "react";
-import styles from "./Header.module.css";
-import "./Header.module.css";
-import { useState, useContext, useLayoutEffect, useEffect } from "react";
-import { Store } from "../context/state";
-import { useSupabase } from "../hooks/useSupabase.js";
-import { signOut } from "../api/supabase";
-import Button from "./Button";
-import Marquee from "./Marquee";
-import { ACTION_TYPES } from "../context/constants";
+import React, { useRef } from 'react';
+import styles from './Header.module.css';
+import './Header.module.css';
+import { useState, useContext, useLayoutEffect, useEffect } from 'react';
+import { Store } from '../context/state';
+import { useSupabase } from '../hooks/useSupabase.js';
+import { signOut } from '../api/supabase';
+import Button from './Button';
+import Marquee from './Marquee';
+import { ACTION_TYPES } from '../context/constants';
 // import { Tween, Timeline } from 'react-gsap';
 // import { Controller, Scene } from 'react-scrollmagic';
-import { gsap, Linear, Power4 } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger.js";
-import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
+import { gsap, Linear, Power4 } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
+import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 
 const CMDK = [1, 2, 3].map((_, i) => `Animation_Bar_${i + 1}.svg`);
-const ABSTRACT_COLOR = "AbstractColor.svg";
-const ABSTRACT_GRAY = "AbstractGray.svg";
+const ABSTRACT_COLOR = 'AbstractColor.svg';
+const ABSTRACT_GRAY = 'AbstractGray.svg';
 const STARS = {
-  big: "BigStar.svg",
-  small: "SmallStar.svg",
-  fat: "FatStar.svg",
+  big: 'BigStar.svg',
+  small: 'SmallStar.svg',
+  fat: 'FatStar.svg',
 };
 const SAD_FACE = {
-  base: "SadBase.svg",
-  eyes: "SadEyes.svg",
-  brow: "SadBrow.svg",
+  base: 'SadBase.svg',
+  eyes: 'SadEyes.svg',
+  brow: 'SadBrow.svg',
 };
 
 const Header = (reference, click) => {
@@ -68,107 +68,107 @@ const Header = (reference, click) => {
       onUpdate: updatePercentage,
       paused: false,
       scrollTrigger: {
-        trigger: document.querySelector("#start"),
+        trigger: document.querySelector('#start'),
         pin: false,
-        start: "top top",
+        start: 'top top',
         scrub: true,
-        end: "bottom bottom",
+        end: 'bottom bottom',
         markers: false, //set to true for debugging
       },
     });
 
     tl.set(
       [
-        document.querySelector("#UIGray"),
-        document.querySelector("#CMDK1"),
-        document.querySelector("#CMDK2"),
+        document.querySelector('#UIGray'),
+        document.querySelector('#CMDK1'),
+        document.querySelector('#CMDK2'),
       ],
       { autoAlpha: 0 }
     );
 
     tl.from(
-      document.querySelector("#CMDK"),
+      document.querySelector('#CMDK'),
       {
         y: -250,
         duration: 20,
       },
-      ">"
+      '>'
     );
 
     tl.from(
-      document.querySelector("#UI"),
+      document.querySelector('#UI'),
       {
         y: -150,
         duration: 20,
       },
-      "<"
+      '<'
     );
 
     tl.to(
-      document.querySelector("#CMDK1"),
+      document.querySelector('#CMDK1'),
       {
         autoAlpha: 1,
         duration: 0,
       },
-      ">"
+      '>'
     );
 
     tl.to(
-      document.querySelector("#CMDK0"),
+      document.querySelector('#CMDK0'),
       {
         autoAlpha: 0,
         duration: 0,
       },
-      "<"
+      '<'
     );
 
     tl.to(
-      document.querySelector("#starsLeft"),
+      document.querySelector('#starsLeft'),
       {
-        display: "block",
+        display: 'block',
         duration: 0,
       },
-      "<"
+      '<'
     );
 
     tl.to(
-      document.querySelector("#CMDK2"),
+      document.querySelector('#CMDK2'),
       {
         autoAlpha: 0,
         duration: 10,
       },
-      ">"
+      '>'
     );
 
     tl.to(
-      document.querySelector("#CMDK2"),
+      document.querySelector('#CMDK2'),
       {
         autoAlpha: 1,
         duration: 0,
       },
-      ">"
+      '>'
     );
 
     tl.to(
-      document.querySelector("#CMDK1"),
+      document.querySelector('#CMDK1'),
       {
         autoAlpha: 0,
         duration: 0,
       },
-      "<"
+      '<'
     );
 
     tl.to(
-      document.querySelector("#starsRight"),
+      document.querySelector('#starsRight'),
       {
-        display: "block",
+        display: 'block',
         duration: 0,
       },
-      "<"
+      '<'
     );
 
     tl.to(
-      document.querySelector("#UI"),
+      document.querySelector('#UI'),
       {
         marginTop:
           window.innerWidth > 1220
@@ -176,14 +176,14 @@ const Header = (reference, click) => {
             : window.innerWidth > 700
             ? 3438 - 1100 - 0.65 * window.innerWidth
             : 2301 - 1100 - 0.657 * window.innerWidth,
-        marginRight: window.innerWidth > 700 ? 10 : 0,
+        // marginRight: window.innerWidth > 700 ? 10 : 0,
         duration: 70,
       },
-      ">"
+      '>'
     );
 
     tl.to(
-      document.querySelector("#CMDK"),
+      document.querySelector('#CMDK'),
       {
         marginTop:
           window.innerWidth > 1220
@@ -195,97 +195,97 @@ const Header = (reference, click) => {
         // scale: 2,
         duration: 70,
       },
-      "<"
+      '<'
     );
 
     tl.to(
       [
-        document.querySelector("#CMDK"),
-        document.querySelector("#CMDK2"),
-        document.querySelector("#UIColor"),
+        document.querySelector('#CMDK'),
+        document.querySelector('#CMDK2'),
+        document.querySelector('#UIColor'),
       ],
       {
         autoAlpha: 20,
         duration: 0,
       },
-      "<"
+      '<'
     );
 
     tl.to(
-      [document.querySelector("#UIGray")],
+      [document.querySelector('#UIGray')],
       {
         autoAlpha: -19,
         duration: 0,
       },
-      "<"
+      '<'
     );
 
     tl.to(
       [
-        document.querySelector("#CMDK"),
-        document.querySelector("#CMDK2"),
-        document.querySelector("#UIColor"),
+        document.querySelector('#CMDK'),
+        document.querySelector('#CMDK2'),
+        document.querySelector('#UIColor'),
       ],
       {
         autoAlpha: 0,
         duration: 20,
       },
-      "<"
+      '<'
     );
 
     tl.to(
-      document.querySelector("#UIGray"),
+      document.querySelector('#UIGray'),
       {
         autoAlpha: 1,
         duration: 14,
       },
-      "<"
+      '<'
     );
 
     tl.to(
-      document.querySelector("#sad"),
+      document.querySelector('#sad'),
       {
-        display: "flex",
+        display: 'flex',
         duration: 0,
       },
-      ">+4"
+      '>+4'
     );
 
     tl.to(
-      [document.querySelector("#CMDK"), document.querySelector("#CMDK0")],
+      [document.querySelector('#CMDK'), document.querySelector('#CMDK0')],
       {
         autoAlpha: 1,
         duration: 3,
       },
-      "-=18"
+      '-=18'
     );
 
     tl.to(
-      [document.querySelector("#UIColor")],
+      [document.querySelector('#UIColor')],
       {
         autoAlpha: 1,
         duration: 3,
       },
-      "<-20"
+      '<-20'
     );
 
     tl.to(
-      [document.querySelector("#UIGray")],
+      [document.querySelector('#UIGray')],
       {
         autoAlpha: 0,
         duration: 3,
       },
-      "<+2"
+      '<+2'
     );
 
-    var ScrollMagic = require("scrollmagic");
+    var ScrollMagic = require('scrollmagic');
 
     var controller = new ScrollMagic.Controller();
 
     var scene = new ScrollMagic.Scene({
-      triggerElement: document.querySelector("#trigger"),
-      triggerHook: "onLeave",
-      duration: "100%",
+      triggerElement: document.querySelector('#trigger'),
+      triggerHook: 'onLeave',
+      duration: '100%',
     })
       .setTween(tl)
       // .setTween(autoScroll)
@@ -332,8 +332,8 @@ const Header = (reference, click) => {
                   {user && (
                     <Button style="signOut" onClick={() => handleSignOut()}>
                       <span className={styles.signOut}>
-                        {" "}
-                        sign out @{user.user_metadata.user_name}{" "}
+                        {' '}
+                        sign out @{user.user_metadata.user_name}{' '}
                         <svg
                           className={styles.signOutSvg}
                           width="12"
@@ -346,7 +346,7 @@ const Header = (reference, click) => {
                             d="M5.83027 2.46281C3.79174 2.534 2.21916 4.22627 2.28487 6.27068C2.35018 8.30373 4.04833 9.88179 6.08686 9.8106C8.11971 9.73962 9.70913 8.04107 9.63266 6.01409L11.7732 5.93366C11.8911 9.14741 9.36989 11.8393 6.16162 11.9513C2.94199 12.0638 0.250481 9.55391 0.143926 6.33976C0.0373713 3.12561 2.53588 0.434502 5.75551 0.322071L5.83027 2.46281ZM11.73 4.69578L10.1433 3.21616L6.74016 6.86556L5.17697 5.40786L8.58009 1.75846L6.99339 0.278843L11.5702 0.119019L11.73 4.69578Z"
                             fill="white"
                           />
-                        </svg>{" "}
+                        </svg>{' '}
                       </span>
                     </Button>
                   )}
@@ -376,10 +376,10 @@ const Header = (reference, click) => {
             </div>
             <div
               className={styles.animations}
-              style={showSignIn || showAdd ? { display: "none" } : {}}
+              style={showSignIn || showAdd ? { display: 'none' } : {}}
               id="trigger"
             >
-              <div id={"CMDK"} className={styles.animationBar}>
+              <div id={'CMDK'} className={styles.animationBar}>
                 <img
                   id="CMDK0"
                   className={styles.stackImg}
@@ -400,7 +400,7 @@ const Header = (reference, click) => {
                 />
               </div>
 
-              <div id={"UI"} className={styles.abstractUI}>
+              <div id={'UI'} className={styles.abstractUI}>
                 <img
                   id="UIColor"
                   className={styles.stackImg}
@@ -414,12 +414,12 @@ const Header = (reference, click) => {
                   alt="abstract gray"
                 />
                 <div className={styles.starsLeft}>
-                  <StarGroup id={"starsLeft"} />
+                  <StarGroup id={'starsLeft'} />
                 </div>
                 <div className={styles.starsRight}>
-                  <StarGroup id={"starsRight"} />
+                  <StarGroup id={'starsRight'} />
                 </div>
-                <div id={"sad"} className={styles.sadFaceContainer}>
+                <div id={'sad'} className={styles.sadFaceContainer}>
                   <SadFace />
                 </div>
               </div>

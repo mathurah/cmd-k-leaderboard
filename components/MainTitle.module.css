@@ -25,11 +25,18 @@
 .mainTitleContainer {
   display: flex;
   flex-direction: row;
-  /* width: 100vw; */
+  width: 100vw;
   justify-content: center;
 }
 
-.footNoteText {
+.footnoteWrapper {
+  display: flex;
+  width: 100vw;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.footnoteText {
   justify-content: right;
   background: rgba(0, 0, 0, 0.08);
   color: #ffffff;
@@ -44,7 +51,7 @@
 .footnote {
   background: #24242e;
   display: flex;
-  margin: 0 auto;
+  width: 100%;
   max-width: 1216px;
   flex-direction: row;
   justify-content: flex-end;

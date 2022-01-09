@@ -115,6 +115,8 @@
   position: absolute;
   margin: 0 auto;
   width: 100%;
+  filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 0.25));
+  max-width: 1216px;
 }
 
 .starsLeft {
@@ -201,8 +203,8 @@
 .abstractUI {
   position: absolute;
   margin: 0 auto;
-  padding-right: 6px;
-  max-width: 1222px;
+  /* padding-right: 6px; */
+  max-width: 1216px;
   z-index: 1;
   margin-top: 200px;
   width: 100%;
@@ -242,7 +244,7 @@
 
 .background::before {
   transform: rotate(-2deg);
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -250,7 +252,7 @@
   height: 3040px;
   background-size: cover;
   background-repeat: repeat-x;
-  background: url("../public/hero-background-repeat.png");
+  background: url('../public/hero-background-repeat.png');
   background-color: repeating-linear-gradient(
     to bottom,
     #3a3a44 0px,
@@ -272,8 +274,8 @@
   font-weight: 400;
   padding: 24px 0px;
   line-height: 72px;
-  font-family: "Cartridge";
-  font-feature-settings: "ss02" on;
+  font-family: 'Cartridge';
+  font-feature-settings: 'ss02' on;
   -webkit-font-smoothing: antialiased;
   text-shadow: 7px 7px 0px #7f0080, 6px 6px 0px #7f0080, 5px 5px 0px #7f0080,
     4px 4px 0px #7f0080, 3px 3px 0px #7f0080, 2px 2px 0px #7f0080,

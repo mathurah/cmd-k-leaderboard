@@ -6,10 +6,13 @@ import Button from './Button';
 import AddCompanyModal from './AddCompanyModal';
 
 const AddSection = ({ toggleAdd }) => {
-  const { state: {showAdd: show}, dispatch } = useContext(Store);
+  const {
+    state: { showAdd: show },
+    dispatch,
+  } = useContext(Store);
 
   return (
-    <>
+    <div className={styles.addSectionWrapper}>
       <div className={styles.addSectionContainer}>
         <div className={styles.addSection}>
           <div className={styles.addContainer}>
@@ -20,7 +23,7 @@ const AddSection = ({ toggleAdd }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

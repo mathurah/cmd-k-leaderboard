@@ -1,11 +1,11 @@
-import React from "react";
-import styles from "./TweetGrid.module.css";
+import React from 'react';
+import styles from './TweetGrid.module.css';
 
 const TWEETS = [
   [
     {
-      user: "@natfriedman",
-      url: "https://twitter.com/natfriedman/status/1453386746293485570?s=20",
+      user: '@natfriedman',
+      url: 'https://twitter.com/natfriedman/status/1453386746293485570?s=20',
       content: (
         <p>
           Introducing the GitHub command palette. Hit Cmd-k on Mac or Ctrl-k on
@@ -15,15 +15,15 @@ const TWEETS = [
       ),
     },
     {
-      user: "@simontheis",
-      url: "https://twitter.com/simontheis/status/1458167867229229059?s=20",
+      user: '@simontheis',
+      url: 'https://twitter.com/simontheis/status/1458167867229229059?s=20',
       content: (
         <p>Everything should have cmd+k 😂 apps, websites, the cable-drawer</p>
       ),
     },
     {
-      user: "@_yangyou",
-      url: "https://twitter.com/_yangyou/status/1469446794593533955?s=20",
+      user: '@_yangyou',
+      url: 'https://twitter.com/_yangyou/status/1469446794593533955?s=20',
       content: (
         <p>
           ok i'll bite, i finally got on <strong>@Superhuman</strong> for email
@@ -34,8 +34,8 @@ const TWEETS = [
   ],
   [
     {
-      user: "@hvpandya",
-      url: "https://twitter.com/hvpandya/status/1468513964048871424?s=20",
+      user: '@hvpandya',
+      url: 'https://twitter.com/hvpandya/status/1468513964048871424?s=20',
       content: (
         <p>
           ✨ Underrated UX <br /> Cmd + K panel in Slack shows you a list of
@@ -44,8 +44,8 @@ const TWEETS = [
       ),
     },
     {
-      user: "@tobi",
-      url: "https://twitter.com/tobi/status/1457134379348672522?s=20",
+      user: '@tobi',
+      url: 'https://twitter.com/tobi/status/1457134379348672522?s=20',
       content: (
         <p>
           Almost every app I use on my laptop implements a fuzzy search via
@@ -55,8 +55,8 @@ const TWEETS = [
       ),
     },
     {
-      user: "@swyx",
-      url: "https://twitter.com/swyx/status/1453401130994520068?s=20",
+      user: '@swyx',
+      url: 'https://twitter.com/swyx/status/1453401130994520068?s=20',
       content: (
         <p>
           OMG <strong>@GITHUB</strong> GOT A COMMAND PALETTE PRESS CMD + K NOW
@@ -68,17 +68,19 @@ const TWEETS = [
 
 const TweetGrid = () => {
   return (
-    <div className={styles.tweetGridContainer}>
-      <div className={styles.tweetGrid}>
-        <div className={styles.tweetCol}>
-          {TWEETS[0].map((tweet, index) => (
-            <Tweet key={index} tweet={tweet} />
-          ))}
-        </div>
-        <div className={styles.tweetCol}>
-          {TWEETS[1].map((tweet, index) => (
-            <Tweet key={index} tweet={tweet} />
-          ))}
+    <div className={styles.tweetGridWrapper}>
+      <div className={styles.tweetGridContainer}>
+        <div className={styles.tweetGrid}>
+          <div className={styles.tweetCol}>
+            {TWEETS[0].map((tweet, index) => (
+              <Tweet key={index} tweet={tweet} />
+            ))}
+          </div>
+          <div className={styles.tweetCol}>
+            {TWEETS[1].map((tweet, index) => (
+              <Tweet key={index} tweet={tweet} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

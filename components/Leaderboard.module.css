@@ -3,6 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 1216px;
   background-color: #1b1b23;
 }
 
@@ -58,6 +60,13 @@
   height: 9vh;
   width: 100vw;
   position: relative;
+}
+
+.leaderboardWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
 }
 
 .leaderboardContainer {
@@ -242,7 +251,7 @@
   width: 100px;
   height: 100px;
   /* top: 75px; */
-  margin-top: 55px;
+  margin-top: -35px;
   display: flex;
   flex-direction: column;
   justify-content: center;

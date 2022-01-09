@@ -13,10 +13,9 @@ const Leaderboard = ({ toggle, toggleAdd }) => {
 
   const [hover, setHover] = useState(false);
   return (
-    <>
+    <div className={styles.leaderboardWrapper}>
+      <LeaderboardTitle />
       <div id="leaderboard" className={styles.leaderboard}>
-        <LeaderboardTitle />
-
         <div
           onMouseOver={() => setHover(true)}
           onMouseOut={() => {
@@ -60,7 +59,7 @@ const Leaderboard = ({ toggle, toggleAdd }) => {
           }
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
