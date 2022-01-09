@@ -57,6 +57,16 @@
   justify-content: flex-end;
 }
 
+@media (max-width: 700px) {
+  .footnoteWrapper {
+    display: none;
+  }
+  .mainTitleContainer {
+    height: 120px;
+    margin-bottom: -30px;
+  }
+}
+
 @media (max-width: 1216px) {
   .mainTitleLeft,
   .mainTitleRight {
