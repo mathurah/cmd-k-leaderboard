@@ -1,9 +1,9 @@
-import React from 'react';
-import styles from './Leaderboard.module.css';
-import { TOP_COLORS } from '../styles/constants';
-import { useState, useContext } from 'react';
-import { Store } from '../context/state';
-import Button from './Button';
+import React from "react";
+import styles from "./Leaderboard.module.css";
+import { TOP_COLORS } from "../styles/constants";
+import { useState, useContext } from "react";
+import { Store } from "../context/state";
+import Button from "./Button";
 
 const Leaderboard = ({ toggle, toggleAdd }) => {
   const {
@@ -26,7 +26,7 @@ const Leaderboard = ({ toggle, toggleAdd }) => {
           onClick={toggleAdd}
         >
           {/* Add onClick for cmd+k */}
-          <AddStar variant={hover ? 'hover' : 'reg'} />
+          <AddStar variant={hover ? "hover" : "reg"} />
           <div className={styles.addStarLabel}>Add App</div>
         </div>
         <div className={styles.leaderboardContainer}>
@@ -126,7 +126,7 @@ const LeaderboardItem = ({
         </div>
         <div className={styles.leaderboardItemVotesContainer}>
           {userVotes.map(({ option_id }) => option_id).includes(id) ? (
-            <Button onClick={handleVote} style={'voted'}>
+            <Button onClick={handleVote} style={"voted"}>
               <div className={styles.leaderboardItemVotes}>
                 <div className={styles.x}>
                   {window.innerWidth > 900 ? (
@@ -161,7 +161,7 @@ const LeaderboardItem = ({
               </div>
             </Button>
           ) : (
-            <Button onClick={handleVote} style={'vote'}>
+            <Button onClick={handleVote} style={"vote"}>
               <div className={styles.leaderboardItemVotes}>
                 <div className={styles.buttonText}>
                   <div>+</div>
@@ -179,7 +179,7 @@ const LeaderboardItem = ({
 const AddStar = ({ variant, toggleAdd }) => {
   return (
     <div className={styles.addStar}>
-      {variant === 'hover' ? (
+      {variant === "hover" ? (
         <svg
           width="114"
           height="114"
