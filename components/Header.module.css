@@ -336,10 +336,15 @@
   /* margin-top: calc(10px + 4vw); */
 }
 
-.headerContainerC,
-.headerContainerD {
+.headerContainerC {
   margin-top: 470px;
 }
+
+.headerContainerD {
+  margin-top: 320px;
+  padding-bottom: 150px;
+}
+
 .headerButtonGroup {
   transform: rotate(-2deg);
   display: flex;
