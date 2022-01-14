@@ -65,6 +65,20 @@ const Header = (reference, click) => {
     tl.set(
       [
         document.querySelector('#UIGray'),
+        document.querySelector('#UIColor'),
+        document.querySelector('#UI'),
+        document.querySelector('#CMDK'),
+        document.querySelector('#CMDK1'),
+        document.querySelector('#CMDK2'),
+        document.querySelector('#CMDK0'),
+      ],
+      {
+        willChange: 'transform',
+      }
+    );
+    tl.set(
+      [
+        document.querySelector('#UIGray'),
         document.querySelector('#CMDK1'),
         document.querySelector('#CMDK2'),
         document.querySelector('#title2'),
