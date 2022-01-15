@@ -13,6 +13,7 @@ import { ACTION_TYPES } from '../context/constants';
 import { gsap, Linear, Power4 } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
+import { toast } from 'react-hot-toast';
 
 const CMDK = [1, 2, 3].map((_, i) => `Animation_Bar_${i + 1}.svg`);
 const ABSTRACT_COLOR = 'AbstractColor.svg';
@@ -38,6 +39,7 @@ const Header = (reference, click) => {
   const handleSignOut = async () => {
     await signOut(supabase);
     dispatch({ type: ACTION_TYPES.SIGN_OUT });
+    toast.success('Signed out successfully');
   };
 
   useEffect(() => {

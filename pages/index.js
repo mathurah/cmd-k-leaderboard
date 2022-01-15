@@ -26,6 +26,7 @@ import Footnote from '../components/Footnote';
 import Leaderboard from '../components/Leaderboard';
 import AddSection from '../components/AddSection';
 import TweetGrid from '../components/TweetGrid';
+import { Toaster } from 'react-hot-toast';
 
 export default function Home() {
   const [session, setSession] = useState(null);
@@ -122,14 +123,6 @@ export default function Home() {
     }
   };
 
-  async function handleSignOut() {
-    let { error } = await signOut();
-    location.reload();
-    if (error) {
-      console.error(error);
-    }
-  }
-
   useEffect(() => {
     setSession(supabase.auth.session());
     supabase.auth.onAuthStateChange(async (_event, session) => {
@@ -166,6 +159,7 @@ export default function Home() {
         <SignInModal title="Sign In Modal" Toggle={Toggle} />
         <AddCompanyModal toggle={toggleAdd} toggleVote={Toggle} />
       </div>
+      <Toaster />
     </>
   );
 }
