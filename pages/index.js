@@ -50,6 +50,7 @@ export default function Home() {
     });
 
     if (user) {
+      document.querySelector('#leaderboard').scrollIntoView();
       const votes = await getUserVotes(user);
       dispatch({
         type: ACTION_TYPES.SET_USER_VOTES,
