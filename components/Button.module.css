@@ -104,7 +104,6 @@
   justify-content: center;
 
   /* linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)); */
-  animation: rotate 10s linear infinite;
 }
 .vote {
   border: 4px solid rgba(36, 36, 47, 0.64);
@@ -123,14 +122,62 @@
     #7042cb 343.12deg,
     #4242cb 360deg
   );
+  animation: pulse 1s infinite;
 }
 
-@keyframes rotate {
-  from {
-    transform: 0deg;
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0
+      conic-gradient(
+        #4242cb 0deg,
+        #7042cb 28.12deg,
+        #9d42cb 69.37deg,
+        #cb42cb 108.75deg,
+        #c12d90 151.87deg,
+        #cd3030 195deg,
+        #c12d90 238.12deg,
+        #cb42cb 279.38deg,
+        #9d42cb 316.87deg,
+        #7042cb 343.12deg,
+        #4242cb 360deg
+      );
   }
-  to {
-    transform: 360deg;
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px
+      conic-gradient(
+        #4242cb 0deg,
+        #7042cb 28.12deg,
+        #9d42cb 69.37deg,
+        #cb42cb 108.75deg,
+        #c12d90 151.87deg,
+        #cd3030 195deg,
+        #c12d90 238.12deg,
+        #cb42cb 279.38deg,
+        #9d42cb 316.87deg,
+        #7042cb 343.12deg,
+        #4242cb 360deg
+      );
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0
+      conic-gradient(
+        #4242cb 0deg,
+        #7042cb 28.12deg,
+        #9d42cb 69.37deg,
+        #cb42cb 108.75deg,
+        #c12d90 151.87deg,
+        #cd3030 195deg,
+        #c12d90 238.12deg,
+        #cb42cb 279.38deg,
+        #9d42cb 316.87deg,
+        #7042cb 343.12deg,
+        #4242cb 360deg
+      );
   }
 }
 
