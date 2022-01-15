@@ -88,7 +88,9 @@
 }
 
 .vote,
-.voting {
+.vote[disabled]:hover,
+.voting,
+.voting[disabled]:hover {
   --angle: 180deg;
   width: 145px;
   height: 48px;
@@ -107,6 +109,10 @@
 }
 .vote {
   border: 4px solid rgba(36, 36, 47, 0.64);
+}
+
+.vote:disabled {
+  cursor: not-allowed;
 }
 .voting {
   background-image: conic-gradient(

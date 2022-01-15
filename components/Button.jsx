@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import styles from "./Button.module.css";
+import React, { useState, useEffect } from 'react';
+import styles from './Button.module.css';
 
 const Button = ({
   children,
@@ -18,7 +18,7 @@ const Button = ({
         onClick={onClick}
         className={styles[style]}
       >
-        {children || "label"}
+        {children || 'label'}
       </button>
     </>
   );
