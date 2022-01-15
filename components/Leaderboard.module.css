@@ -227,7 +227,11 @@
   margin-top: -2px;
   right: 0;
 }
-
+.leaderboardItemVotesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .leaderboardItemVotesContainer:hover .x {
   filter: invert(21%) sepia(37%) saturate(3816%) hue-rotate(339deg)
     brightness(118%) contrast(95%);
