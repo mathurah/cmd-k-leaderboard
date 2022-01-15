@@ -225,8 +225,31 @@
   font-size: 32px;
   line-height: 32px;
   margin-top: -2px;
+  width: 100%;
   right: 0;
 }
+
+.leaderboardItemVotesWrapper,
+.leaderboardItemVotingWrapper {
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  border-radius: 4px;
+  margin: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.leaderboardItemVotesWrapper {
+  padding: 0px 12px 0px 20px;
+}
+
+.leaderboardItemVotingWrapper {
+  padding: 0px 16px 0px 24px;
+  background-color: #373740;
+}
+
 .leaderboardItemVotesContainer {
   display: flex;
   flex-direction: column;

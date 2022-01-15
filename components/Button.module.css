@@ -9,7 +9,7 @@
   border: 4px solid rgba(255, 255, 255, 0.1);
   color: #ffffff;
   width: 193px;
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   z-index: 8;
 }
 
@@ -40,7 +40,7 @@
   box-shadow: 8px 8px 0px 4px rgba(0, 0, 0, 0.16);
   color: #ffffff;
   width: 193px;
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
 }
 
 .primary:hover {
@@ -64,7 +64,7 @@
   box-sizing: border-box;
   border-radius: 4px;
   font-size: 16px;
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   color: white;
   padding: 0px 16px 0px 16px;
 }
@@ -87,19 +87,56 @@
   color: #1da1f2;
 }
 
-.vote {
+.vote,
+.voting {
+  --angle: 180deg;
   width: 145px;
   height: 48px;
   color: white;
-  border: 4px solid rgba(36, 36, 47, 0.64);
+
   border-radius: 4px;
   background: rgba(36, 36, 47, 0.16);
-  padding: 0px 16px 0px 24px;
+  /* padding: 0px 16px 0px 24px; */
+  /* border: 4px solid; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)); */
+  animation: rotate 10s linear infinite;
+}
+.vote {
+  border: 4px solid rgba(36, 36, 47, 0.64);
+}
+.voting {
+  background-image: conic-gradient(
+    #4242cb 0deg,
+    #7042cb 28.12deg,
+    #9d42cb 69.37deg,
+    #cb42cb 108.75deg,
+    #c12d90 151.87deg,
+    #cd3030 195deg,
+    #c12d90 238.12deg,
+    #cb42cb 279.38deg,
+    #9d42cb 316.87deg,
+    #7042cb 343.12deg,
+    #4242cb 360deg
+  );
+}
+
+@keyframes rotate {
+  from {
+    transform: 0deg;
+  }
+  to {
+    transform: 360deg;
+  }
 }
 
 .vote:hover {
   background: rgba(36, 36, 47, 0.64);
-  border: 4px solid rgba(36, 36, 47, 0.64);
+  /* border: 4px solid rgba(36, 36, 47, 0.64); */
 }
 
 .add_section {
@@ -109,7 +146,7 @@
   justify-content: center;
   padding: 10px 24px;
   /* width: 190px; */
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   height: 72px;
   background: #4242cb;
   border: 4px solid rgba(0, 0, 0, 0.2);
@@ -158,7 +195,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   height: 64px;
   background: #4242cb;
   border: 4px solid rgba(0, 0, 0, 0.2);

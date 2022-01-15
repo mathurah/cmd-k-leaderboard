@@ -10,7 +10,7 @@ const Leaderboard = ({ toggle, toggleAdd }) => {
     state: { voteOptions, user, userVotes, votesLoading },
     dispatch,
   } = useContext(Store);
-
+  const [clicked, setClicked] = useState(null);
   const [hover, setHover] = useState(false);
   return (
     <div className={styles.leaderboardWrapper}>
@@ -44,6 +44,7 @@ const Leaderboard = ({ toggle, toggleAdd }) => {
               {voteOptions.map(({ url, name, votes, id }, index) => (
                 <LeaderboardItem
                   url={url}
+                  clicked={clicked}
                   company={name}
                   index={index + 1}
                   votes={votes}
@@ -51,6 +52,7 @@ const Leaderboard = ({ toggle, toggleAdd }) => {
                   id={id}
                   bg={TOP_COLORS[Math.min(index, TOP_COLORS.length - 1)]}
                   handleVote={() => {
+                    setClicked(id);
                     toggle(id);
                   }}
                 />
@@ -81,9 +83,10 @@ const LeaderboardItem = ({
   bg,
   id,
   handleVote,
+  clicked,
 }) => {
   const {
-    state: { userVotes },
+    state: { userVotes, votesLoading },
     dispatch,
   } = useContext(Store);
 
@@ -128,8 +131,23 @@ const LeaderboardItem = ({
           )}
         </div>
         <div className={styles.leaderboardItemVotesContainer}>
-          {userVotes.map(({ option_id }) => option_id).includes(id) ? (
-            <Button onClick={handleVote} style={'voted'}>
+          {votesLoading && id === clicked ? (
+            <Button disabled style={'voting'}>
+              <div className={styles.leaderboardItemVotingWrapper}>
+                <div className={styles.leaderboardItemVotes}>
+                  <div>+</div>
+                  <div>{votes}</div>
+                </div>
+              </div>
+            </Button>
+          ) : userVotes.map(({ option_id }) => option_id).includes(id) ? (
+            <Button
+              disabled={votesLoading}
+              onClick={() => {
+                handleVote();
+              }}
+              style={'voted'}
+            >
               <div className={styles.leaderboardItemVotes}>
                 <div className={styles.x}>
                   {window.innerWidth > 900 ? (
@@ -164,10 +182,12 @@ const LeaderboardItem = ({
               </div>
             </Button>
           ) : (
-            <Button onClick={handleVote} style={'vote'}>
-              <div className={styles.leaderboardItemVotes}>
-                <div>+</div>
-                <div>{votes}</div>
+            <Button disabled={votesLoading} onClick={handleVote} style={'vote'}>
+              <div className={styles.leaderboardItemVotesWrapper}>
+                <div className={styles.leaderboardItemVotes}>
+                  <div>+</div>
+                  <div>{votes}</div>
+                </div>
               </div>
             </Button>
           )}

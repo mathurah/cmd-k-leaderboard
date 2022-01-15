@@ -15,7 +15,6 @@ import {
   getOption,
   getUserVotes,
   insertVote,
-  signOut,
   updateOptionVotes,
   upsertUser,
 } from '../api/supabase';
