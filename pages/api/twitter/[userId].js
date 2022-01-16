@@ -31,20 +31,77 @@ export default async function handler(req, res) {
     followingProfiles.map(({ id }) => id)
   );
 
-  let returnObj = {};
+  const twitterIds = chunkArray(
+    followingProfiles.map(({ twitter_id }) => twitter_id),
+    100
+  );
 
+  console.log(twitterIds);
+
+  const twitterUsers = await Promise.all(
+    twitterIds.map(async (twitterIdList) => {
+      console.log(twitterIdList);
+      const twitterUserList = await fetch(
+        'https://api.twitter.com/1.1/users/lookup.json?' +
+          new URLSearchParams({ user_id: twitterIdList.join(',') }),
+        {
+          method: 'POST',
+          headers: {
+            Authorization: process.env.TWITTER_TOKEN,
+          },
+        }
+      )
+        .then((res) => {
+          return res.json();
+        })
+        .then((res) => {
+          return res;
+        });
+      return twitterUserList.map(
+        ({ id_str, screen_name, profile_image_url_https }) => {
+          return {
+            id: id_str,
+            username: screen_name,
+            image: profile_image_url_https,
+          };
+        }
+      );
+    })
+  );
+
+  console.log(JSON.stringify(twitterUsers));
+  const twitterMap = new Map(
+    twitterUsers.flat().map((user) => [user.id, user])
+  );
+  let returnObj = {};
+  let currentUserId = '';
+  let currentTwitterId = '';
   for (let i = 0; i < followingVotes.length; i++) {
+    currentUserId = followingVotes[i].user_id;
+    currentTwitterId = followingProfileMap.get(currentUserId).twitter_id;
     returnObj[followingVotes[i].option_id] = (
       returnObj[followingVotes[i].option_id] || []
     ).concat([
       {
-        user_id: followingVotes[i].user_id,
-        twitter_id: followingProfileMap.get(followingVotes[i].user_id)
-          .twitter_id,
+        user_id: currentUserId,
+        twitter_id: currentTwitterId,
+        username: twitterMap.get(currentTwitterId).username,
+        image: twitterMap.get(currentTwitterId).image,
       },
     ]);
   }
-  console.log(returnObj);
-  console.log(followingVotes);
   res.status(200).json({ options: returnObj });
 }
+
+const chunkArray = (inputArray, perChunk) =>
+  inputArray.reduce((resultArray, item, index) => {
+    const chunkIndex = Math.floor(index / perChunk);
+
+    if (!resultArray[chunkIndex]) {
+      resultArray[chunkIndex] = []; // start a new chunk
+    }
+
+    resultArray[chunkIndex].push(item);
+
+    return resultArray;
+  }, []);
