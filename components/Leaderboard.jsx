@@ -7,7 +7,7 @@ import Button from './Button';
 
 const Leaderboard = ({ toggle, toggleAdd }) => {
   const {
-    state: { voteOptions, user, userVotes, votesLoading },
+    state: { voteOptions, user, userVotes, votesLoading, twitterInfo },
     dispatch,
   } = useContext(Store);
   const [clicked, setClicked] = useState(null);
@@ -42,20 +42,25 @@ const Leaderboard = ({ toggle, toggleAdd }) => {
           {
             <div className={styles.leaderboardList}>
               {voteOptions.map(({ url, name, votes, id }, index) => (
-                <LeaderboardItem
-                  url={url}
-                  clicked={clicked}
-                  company={name}
-                  index={index + 1}
-                  votes={votes}
-                  key={id}
-                  id={id}
-                  bg={TOP_COLORS[Math.min(index, TOP_COLORS.length - 1)]}
-                  handleVote={() => {
-                    setClicked(id);
-                    toggle(id);
-                  }}
-                />
+                <>
+                  <LeaderboardItem
+                    url={url}
+                    clicked={clicked}
+                    company={name}
+                    index={index + 1}
+                    votes={votes}
+                    key={id}
+                    id={id}
+                    profileImages={(
+                      (twitterInfo.options || { id: [] })[id] || []
+                    ).map(({ image }) => image)}
+                    bg={TOP_COLORS[Math.min(index, TOP_COLORS.length - 1)]}
+                    handleVote={() => {
+                      setClicked(id);
+                      toggle(id);
+                    }}
+                  />
+                </>
               ))}
             </div>
           }
@@ -84,6 +89,7 @@ const LeaderboardItem = ({
   id,
   handleVote,
   clicked,
+  profileImages,
 }) => {
   const {
     state: { userVotes, votesLoading },
@@ -107,7 +113,11 @@ const LeaderboardItem = ({
           <div className={styles.leaderboardItemCompany}>{company}</div>
         </div>
       </div>
-
+      <div className={styles.leaderboardItemProfiles}>
+        {profileImages.map((img, index) => (
+          <img alt={`Twitter Profile`} src={img} key={index} />
+        ))}
+      </div>
       <div className={styles.leaderboardItemGroup}>
         <div className={styles.leaderboardItemTwitter}>
           {userVotes.map(({ option_id }) => option_id).includes(id) ? (

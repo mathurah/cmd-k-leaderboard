@@ -1,6 +1,6 @@
 import { FILTER_ENUM, ACTION_TYPES } from './constants';
 export const reducer = (state = initialState, action) => {
-    // console.log({action, state});
+  // console.log({action, state});
 
   switch (action.type) {
     case ACTION_TYPES.TOGGLE_SIGN_IN:
@@ -47,6 +47,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         userVotes: action.userVotes,
+      };
+    case ACTION_TYPES.SET_TWITTER_INFO:
+      return {
+        ...state,
+        twitterInfo: action.twitterInfo,
       };
     default:
       return state;

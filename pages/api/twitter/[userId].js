@@ -23,10 +23,11 @@ export default async function handler(req, res) {
   const followingProfiles = allProfiles.filter(({ twitter_id }) =>
     followingSet.has(twitter_id)
   );
+
   const followingProfileMap = new Map(
     followingProfiles.map((profile) => [profile.id, profile])
   );
-  console.log(followingProfileMap);
+
   const followingVotes = await getUsersVotes(
     followingProfiles.map(({ id }) => id)
   );
@@ -36,11 +37,8 @@ export default async function handler(req, res) {
     100
   );
 
-  console.log(twitterIds);
-
   const twitterUsers = await Promise.all(
     twitterIds.map(async (twitterIdList) => {
-      console.log(twitterIdList);
       const twitterUserList = await fetch(
         'https://api.twitter.com/1.1/users/lookup.json?' +
           new URLSearchParams({ user_id: twitterIdList.join(',') }),
@@ -69,7 +67,6 @@ export default async function handler(req, res) {
     })
   );
 
-  console.log(JSON.stringify(twitterUsers));
   const twitterMap = new Map(
     twitterUsers.flat().map((user) => [user.id, user])
   );

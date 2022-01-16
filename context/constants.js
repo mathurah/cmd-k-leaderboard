@@ -22,4 +22,5 @@ export const initialState = {
   voteOptions: [],
   userVotes: [],
   filter: FILTER_ENUM.TOP,
+  twitterInfo: [],
 };
