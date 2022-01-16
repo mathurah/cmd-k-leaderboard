@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext, useRef } from 'react';
 import Head from 'next/head';
-import { Box } from '@chakra-ui/react';
+import { Box, toast } from '@chakra-ui/react';
 import Header from '../components/Header';
 import Container from '../components/Container';
 import SignInModal from '../components/SignInModal';
@@ -52,6 +52,17 @@ export default function Home() {
     if (user) {
       await upsertUser(user);
       document.querySelector('#leaderboard').scrollIntoView();
+      fetch(`http://localhost:3000/api/twitter/${user.identities[0].id}`)
+        .then((res) => res.json())
+        .then((res) => {
+          dispatch({
+            type: ACTION_TYPES.SET_TWITTER_INFO,
+            twitterInfo: res,
+          });
+        })
+        .catch((err) => {
+          console.error(err.message);
+        });
       const votes = await getUserVotes(user);
       dispatch({
         type: ACTION_TYPES.SET_USER_VOTES,
