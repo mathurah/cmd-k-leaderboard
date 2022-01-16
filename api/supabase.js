@@ -99,6 +99,14 @@ export const upsertUser = async (user) => {
   return newUser;
 };
 
+export const fetchAllProfiles = async () => {
+  const { data: profiles, error } = await supabase.from('profiles').select();
+  if (error) {
+    handleError(error);
+  }
+  return profiles;
+};
+
 /* AUTH */
 
 export const signIn = async (provider) => {
