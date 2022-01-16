@@ -142,7 +142,7 @@ const LeaderboardItem = ({
         </div>
         <div className={styles.leaderboardItemVotesContainer}>
           {votesLoading && id === clicked ? (
-            <Button disabled style={'voting'}>
+            <Button style={'voting'}>
               <div className={styles.leaderboardItemVotingWrapper}>
                 <div className={styles.leaderboardItemVotes}>
                   <div>+</div>
