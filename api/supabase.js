@@ -51,6 +51,17 @@ export const updateOptionVotes = async (id, votes) => {
 
 /* VOTES */
 
+export const getUsersVotes = async (userIds) => {
+  const { data: votes, error } = await supabase
+    .from('votes')
+    .select()
+    .in('user_id', userIds);
+  if (error) {
+    handleError(error);
+  }
+  return votes;
+};
+
 export const getUserVotes = async (user) => {
   const { data: votes, error } = await supabase
     .from('votes')

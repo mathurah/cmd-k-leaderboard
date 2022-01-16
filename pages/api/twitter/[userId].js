@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import { fetchAllProfiles } from '../../../api/supabase';
+import { fetchAllProfiles, getUsersVotes } from '../../../api/supabase';
 
 export default async function handler(req, res) {
   let followingList = await fetch(
@@ -13,7 +13,6 @@ export default async function handler(req, res) {
     }
   )
     .then((res) => {
-      console.log(res);
       return res.json();
     })
     .then((res) => {
@@ -24,5 +23,28 @@ export default async function handler(req, res) {
   const followingProfiles = allProfiles.filter(({ twitter_id }) =>
     followingSet.has(twitter_id)
   );
-  res.status(200).json({ following: followingProfiles });
+  const followingProfileMap = new Map(
+    followingProfiles.map((profile) => [profile.id, profile])
+  );
+  console.log(followingProfileMap);
+  const followingVotes = await getUsersVotes(
+    followingProfiles.map(({ id }) => id)
+  );
+
+  let returnObj = {};
+
+  for (let i = 0; i < followingVotes.length; i++) {
+    returnObj[followingVotes[i].option_id] = (
+      returnObj[followingVotes[i].option_id] || []
+    ).concat([
+      {
+        user_id: followingVotes[i].user_id,
+        twitter_id: followingProfileMap.get(followingVotes[i].user_id)
+          .twitter_id,
+      },
+    ]);
+  }
+  console.log(returnObj);
+  console.log(followingVotes);
+  res.status(200).json({ options: returnObj });
 }
