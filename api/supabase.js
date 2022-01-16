@@ -88,8 +88,9 @@ export const deleteVote = async (optionId, user) => {
 /* PROFILES */
 
 export const upsertUser = async (user) => {
-  const { data: newUser, error } = await supabase.from('users').upsert({
+  const { data: newUser, error } = await supabase.from('profiles').upsert({
     id: user.id,
+    twitter_id: user.identities[0].id,
     email: user.email,
   });
   if (error) {

@@ -50,6 +50,7 @@ export default function Home() {
     });
 
     if (user) {
+      await upsertUser(user);
       document.querySelector('#leaderboard').scrollIntoView();
       const votes = await getUserVotes(user);
       dispatch({
