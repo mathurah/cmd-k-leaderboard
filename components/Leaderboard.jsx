@@ -113,12 +113,25 @@ const LeaderboardItem = ({
           <div className={styles.leaderboardItemCompany}>{company}</div>
         </div>
       </div>
-      <div className={styles.leaderboardItemProfiles}>
-        {profileImages.map((img, index) => (
-          <img alt={`Twitter Profile`} src={img} key={index} />
-        ))}
-      </div>
+
       <div className={styles.leaderboardItemGroup}>
+        <div
+          style={{
+            maxWidth: 8 + profileImages.length * 32,
+            paddingRight: profileImages.length > 1 ? 8 : 0,
+          }}
+          className={styles.leaderboardItemProfiles}
+        >
+          {profileImages.map((img, index) => (
+            <img
+              alt={`Twitter Profile`}
+              className={styles.leaderboardItemProfile}
+              style={profileImages.length > 1 ? { marginRight: -8 } : {}}
+              src={img}
+              key={index}
+            />
+          ))}
+        </div>
         <div className={styles.leaderboardItemTwitter}>
           {userVotes.map(({ option_id }) => option_id).includes(id) ? (
             <Button style="tweet">
