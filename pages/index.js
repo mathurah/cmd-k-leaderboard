@@ -52,7 +52,13 @@ export default function Home() {
     if (user) {
       await upsertUser(user);
       document.querySelector('#leaderboard').scrollIntoView();
-      fetch(`http://localhost:3000/api/twitter/${user.identities[0].id}`)
+      fetch(
+        `${
+          process.env.NEXT_PUBLIC_NODE_ENV === 'dev'
+            ? 'http://localhost:3000'
+            : 'https://iwant-cmd-k.netlify.app'
+        }/api/twitter/${user.identities[0].id}`
+      )
         .then((res) => res.json())
         .then((res) => {
           dispatch({
