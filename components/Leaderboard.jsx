@@ -1,9 +1,9 @@
-import React from 'react';
-import styles from './Leaderboard.module.css';
-import { TOP_COLORS } from '../styles/constants';
-import { useState, useContext } from 'react';
-import { Store } from '../context/state';
-import Button from './Button';
+import React from "react";
+import styles from "./Leaderboard.module.css";
+import { TOP_COLORS } from "../styles/constants";
+import { useState, useContext } from "react";
+import { Store } from "../context/state";
+import Button from "./Button";
 
 const Leaderboard = ({ toggle, toggleAdd }) => {
   const {
@@ -25,12 +25,12 @@ const Leaderboard = ({ toggle, toggleAdd }) => {
           onClick={toggleAdd}
         >
           {/* Add onClick for cmd+k */}
-          <AddStar variant={hover ? 'hover' : 'reg'} />
+          <AddStar variant={hover ? "hover" : "reg"} />
           <div className={styles.addStarLabel}>Add App</div>
         </div>
         <div className={styles.leaderboardContainer}>
           <div className={styles.leaderboardInstructions}>
-            Vote for apps where you want a command bar
+            Vote for apps where you want a commandbar
           </div>
           <div className={styles.leaderboardLabels}>
             <div className={styles.leaderboardLabelsLeft}>
@@ -155,7 +155,7 @@ const LeaderboardItem = ({
         </div>
         <div className={styles.leaderboardItemVotesContainer}>
           {votesLoading && id === clicked ? (
-            <Button style={'voting'}>
+            <Button style={"voting"}>
               <div className={styles.leaderboardItemVotingWrapper}>
                 <div className={styles.leaderboardItemVotes}>
                   <div>+</div>
@@ -169,7 +169,7 @@ const LeaderboardItem = ({
               onClick={() => {
                 handleVote();
               }}
-              style={'voted'}
+              style={"voted"}
             >
               <div className={styles.leaderboardItemVotes}>
                 <div className={styles.x}>
@@ -205,7 +205,7 @@ const LeaderboardItem = ({
               </div>
             </Button>
           ) : (
-            <Button disabled={votesLoading} onClick={handleVote} style={'vote'}>
+            <Button disabled={votesLoading} onClick={handleVote} style={"vote"}>
               <div className={styles.leaderboardItemVotesWrapper}>
                 <div className={styles.leaderboardItemVotes}>
                   <div>+</div>
@@ -223,7 +223,7 @@ const LeaderboardItem = ({
 const AddStar = ({ variant, toggleAdd }) => {
   return (
     <div className={styles.addStar}>
-      {variant === 'hover' ? (
+      {variant === "hover" ? (
         <svg
           width="114"
           height="114"
