@@ -237,7 +237,7 @@ const AddStar = ({ variant, toggleAdd }) => {
             fillOpacity="0.96"
             stroke="url(#paint0_linear_1062_10659)"
             strokeWidth="3"
-            strokeLineJoin="round"
+            strokeLinejoin="round"
           />
           <defs>
             <linearGradient
@@ -270,7 +270,7 @@ const AddStar = ({ variant, toggleAdd }) => {
             stroke="black"
             strokeOpacity="0.8"
             strokeWidth="3"
-            strokeLineJoin="round"
+            strokeLinejoin="round"
           />
           <defs>
             <linearGradient

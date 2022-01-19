@@ -35,26 +35,49 @@
 
 .closeX {
   cursor: pointer;
+  width: 56px;
+  height: 56px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-image: url("../public/x.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
+.closeX:hover {
+  background: rgba(255, 255, 255, 0.24);
+  background-image: url("../public/hoverX.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.closeX:active {
+  background: #ffffff;
+  background-image: url("../public/activeX.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
 .signIn {
   margin-top: -10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Cartridge';
+  font-family: "Cartridge";
 }
 
 .text {
-  font-family: 'Cartridge';
+  font-family: "Cartridge";
   color: white;
   font-size: 72px;
   line-height: 72px;
 }
 
 .textAddApp {
-  font-family: 'Cartridge';
+  font-family: "Cartridge";
   color: white;
   font-size: 48px;
   line-height: 48px;
@@ -132,7 +155,7 @@
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
-  font-family: 'Cartridge';
+  font-family: "Cartridge";
   color: #24242f;
   margin-left: 18px;
   padding: 6px 0px;
@@ -161,7 +184,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Cartridge';
+  font-family: "Cartridge";
   color: white;
   font-size: 24px;
   line-height: 29px;
