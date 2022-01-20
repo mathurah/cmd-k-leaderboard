@@ -174,6 +174,7 @@ export default function Home() {
             name="twitter:description"
             content="Vote for a commandbar on your favorite websites"
           />
+
           <meta
             name="twitter:image"
             content="https://staticassets.commandbar.com/iwantcmdk/thumbnail.png"

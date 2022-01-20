@@ -47,18 +47,22 @@ const MarqueeBase = ({ votes }) => (
 );
 const Tile = ({ url, company, count, index, color }) => {
   return (
-    <div key={index} style={{ backgroundColor: color }} className={styles.tile}>
-      <div style={{ color: color }} className={styles.idx}>
-        {`#${index + 1}`}
-      </div>
-      <div className={styles.image}>
-        <a target="blank" href={`https://${url}`}>
+    <a target="blank" href={`https://${url}`}>
+      <div
+        key={index}
+        style={{ backgroundColor: color }}
+        className={styles.tile}
+      >
+        <div style={{ color: color }} className={styles.idx}>
+          {`#${index + 1}`}
+        </div>
+        <div className={styles.image}>
           <img alt={`${url} logo`} src={`https://logo.clearbit.com/${url}`} />
-        </a>
+        </div>
+        <div className={styles.company}>{company}</div>
+        <div className={styles.count}>{`+ ${count}`}</div>
       </div>
-      <div className={styles.company}>{company}</div>
-      <div className={styles.count}>{`+ ${count}`}</div>
-    </div>
+    </a>
   );
 };
 
