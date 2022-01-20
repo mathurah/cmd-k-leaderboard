@@ -156,7 +156,7 @@ export default function Home() {
     <>
       <div className="home">
         <Head>
-          <title>CMD k Leaderboard</title>
+          <title>I ❤️ cmd+k</title>
           <meta
             name="description"
             content="Vote for a commandbar on your favorite websites"
@@ -174,7 +174,10 @@ export default function Home() {
             name="twitter:description"
             content="Vote for a commandbar on your favorite websites"
           />
-          <meta name="twitter:image" content="/thumbnail.png" />
+          <meta
+            name="twitter:image"
+            content="https://staticassets.commandbar.com/iwantcmdk/thumbnail.png"
+          />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Header />
