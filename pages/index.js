@@ -169,7 +169,7 @@ export default function Home() {
           />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@commandbar" />
-          <meta name="twitter:title" content="CMD k leaderboard" />
+          <meta name="twitter:title" content="I ❤️ ⌘K" />
           <meta
             name="twitter:description"
             content="Vote for a commandbar on your favorite websites"
