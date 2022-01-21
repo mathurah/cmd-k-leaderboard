@@ -104,7 +104,7 @@ a {
   margin: 0 auto;
   margin-top: calc(50vh + 60px);
   height: 400px;
-  left: calc(50% - 679px / 2);
+  left: calc(50% - 678px / 2);
   float: center;
   overflow-y: scroll;
 }

@@ -100,7 +100,11 @@
   justify-content: space-between;
   align-self: center;
 }
-
+.addCompanyModalBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .selectCancel {
   display: flex;
   flex-direction: column;
@@ -160,7 +164,7 @@
   font-family: 'Cartridge';
   color: #24242f;
   margin-left: 18px;
-  padding: 6px 0px;
+  padding: 0px 0px;
 }
 
 .companyAutoOptionLeft {
@@ -188,10 +192,10 @@
   align-items: center;
   font-family: 'Cartridge';
   color: white;
-  font-size: 24px;
-  line-height: 29px;
-  padding: 3.75px 10px 5px 10px;
-  width: 92px;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 4px 4px 4px 4px;
+  width: 3px;
   align-self: center;
   background-color: #4242cb;
   border-radius: 6px;
@@ -212,12 +216,17 @@
 }
 
 @media (max-width: 700px) {
+  .addCompanyModalBody {
+    display: block;
+  }
   .companySelector {
     width: calc(100vw - 40px);
   }
 
   .companyOption {
     width: calc(100vw - 40px);
+    height: 64px;
+    margin-top: 20px;
   }
 
   .selectCancel {
