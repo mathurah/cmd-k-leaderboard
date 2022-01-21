@@ -27,6 +27,12 @@ import AddSection from "../components/AddSection";
 import TweetGrid from "../components/TweetGrid";
 import { Toaster } from "react-hot-toast";
 
+// init CommandBar
+import { init } from 'commandbar';
+if (typeof window !== "undefined") {
+  init('aeda5a87');
+}
+
 export default function Home() {
   const [session, setSession] = useState(null);
   const {
