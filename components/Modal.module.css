@@ -11,7 +11,8 @@
   z-index: 2;
 }
 
-.modal {
+.modal,
+.mobileFullModal {
   width: 100%;
   max-width: 800px;
   background: #24242e;
@@ -30,7 +31,8 @@
   flex-direction: row;
   justify-content: flex-end;
   color: white;
-  padding: 34px;
+  padding: 24px 24px 0px 24px;
+  margin-bottom: -10px;
 }
 
 .closeX {
@@ -42,21 +44,21 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background-image: url("../public/x.svg");
+  background-image: url('../public/x.svg');
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .closeX:hover {
   background: rgba(255, 255, 255, 0.24);
-  background-image: url("../public/hoverX.svg");
+  background-image: url('../public/hoverX.svg');
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .closeX:active {
   background: #ffffff;
-  background-image: url("../public/activeX.svg");
+  background-image: url('../public/activeX.svg');
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -66,18 +68,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
 }
 
 .text {
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   color: white;
   font-size: 72px;
   line-height: 72px;
 }
 
 .textAddApp {
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   color: white;
   font-size: 48px;
   line-height: 48px;
@@ -155,7 +157,7 @@
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   color: #24242f;
   margin-left: 18px;
   padding: 6px 0px;
@@ -184,7 +186,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font-family: "Cartridge";
+  font-family: 'Cartridge';
   color: white;
   font-size: 24px;
   line-height: 29px;
@@ -205,6 +207,10 @@
   align-self: center;
 }
 
+.addBtnContainerMobile {
+  display: none;
+}
+
 @media (max-width: 700px) {
   .companySelector {
     width: calc(100vw - 40px);
@@ -223,17 +229,52 @@
   }
   .textAddApp {
     height: 208px;
-    font-size: 36px;
+    font-size: 20px;
   }
 
   .addBtnContainer,
   .companyAutoOption {
-    width: calc(100vw - 20px);
+    width: calc(100vw - 32px);
   }
-}
+  .addCompanyModal {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .closeX {
+    display: none;
+  }
+  .mobileFullModal {
+    height: 100%;
+    border-radius: 0;
+  }
+  .companyAutoOption {
+    padding: 8px;
+  }
+  .companyAutoOptionName {
+    font-size: 16px;
+    line-height: 16px;
+  }
 
-@media (max-width: 400px) {
-  .textAddApp {
-    font-size: 28px;
+  .companyAutoOptionDomain {
+    opacity: 0.5;
+    font-size: 8px;
+    line-height: 16px;
+    padding-top: 2px;
+  }
+
+  .companyAutoOptionLogo {
+    height: 32px;
+    width: 32px;
+    border-radius: 5px;
+  }
+  .companyAutoOptionText {
+    padding: 0;
+    margin: 4px 0px 0px 9px;
+  }
+  .addBtnContainer {
+    display: none;
+  }
+  .addBtnContainerMobile {
+    display: flex;
   }
 }

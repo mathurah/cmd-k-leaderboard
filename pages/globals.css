@@ -3,8 +3,8 @@
 }
 
 @font-face {
-  font-family: "Cartridge";
-  src: url("/fonts/Cartridge/Cartridge-Regular.ttf");
+  font-family: 'Cartridge';
+  src: url('/fonts/Cartridge/Cartridge-Regular.ttf');
   font-style: normal;
   font-weight: 500;
   letter-spacing: 0%;
@@ -15,7 +15,7 @@ body {
   padding: 0;
   margin: 0;
   max-height: 100vh;
-  font-feature-settings: "ss01";
+  font-feature-settings: 'ss01';
   background-color: #1b1b23;
   scroll-behavior: smooth;
 }
@@ -39,8 +39,8 @@ a {
   height: 96px;
   margin-top: 8px;
   padding: 16px 32px;
-  font-family: "Cartridge";
-  font-feature-settings: "ss03";
+  font-family: 'Cartridge';
+  font-feature-settings: 'ss03';
   font-weight: 300;
   font-size: 40px;
   border: 1px solid #aaa;
@@ -102,7 +102,7 @@ a {
   /* display: block; */
   position: relative;
   margin: 0 auto;
-  margin-top: calc(50vh + 45px);
+  margin-top: calc(50vh + 60px);
   height: 400px;
   left: calc(50% - 679px / 2);
   float: center;
@@ -112,20 +112,21 @@ a {
 @media (max-width: 700px) {
   .react-autosuggest__container--open
     .react-autosuggest__suggestions-container {
-    height: 100vh;
+    height: 30vh;
   }
   .react-autosuggest__container--open,
   .react-autosuggest__suggestions-container,
   .react-autosuggest__suggestions-container--open,
   .react-autosuggest__container--open,
   .react-autosuggest__container {
-    width: calc(100vw - 20px);
+    width: calc(100vw - 102px);
     left: 0;
   }
 
   .react-autosuggest__container {
-    padding-left: 10px;
-    padding-right: 10px;
+    margin-top: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .react-autosuggest__input,
@@ -133,16 +134,27 @@ a {
   .react-autosuggest__input--open,
   .react-autosuggest__suggestion,
   .react-autosuggest__suggestions-list {
-    width: calc(100vw - 20px);
+    width: calc(100vw - 34px);
+  }
+
+  .react-autosuggest__suggestions-list {
+    border-radius: 8px;
   }
 
   .react-autosuggest__suggestions-container--open {
-    margin-top: calc(50vh + 73px);
-    left: 10px;
+    margin-top: calc(30px);
+    border-radius: 8px;
+    left: 16px;
     height: 20vh;
+    max-width: calc(100vw - 32px);
   }
 
-  .react-autosuggest__input {
-    font-size: 30px;
+  .react-autosuggest__input,
+  .react-autosuggest__input--focused,
+  .react-autosuggest__input--open {
+    font-size: 20px;
+    height: 48px;
+    border-radius: 5px;
+    padding-left: 16px;
   }
 }
