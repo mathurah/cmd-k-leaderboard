@@ -15,6 +15,7 @@
     "@fontsource/inter": "^4.5.1",
     "@supabase/supabase-js": "^1.27.0",
     "canvas-confetti": "^1.4.0",
+    "commandbar": "^1.6.1",
     "framer-motion": "^4.1.17",
     "gsap": "^3.9.1",
     "next": "^12.0.3",

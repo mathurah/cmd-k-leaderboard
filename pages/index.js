@@ -27,6 +27,12 @@ import AddSection from "../components/AddSection";
 import TweetGrid from "../components/TweetGrid";
 import { Toaster } from "react-hot-toast";
 
+// init CommandBar
+import { init } from 'commandbar';
+if (typeof window !== "undefined") {
+  init('aeda5a87');
+}
+
 export default function Home() {
   const [session, setSession] = useState(null);
   const {
@@ -74,6 +80,13 @@ export default function Home() {
         type: ACTION_TYPES.SET_USER_VOTES,
         userVotes: votes,
       });
+      window.CommandBar.boot(user.id);
+      console.log("normal boot");
+    }
+
+    else {
+      window.CommandBar.boot("anon");
+      console.log("anon boot");
     }
 
     dispatch({
