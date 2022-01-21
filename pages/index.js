@@ -80,6 +80,13 @@ export default function Home() {
         type: ACTION_TYPES.SET_USER_VOTES,
         userVotes: votes,
       });
+      window.CommandBar.boot(user.id);
+      console.log("normal boot");
+    }
+
+    else {
+      window.CommandBar.boot("anon");
+      console.log("anon boot");
     }
 
     dispatch({
