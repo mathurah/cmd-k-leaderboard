@@ -71,6 +71,26 @@
   padding: 0px 16px 0px 16px;
 }
 
+.signOut:hover {
+  background: rgba(255, 255, 255, 0.64);
+  border: 4px solid #ffffff;
+  color: #24242e;
+}
+
+.signOut:hover path {
+  fill: #cd3030;
+}
+
+.signOut:active path {
+  fill: #ecc152;
+}
+
+.signOut:active {
+  background: #24242e;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
 .tweet {
   /* width: 124px; */
   height: 48px;
