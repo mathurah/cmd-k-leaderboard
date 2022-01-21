@@ -35,6 +35,10 @@
   margin-bottom: -10px;
 }
 
+.closeMobile {
+  display: none;
+}
+
 .closeXMobile {
   display: none;
 }
@@ -245,8 +249,9 @@
     margin-right: -20px;
   }
   .textAddApp {
-    height: 100px;
+    height: auto;
     font-size: 20px;
+    line-height: 36px;
   }
 
   .addBtnContainer,
@@ -260,9 +265,44 @@
   .closeX {
     display: none;
   }
+
+  .closeMobile {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    color: white;
+    padding: 24px 24px 0px 24px;
+    margin-bottom: 50px;
+    margin-top: auto;
+  }
+
+  .closeXMobile {
+    cursor: pointer;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.24);
+    background-image: url("../public/hoverX.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .closeXMobile:active {
+    background: #ffffff;
+    background-image: url("../public/activeX.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
   .mobileFullModal {
     height: 100%;
     border-radius: 0;
+    display: flex;
+    flex-direction: column;
   }
   .companyAutoOption {
     padding: 8px;
@@ -299,5 +339,17 @@
   }
   .addBtnContainerMobile {
     display: flex;
+  }
+  .signIn {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Cartridge";
+  }
+  .button {
+    padding: 54px 0px 64px 0px;
+    margin-bottom: -50px;
   }
 }

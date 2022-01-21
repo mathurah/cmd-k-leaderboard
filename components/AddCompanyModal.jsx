@@ -233,6 +233,9 @@ const AddCompanyModal = ({ toggle, toggleVote }) => {
           <AddBtn className={styles.addBtnContainer} />
         </div>
       </div>
+      <div className={styles.closeMobile}>
+        <div onClick={toggle} className={styles.closeXMobile}></div>
+      </div>
     </Modal>
   );
 };
