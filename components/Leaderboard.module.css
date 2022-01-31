@@ -366,6 +366,9 @@
   .text h2 {
     font-size: 32px;
   }
+  .leaderboardItemProfiles {
+    display: none;
+  }
 }
 
 @media (max-width: 900px) {
