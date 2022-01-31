@@ -62,7 +62,7 @@ export default function Home() {
         `${
           process.env.NEXT_PUBLIC_NODE_ENV === 'dev'
             ? 'http://localhost:3000'
-            : 'https://iwantcmdk.com'
+            : 'https://www.iwantcmdk.com'
         }/api/twitter/${user.identities[0].id}`
       )
         .then((res) => res.json())
