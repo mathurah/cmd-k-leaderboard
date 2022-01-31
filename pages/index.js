@@ -1,13 +1,13 @@
-import { useState, useEffect, useContext, useRef } from "react";
-import Head from "next/head";
-import { Box, toast } from "@chakra-ui/react";
-import Header from "../components/Header";
-import Container from "../components/Container";
-import SignInModal from "../components/SignInModal";
-import AddCompanyModal from "../components/AddCompanyModal";
-import Footer from "../components/Footer";
-import { useSupabase } from "../hooks/useSupabase.js";
-import confetti from "canvas-confetti";
+import { useState, useEffect, useContext, useRef } from 'react';
+import Head from 'next/head';
+import { Box, toast } from '@chakra-ui/react';
+import Header from '../components/Header';
+import Container from '../components/Container';
+import SignInModal from '../components/SignInModal';
+import AddCompanyModal from '../components/AddCompanyModal';
+import Footer from '../components/Footer';
+import { useSupabase } from '../hooks/useSupabase.js';
+import confetti from 'canvas-confetti';
 
 import {
   deleteVote,
@@ -17,19 +17,19 @@ import {
   insertVote,
   updateOptionVotes,
   upsertUser,
-} from "../api/supabase";
-import { Store } from "../context/state";
-import { ACTION_TYPES } from "../context/constants";
-import MainTitle from "../components/MainTitle";
-import Footnote from "../components/Footnote";
-import Leaderboard from "../components/Leaderboard";
-import AddSection from "../components/AddSection";
-import TweetGrid from "../components/TweetGrid";
-import { Toaster } from "react-hot-toast";
+} from '../api/supabase';
+import { Store } from '../context/state';
+import { ACTION_TYPES } from '../context/constants';
+import MainTitle from '../components/MainTitle';
+import Footnote from '../components/Footnote';
+import Leaderboard from '../components/Leaderboard';
+import AddSection from '../components/AddSection';
+import TweetGrid from '../components/TweetGrid';
+import { Toaster } from 'react-hot-toast';
 
 // init CommandBar
 import { init } from 'commandbar';
-if (typeof window !== "undefined") {
+if (typeof window !== 'undefined') {
   init('aeda5a87');
 }
 
@@ -57,12 +57,12 @@ export default function Home() {
 
     if (user) {
       await upsertUser(user);
-      document.querySelector("#leaderboard").scrollIntoView();
+      document.querySelector('#leaderboard').scrollIntoView();
       fetch(
         `${
-          process.env.NEXT_PUBLIC_NODE_ENV === "dev"
-            ? "http://localhost:3000"
-            : "https://iwant-cmd-k.netlify.app"
+          process.env.NEXT_PUBLIC_NODE_ENV === 'dev'
+            ? 'http://localhost:3000'
+            : 'https://www.iwantcmdk.com'
         }/api/twitter/${user.identities[0].id}`
       )
         .then((res) => res.json())
@@ -81,12 +81,10 @@ export default function Home() {
         userVotes: votes,
       });
       window.CommandBar.boot(user.id);
-      console.log("normal boot");
-    }
-
-    else {
-      window.CommandBar.boot("anon");
-      console.log("anon boot");
+      console.log('normal boot');
+    } else {
+      window.CommandBar.boot('anon');
+      console.log('anon boot');
     }
 
     dispatch({
